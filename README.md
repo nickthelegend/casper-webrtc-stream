@@ -22,10 +22,17 @@ x402, AI agents can be viewers (or providers) too.
 cd casper-dev
 npm install        # also builds the SDK packages (postinstall)
 npm run dev        # starts signaling + provider + consumer together
-npm test           # offline structural tests (gating, nonces, DC protocol)
-npm run test:signing  # proves the EIP-712 payload verifies vs the facilitator
-npm run test:crypto   # proves the Mode 3 crypto gate (AES-GCM frames)
+npm test              # full unit + integration suite (33 tests, node:test)
+npm run test:signing  # EIP-712 payload verifies against the facilitator's digest
+npm run test:crypto   # Mode 3 crypto gate (AES-GCM frames)
+npm run test:contract # Odra contract on-chain logic (cargo odra test → 4/4)
 ```
+
+The suite (`tests/*.test.mjs`) covers casperFormat, SessionManager (nonces/replay),
+the DataChannel protocol, PaymentGate (accept/replay/settle modes/earnings), the
+Mode 3 crypto gate, EIP-712 signing (incl. a facilitator-digest verification), the
+payload builder, and the facilitator transport (mocked fetch). The live round-trip
+is `npm run test:facilitator` (needs a CSPR.cloud key + token — see HANDOFF.md).
 
 To take it on-chain (CSPR.cloud API key + a deployed token + funds) and to wire
 CSPR.click / Mode 3 in the apps, follow **[HANDOFF.md](./HANDOFF.md)**.
