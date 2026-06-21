@@ -1,0 +1,6 @@
+# Odra 2.5.0's proc-macros use unstable features (box_patterns, result_flattening),
+# so the contract builds on nightly. Pinned here for reproducibility.
+[toolchain]
+channel = "nightly"
+components = ["rust-src"]
+targets = ["wasm32-unknown-unknown"]

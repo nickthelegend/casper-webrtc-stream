@@ -1,0 +1,50 @@
+[package]
+name = "cep18-x402"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# Dependency versions are pinned to the exact combination the official
+# casper-eip-712 `permit-token` example compiles + tests against, so this builds
+# without the casper-types / odra version drift the prior scaffold warned about.
+[dependencies]
+odra = { git = "https://github.com/odradev/odra", branch = "release/2.5.0", default-features = false }
+odra-modules = { git = "https://github.com/odradev/odra", branch = "release/2.5.0" }
+casper-eip-712 = { version = "1.2", features = ["verify"], default-features = false }
+
+[dev-dependencies]
+odra-test = { git = "https://github.com/odradev/odra", branch = "release/2.5.0", default-features = false }
+k256 = { version = "0.13", default-features = false, features = ["ecdsa"] }
+hex = "0.4"
+
+[build-dependencies]
+odra-build = { git = "https://github.com/odradev/odra", branch = "release/2.5.0", default-features = false }
+
+# odra-build must also be a normal (non-wasm) dep so the build_schema bin can
+# link it. NOTE: odra-cli is intentionally omitted — it pulls casper-client
+# 5.0.1 (casper-types 6.1.0), which clashes with odra-core's casper-types 7.0.0.
+# It's only needed for the livenet CLI, not `cargo odra test` / `cargo odra build`.
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+odra-build = { git = "https://github.com/odradev/odra", branch = "release/2.5.0", default-features = false }
+
+[features]
+default = []
+
+[[bin]]
+name = "cep18_x402_build_contract"
+path = "src/bin/build_contract.rs"
+test = false
+
+[[bin]]
+name = "cep18_x402_build_schema"
+path = "src/bin/build_schema.rs"
+test = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[profile.dev.package."*"]
+opt-level = 3

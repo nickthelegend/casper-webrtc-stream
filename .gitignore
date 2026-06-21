@@ -1,0 +1,51 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# env
+.env
+.env.local
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# editor / os
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# reference repo (cloned separately, not part of this project)
+references/
+
+# secrets / keys — NEVER commit (testnet or not)
+.secrets/
+.keys/
+*.pem
+*.secret.key
+secret_key.pem
+testnet-*.txt
+seed.txt
+mnemonic.txt
+
+# npm auth
+.npmrc
+
+# Rust / contract build artifacts (huge)
+target/
+contracts/**/wasm/
+
+# downloaded third-party binaries
+scripts/deploy/*.wasm

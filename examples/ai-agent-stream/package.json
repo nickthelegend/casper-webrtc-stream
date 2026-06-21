@@ -1,0 +1,20 @@
+{
+  "name": "@casper-webrtc/example-ai-agent-stream",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An AI agent that consumes a paid WebRTC stream and pays per segment via x402.",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/agent-consumer.ts"
+  },
+  "dependencies": {
+    "@nickthelegend/webrtc-payment-sdk-core": "0.1.0",
+    "@nickthelegend/webrtc-payment-rail-x402": "0.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0",
+    "werift": "^0.20.0",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@casper-webrtc/example-basic-stream",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal ~50-line integration: paywall a stream and pay to watch.",
+  "type": "module",
+  "dependencies": {
+    "@nickthelegend/webrtc-payment-sdk-core": "0.1.0",
+    "@nickthelegend/webrtc-payment-rail-x402": "0.1.0"
+  }
+}

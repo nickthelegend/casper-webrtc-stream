@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@nickthelegend/webrtc-payment-sdk-core": ["./packages/core/src/index.ts"],
+      "@nickthelegend/webrtc-payment-rail-x402": ["./packages/rail-x402-casper/src/index.ts"]
+    }
+  },
+  "include": ["packages/*/src/**/*"],
+  "exclude": ["node_modules", "**/dist", "references", "apps", "examples"]
+}

@@ -1,0 +1,50 @@
+# Odra
+
+> Writing smart contracts have never been easier!
+
+- [Odra framework](https://odra.dev/docs/intro)
+
+## Getting started
+- [Flipper example](https://odra.dev/docs/getting-started/flipper)
+- [Installation](https://odra.dev/docs/getting-started/installation)
+
+## Basics
+- [Cargo Odra](https://odra.dev/docs/basics/cargo-odra)
+- [Directory structure](https://odra.dev/docs/basics/directory-structure)
+- [Odra.toml](https://odra.dev/docs/basics/odra-toml)
+- [Flipper Internals](https://odra.dev/docs/basics/flipper-internals)
+- [Storage interaction](https://odra.dev/docs/basics/storage-interaction)
+- [Host Communication](https://odra.dev/docs/basics/communicating-with-host)
+- [Testing](https://odra.dev/docs/basics/testing)
+- [Errors](https://odra.dev/docs/basics/errors)
+- [Events](https://odra.dev/docs/basics/events)
+- [Cross calls](https://odra.dev/docs/basics/cross-calls)
+- [Modules](https://odra.dev/docs/basics/modules)
+- [Native token](https://odra.dev/docs/basics/native-token)
+- [Casper Contract Schema](https://odra.dev/docs/basics/casper-contract-schema)
+
+## Advanced
+- [Delegate](https://odra.dev/docs/advanced/delegate)
+- [Advanced Storage Concepts](https://odra.dev/docs/advanced/advanced-storage)
+- [Attributes](https://odra.dev/docs/advanced/attributes)
+- [Storage Layout](https://odra.dev/docs/advanced/storage-layout)
+- [Building contracts manually](https://odra.dev/docs/advanced/building-manually)
+- [Signatures](https://odra.dev/docs/advanced/signatures)
+- [Factory](https://odra.dev/docs/advanced/factory)
+- [Wasm-Client](https://odra.dev/docs/advanced/wasm-client)
+
+## Backends
+- [What is a backend?](https://odra.dev/docs/backends/what-is-a-backend)
+- [OdraVM](https://odra.dev/docs/backends/odra-vm)
+- [Casper](https://odra.dev/docs/backends/casper)
+- [Livenet](https://odra.dev/docs/backends/livenet)
+
+## Tutorials
+- [CEP-18](https://odra.dev/docs/tutorials/cep18)
+- [Deploying a Token on Casper Livenet](https://odra.dev/docs/tutorials/deploying-on-casper)
+- [ERC-20](https://odra.dev/docs/tutorials/erc20)
+- [Access Control](https://odra.dev/docs/tutorials/access-control)
+- [Ownable](https://odra.dev/docs/tutorials/ownable)
+- [Odra CLI](https://odra.dev/docs/tutorials/odra-cli)
+
+Full index: https://odra.dev/llms.txt

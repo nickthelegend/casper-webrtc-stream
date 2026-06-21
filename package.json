@@ -1,0 +1,49 @@
+{
+  "name": "casper-webrtc-stream",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WebRTC micropayment streams on Casper Network via x402. Paywall any live video/audio/data stream with on-chain per-second CEP-18 payments.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/signaling",
+    "apps/provider",
+    "apps/consumer",
+    "examples/*"
+  ],
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "npm -w @nickthelegend/webrtc-payment-sdk-core run build && npm -w @nickthelegend/webrtc-payment-rail-x402 run build",
+    "build:all": "npm run build --workspaces --if-present",
+    "typecheck": "tsc --noEmit && npm run typecheck --workspaces --if-present",
+    "test": "node scripts/test-e2e.mjs",
+    "test:signing": "node scripts/test-signing.mjs",
+    "test:crypto": "node scripts/test-crypto-gate.mjs",
+    "test:facilitator": "node scripts/test-facilitator.mjs",
+    "generate-wallet": "node scripts/generate-wallet.mjs",
+    "dev:signaling": "npm -w @casper-webrtc/signaling run dev",
+    "dev:provider": "npm -w @casper-webrtc/provider run dev",
+    "dev:consumer": "npm -w @casper-webrtc/consumer run dev",
+    "dev": "concurrently -n signaling,provider,consumer -c yellow,green,cyan \"npm run dev:signaling\" \"npm run dev:provider\" \"npm run dev:consumer\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "typescript": "^5.5.0"
+  },
+  "keywords": [
+    "casper",
+    "webrtc",
+    "x402",
+    "micropayments",
+    "streaming",
+    "cep-18",
+    "paywall"
+  ],
+  "dependencies": {
+    "casper-js-sdk": "^5.0.12"
+  }
+}
