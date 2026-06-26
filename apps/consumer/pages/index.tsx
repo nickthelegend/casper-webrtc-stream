@@ -2,13 +2,19 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { PaywalledRTCConsumer } from "@nickthelegend/webrtc-payment-sdk-core";
-import { createConsumerRail, hasDemoKey, isConfigured } from "../lib/casper";
+import { createConsumerRail, isConfigured } from "../lib/casper";
 import { PaymentConsent } from "../components/PaymentConsent";
 import { StreamViewer } from "../components/StreamViewer";
 
 const SIGNALING_URL =
   process.env.NEXT_PUBLIC_SIGNALING_URL ?? "ws://localhost:3001";
 const SEGMENT_SECONDS = 5;
+
+/** Show the real demo wallet as account-hash 8…6, full value on hover. */
+function shortAddr(addr: string): string {
+  const h = addr.replace(/^account-hash-/, "").replace(/^00/, "");
+  return `${h.slice(0, 8)}…${h.slice(-6)}`;
+}
 
 export default function ConsumerViewer() {
   const router = useRouter();
@@ -151,11 +157,20 @@ export default function ConsumerViewer() {
               </p>
             </div>
           </div>
-          {hasDemoKey() && (
-            <span className="flex items-center gap-2 rounded-full bg-casper-gold/10 px-3 py-1.5 text-xs font-medium text-casper-gold">
-              <span className="h-1.5 w-1.5 rounded-full bg-casper-gold" />
-              demo hot-key — insecure
-            </span>
+          {bundle.walletAddress && (
+            <a
+              href={`https://testnet.cspr.live/account/${
+                bundle.publicKeyHex || bundle.walletAddress.replace(/^account-hash-/, "")
+              }`}
+              target="_blank"
+              rel="noreferrer"
+              title={bundle.walletAddress}
+              className="flex items-center gap-2 rounded-full border border-casper-green/25 bg-casper-green/[0.06] px-3 py-1.5 text-xs font-medium text-casper-green transition hover:bg-casper-green/[0.12]"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-casper-green" />
+              <span className="font-mono">{shortAddr(bundle.walletAddress)}</span>
+              <span className="text-casper-green/60">↗</span>
+            </a>
           )}
         </header>
 
