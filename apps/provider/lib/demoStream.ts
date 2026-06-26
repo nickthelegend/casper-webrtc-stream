@@ -53,3 +53,24 @@ export function createDemoStream(label = "casper-webrtc-stream"): MediaStream {
   stream.getVideoTracks()[0]?.addEventListener("ended", () => cancelAnimationFrame(raf));
   return stream;
 }
+
+/**
+ * Stream a same-origin video file (e.g. /bbb.mp4) on a loop as the broadcast.
+ * The file must be same-origin or captureStream() taints and fails — keep it in
+ * the app's public/ folder.
+ */
+export async function createVideoFileStream(src: string): Promise<MediaStream> {
+  const video = document.createElement("video");
+  video.src = src;
+  video.loop = true;
+  video.muted = true; // browsers require muted for programmatic autoplay
+  video.playsInline = true;
+  video.crossOrigin = "anonymous";
+  await video.play(); // the Start-Stream click is the required user gesture
+  if (video.readyState < 2) {
+    await new Promise<void>((res) =>
+      video.addEventListener("loadeddata", () => res(), { once: true }),
+    );
+  }
+  return (video as HTMLVideoElement & { captureStream(): MediaStream }).captureStream();
+}

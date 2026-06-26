@@ -6,7 +6,7 @@ import {
   type ViewerState,
 } from "@nickthelegend/webrtc-payment-sdk-core";
 import { createProviderRail, isConfigured } from "../lib/casper";
-import { createDemoStream } from "../lib/demoStream";
+import { createDemoStream, createVideoFileStream } from "../lib/demoStream";
 import { StreamControls, type StreamSettings } from "../components/StreamControls";
 import { EarningsPanel } from "../components/EarningsPanel";
 import { ViewerList } from "../components/ViewerList";
@@ -35,7 +35,7 @@ export default function ProviderDashboard() {
     pricePerSecond: "0.01",
     gatingMode: "track",
     token: "CSPR",
-    source: "demo",
+    source: "bbb",
   });
   const [viewers, setViewers] = useState<ViewerState[]>([]);
   const [earnings, setEarnings] = useState("0");
@@ -61,6 +61,14 @@ export default function ProviderDashboard() {
           video: true,
           audio: true,
         });
+      } else if (settings.source === "bbb") {
+        // Loop Big Buck Bunny as the broadcast (real video content).
+        try {
+          media = await createVideoFileStream("/bbb.mp4");
+        } catch (e) {
+          console.warn("[provider] Big Buck Bunny failed, using demo feed:", e);
+          media = createDemoStream();
+        }
       } else if (settings.source === "demo") {
         // Synthetic animated feed — works on a machine with no camera.
         media = createDemoStream();
@@ -114,7 +122,9 @@ export default function ProviderDashboard() {
       setStreamLink(`${CONSUMER_URL}/?room=${provider.room}`);
       setLive(true);
     } catch (err) {
-      alert(`Could not start stream: ${(err as Error).message}`);
+      console.error("[provider] start stream failed:", err);
+      const msg = err instanceof Error ? err.message : String(err);
+      alert(`Could not start stream: ${msg || "see the console (F12) for details"}`);
     }
   };
 

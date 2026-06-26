@@ -49,3 +49,6 @@ contracts/**/wasm/
 
 # downloaded third-party binaries
 scripts/deploy/*.wasm
+
+# demo video asset (Big Buck Bunny, CC-BY Blender) — re-download, not committed
+apps/provider/public/*.mp4

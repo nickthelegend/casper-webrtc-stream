@@ -4,7 +4,7 @@ export interface StreamSettings {
   pricePerSecond: string; // CSPR
   gatingMode: "signaling" | "track" | "crypto";
   token: string;
-  source: "auto" | "demo" | "screen";
+  source: "auto" | "demo" | "screen" | "bbb";
 }
 
 export function StreamControls({
@@ -84,6 +84,7 @@ export function StreamControls({
               }
               className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 disabled:opacity-50"
             >
+              <option value="bbb">🐰 Big Buck Bunny (looping video)</option>
               <option value="demo">Demo feed (animated, no camera)</option>
               <option value="screen">Share screen / window</option>
               <option value="auto">Camera (falls back to demo)</option>

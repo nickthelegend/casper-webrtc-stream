@@ -67,7 +67,10 @@ export default function ConsumerViewer() {
         const perSec = Number(amount) / SEGMENT_SECONDS;
         if (perSec > 0) setPricePerSecond(String(perSec));
       });
-      consumer.on("error", (e) => setError(e.message));
+      consumer.on("error", (e) => {
+        console.error("[consumer] error:", e);
+        setError(e.message);
+      });
 
       const maxMotes = BigInt(Math.round(Number(maxSpend) * 1e9)).toString();
       consumer.enableAutoPayment({
@@ -78,7 +81,8 @@ export default function ConsumerViewer() {
       setPhase("watching");
       await consumer.joinStream(`${SIGNALING_URL}?room=${room}`);
     } catch (err) {
-      setError((err as Error).message);
+      console.error("[consumer] start/join failed:", err);
+      setError(err instanceof Error ? err.message : String(err));
       setPhase("consent");
     }
   };

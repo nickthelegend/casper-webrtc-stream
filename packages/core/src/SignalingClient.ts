@@ -24,16 +24,35 @@ export class SignalingClient {
 
   connect(): Promise<void> {
     return new Promise((resolve, reject) => {
+      let opened = false;
       const ws = new WebSocket(this.url);
       this.ws = ws;
 
       ws.onopen = () => {
+        opened = true;
         this.raw({ type: "join", room: this.room, from: this.peerId, payload: { role: this.role } });
         for (const m of this.queue) this.raw(m);
         this.queue = [];
         resolve();
       };
-      ws.onerror = (e) => reject(e);
+      ws.onerror = (e) => {
+        const detail = (e as { message?: string }).message;
+        const err = new Error(
+          `signaling WebSocket error at ${this.url}` +
+            (detail ? `: ${detail}` : " (is the signaling server running?)"),
+        );
+        console.error("[SignalingClient]", err.message, e);
+        if (!opened) reject(err);
+      };
+      ws.onclose = (ev) => {
+        if (!opened) {
+          reject(
+            new Error(
+              `signaling WebSocket closed before connecting (code ${ev.code}) — check the server at ${this.url}`,
+            ),
+          );
+        }
+      };
       ws.onmessage = (ev) => {
         let msg: SignalingMessage | null = null;
         try {
