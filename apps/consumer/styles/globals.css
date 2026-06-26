@@ -1,14 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html,
 body {
-  background: #0a0e14;
-  color: #e6e6e6;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(900px 560px at 12% -5%, rgba(139, 108, 255, 0.16), transparent 60%),
+    radial-gradient(760px 520px at 92% 4%, rgba(255, 69, 58, 0.1), transparent 55%),
+    radial-gradient(700px 700px at 60% 110%, rgba(91, 140, 255, 0.08), transparent 60%),
+    #070a10;
+  background-attachment: fixed;
+  color: #eaf0f8;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* glassmorphism */
+.glass {
+  background: linear-gradient(180deg, rgba(20, 28, 42, 0.7), rgba(13, 18, 28, 0.6));
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(139, 152, 171, 0.12);
+}
+
+/* gradient brand text */
+.text-gradient {
+  background: linear-gradient(95deg, #fff 10%, #b8a6ff 55%, #8b6cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* subtle moving sheen for skeletons / hero numbers */
+.sheen {
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+}
+
+/* hairline grid texture for hero panels */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(139, 152, 171, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 152, 171, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 152, 171, 0.22);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 152, 171, 0.4);
+  background-clip: content-box;
 }

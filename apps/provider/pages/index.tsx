@@ -141,64 +141,92 @@ export default function ProviderDashboard() {
   return (
     <>
       <Head>
-        <title>casper-webrtc-stream · Provider</title>
+        <title>Casper Stream · Provider Studio</title>
       </Head>
-      <main className="min-h-screen p-6 max-w-5xl mx-auto">
-        <header className="flex items-center justify-between mb-6">
-          <h1 className="text-lg font-semibold">
-            👻 casper-webrtc-stream
-            <span className="text-gray-500 font-normal"> · Provider Dashboard</span>
-          </h1>
-          {!isConfigured() && (
-            <span className="text-xs rounded-full border border-casper-accent/40 text-casper-accent px-3 py-1">
-              ⚠ payments not configured
+      <main className="mx-auto min-h-screen max-w-6xl px-5 py-7">
+        {/* brand header */}
+        <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-casper-violet to-casper-indigo text-xl shadow-glow">
+              👻
+            </div>
+            <div>
+              <h1 className="font-display text-xl font-bold leading-none">
+                <span className="text-gradient">Casper Stream</span>
+                <span className="ml-2 align-middle text-xs font-medium text-casper-muted">
+                  Provider Studio
+                </span>
+              </h1>
+              <p className="mt-1 text-xs text-casper-muted">
+                Pay-per-second WebRTC · settled on Casper via x402 micropayments
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            {live && (
+              <span className="flex animate-pulse-glow items-center gap-2 rounded-full bg-casper-accent/15 px-3 py-1.5 text-xs font-semibold text-casper-accent">
+                <span className="h-2 w-2 rounded-full bg-casper-accent" /> ON AIR
+              </span>
+            )}
+            <span
+              className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium ${
+                isConfigured()
+                  ? "bg-casper-green/10 text-casper-green"
+                  : "bg-casper-accent/10 text-casper-accent"
+              }`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${
+                  isConfigured() ? "bg-casper-green" : "bg-casper-accent"
+                }`}
+              />
+              {isConfigured() ? "facilitator connected" : "payments not configured"}
             </span>
-          )}
+          </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <section className="space-y-4">
-            <div className="relative rounded-xl overflow-hidden border border-casper-border bg-black aspect-video">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          {/* left: stage + earnings + viewers */}
+          <section className="space-y-6 lg:col-span-3">
+            <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-card">
               <video
                 ref={videoRef}
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="aspect-video w-full object-cover"
               />
-              {live && (
-                <span className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-sm">
-                  <span className="h-2 w-2 rounded-full bg-casper-accent animate-pulse" />
+              {/* gradient frame */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+              {live ? (
+                <span className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1.5 text-xs font-semibold backdrop-blur">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-casper-accent" />
                   LIVE
+                </span>
+              ) : (
+                <div className="absolute inset-0 grid place-items-center">
+                  <div className="text-center">
+                    <div className="font-display text-2xl font-semibold text-casper-muted">
+                      Studio ready
+                    </div>
+                    <p className="mt-1 text-sm text-casper-muted/70">
+                      Press <span className="text-casper-accent">Go Live</span> to start the paid stream
+                    </p>
+                  </div>
+                </div>
+              )}
+              {live && (
+                <span className="absolute right-3 top-3 rounded-full bg-black/70 px-3 py-1.5 font-mono text-xs text-casper-gold backdrop-blur">
+                  {settings.pricePerSecond} CSPR/s · {SEGMENT_SECONDS}s segments
                 </span>
               )}
             </div>
+
             <EarningsPanel amountMotes={earnings} viewers={viewers.length} />
             <ViewerList viewers={viewers} pricePerSecond={settings.pricePerSecond} />
-            {settlements.length > 0 && (
-              <div className="rounded-lg border border-casper-border bg-black/30 p-4">
-                <h3 className="text-xs uppercase tracking-wider text-gray-400 mb-2">
-                  ⛓ On-chain settlements · {settlements.length}
-                </h3>
-                <ul className="space-y-1 max-h-40 overflow-auto mono text-xs">
-                  {settlements.map((s) => (
-                    <li key={s.txHash} className="flex justify-between gap-2">
-                      <span className="text-gray-500">seg {s.idx}</span>
-                      <a
-                        href={`https://testnet.cspr.live/transaction/${s.txHash}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-casper-accent truncate hover:underline"
-                      >
-                        {s.txHash.slice(0, 18)}…
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </section>
 
-          <section>
+          {/* right: controls + settlement feed */}
+          <section className="space-y-6 lg:col-span-2">
             <StreamControls
               live={live}
               settings={settings}
@@ -207,8 +235,56 @@ export default function ProviderDashboard() {
               onStop={stop}
               streamLink={streamLink}
             />
+
+            <div className="glass rounded-2xl p-4 shadow-card">
+              <div className="mb-3 flex items-center justify-between px-1">
+                <span className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-casper-muted">
+                  <span className="text-casper-green">⛓</span> On-chain settlements
+                </span>
+                <span className="rounded-full bg-casper-green/10 px-2 py-0.5 font-mono text-xs text-casper-green">
+                  {settlements.length}
+                </span>
+              </div>
+              {settlements.length === 0 ? (
+                <div className="rounded-xl border border-dashed border-white/10 px-4 py-6 text-center text-sm text-casper-muted">
+                  Each paid segment settles here as a real Casper testnet tx
+                </div>
+              ) : (
+                <ul className="max-h-72 space-y-1.5 overflow-auto pr-1">
+                  {settlements.map((s) => (
+                    <li
+                      key={s.txHash}
+                      className="flex animate-slide-up items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] px-3 py-2.5"
+                    >
+                      <span className="grid h-7 w-7 place-items-center rounded-lg bg-casper-green/15 text-xs text-casper-green">
+                        ✓
+                      </span>
+                      <span className="font-mono text-xs text-casper-muted">
+                        segment {s.idx}
+                      </span>
+                      <a
+                        href={`https://testnet.cspr.live/transaction/${s.txHash}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="ml-auto truncate font-mono text-xs text-casper-indigo hover:text-casper-violet hover:underline"
+                      >
+                        {s.txHash.slice(0, 12)}… ↗
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </section>
         </div>
+
+        <footer className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs text-casper-muted">
+          <span>Casper Agentic Buildathon 2026</span>
+          <span className="text-white/20">·</span>
+          <span>x402 facilitator: CSPR.cloud</span>
+          <span className="text-white/20">·</span>
+          <span className="font-mono">@nickthelegend/webrtc-payment-sdk</span>
+        </footer>
       </main>
     </>
   );

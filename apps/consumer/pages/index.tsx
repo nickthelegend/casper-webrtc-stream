@@ -131,34 +131,47 @@ export default function ConsumerViewer() {
   return (
     <>
       <Head>
-        <title>casper-webrtc-stream · Watch</title>
+        <title>Casper Stream · Watch Live</title>
       </Head>
-      <main className="min-h-screen p-6 max-w-2xl mx-auto">
-        <header className="flex items-center justify-between mb-6">
-          <h1 className="text-lg font-semibold">
-            👻 casper-webrtc-stream
-            <span className="text-gray-500 font-normal"> · Watch Live</span>
-          </h1>
+      <main className="mx-auto min-h-screen max-w-3xl px-5 py-7">
+        <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-casper-violet to-casper-indigo text-xl shadow-glow">
+              👻
+            </div>
+            <div>
+              <h1 className="font-display text-xl font-bold leading-none">
+                <span className="text-gradient">Casper Stream</span>
+                <span className="ml-2 align-middle text-xs font-medium text-casper-muted">
+                  Watch Live
+                </span>
+              </h1>
+              <p className="mt-1 text-xs text-casper-muted">
+                You pay per second — each segment settles on Casper before it plays
+              </p>
+            </div>
+          </div>
           {hasDemoKey() && (
-            <span className="text-xs rounded-full border border-casper-gold/40 text-casper-gold px-3 py-1">
+            <span className="flex items-center gap-2 rounded-full bg-casper-gold/10 px-3 py-1.5 text-xs font-medium text-casper-gold">
+              <span className="h-1.5 w-1.5 rounded-full bg-casper-gold" />
               demo hot-key — insecure
             </span>
           )}
         </header>
 
         {!isConfigured() && phase === "consent" && (
-          <p className="mb-4 text-center text-sm text-casper-accent">
+          <div className="mx-auto mb-4 max-w-md rounded-xl border border-casper-accent/30 bg-casper-accent/[0.06] px-4 py-3 text-center text-sm text-casper-accent">
             ⚠ Not configured — set NEXT_PUBLIC_CEP18_TOKEN_CONTRACT and
             NEXT_PUBLIC_CONSUMER_ACCOUNT_HASH in .env.local. See STATUS.md.
-          </p>
+          </div>
         )}
 
         {phase === "consent" && (
           <>
             {!room && (
-              <div className="max-w-md mx-auto mb-4">
-                <label className="block text-sm">
-                  <span className="text-gray-400">Stream link or room id</span>
+              <div className="mx-auto mb-4 max-w-md">
+                <label className="block">
+                  <span className="text-xs text-casper-muted">Stream link or room id</span>
                   <input
                     value={room}
                     onChange={(e) => {
@@ -166,8 +179,8 @@ export default function ConsumerViewer() {
                       const m = v.match(/room=([^&]+)/);
                       setRoom(m ? m[1] : v);
                     }}
-                    placeholder="paste link from the provider…"
-                    className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 mono"
+                    placeholder="paste the link from the provider…"
+                    className="mt-1.5 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 font-mono text-sm text-casper-ghost outline-none focus:border-casper-violet/60"
                   />
                 </label>
               </div>
@@ -190,32 +203,57 @@ export default function ConsumerViewer() {
           />
         )}
 
-        {phase === "watching" && settlements.length > 0 && (
-          <div className="mt-4 rounded-lg border border-casper-border bg-black/30 p-4">
-            <h3 className="text-xs uppercase tracking-wider text-gray-400 mb-2">
-              ⛓ On-chain settlements · {settlements.length}
-            </h3>
-            <ul className="space-y-1 max-h-40 overflow-auto mono text-xs">
-              {settlements.map((s) => (
-                <li key={s.txHash} className="flex justify-between gap-2">
-                  <span className="text-gray-500">seg {s.idx}</span>
-                  <a
-                    href={`https://testnet.cspr.live/transaction/${s.txHash}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-casper-accent truncate hover:underline"
+        {phase === "watching" && (
+          <div className="glass mt-4 rounded-2xl p-4 shadow-card">
+            <div className="mb-3 flex items-center justify-between px-1">
+              <span className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-casper-muted">
+                <span className="text-casper-green">⛓</span> Your on-chain payments
+              </span>
+              <span className="rounded-full bg-casper-green/10 px-2 py-0.5 font-mono text-xs text-casper-green">
+                {settlements.length}
+              </span>
+            </div>
+            {settlements.length === 0 ? (
+              <div className="rounded-xl border border-dashed border-white/10 px-4 py-5 text-center text-sm text-casper-muted">
+                Settlements will appear here as you pay per segment
+              </div>
+            ) : (
+              <ul className="max-h-56 space-y-1.5 overflow-auto pr-1">
+                {settlements.map((s) => (
+                  <li
+                    key={s.txHash}
+                    className="flex animate-slide-up items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] px-3 py-2.5"
                   >
-                    {s.txHash.slice(0, 18)}…
-                  </a>
-                </li>
-              ))}
-            </ul>
+                    <span className="grid h-7 w-7 place-items-center rounded-lg bg-casper-green/15 text-xs text-casper-green">
+                      ✓
+                    </span>
+                    <span className="font-mono text-xs text-casper-muted">
+                      segment {s.idx}
+                    </span>
+                    <a
+                      href={`https://testnet.cspr.live/transaction/${s.txHash}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-auto truncate font-mono text-xs text-casper-indigo hover:text-casper-violet hover:underline"
+                    >
+                      {s.txHash.slice(0, 12)}… ↗
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
 
         {error && (
-          <p className="mt-4 text-center text-sm text-casper-accent">{error}</p>
+          <div className="mx-auto mt-4 max-w-md rounded-xl border border-casper-accent/30 bg-casper-accent/[0.06] px-4 py-3 text-center text-sm text-casper-accent">
+            {error}
+          </div>
         )}
+
+        <footer className="mt-10 text-center text-xs text-casper-muted">
+          Casper Agentic Buildathon 2026 · powered by x402 micropayments
+        </footer>
       </main>
     </>
   );

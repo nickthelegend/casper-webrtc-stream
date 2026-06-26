@@ -7,6 +7,23 @@ export interface StreamSettings {
   source: "auto" | "demo" | "screen" | "bbb";
 }
 
+const MODES: {
+  value: StreamSettings["gatingMode"];
+  label: string;
+  hint: string;
+}[] = [
+  { value: "track", label: "Track", hint: "pay per segment · N txs" },
+  { value: "signaling", label: "Signaling", hint: "pay once · 1 tx" },
+  { value: "crypto", label: "Crypto", hint: "per segment · encrypted" },
+];
+
+const SOURCES: { value: StreamSettings["source"]; label: string }[] = [
+  { value: "bbb", label: "🐰 Big Buck Bunny" },
+  { value: "demo", label: "✨ Demo feed" },
+  { value: "screen", label: "🖥 Share screen" },
+  { value: "auto", label: "🎥 Camera" },
+];
+
 export function StreamControls({
   live,
   settings,
@@ -32,105 +49,112 @@ export function StreamControls({
   };
 
   return (
-    <div className="space-y-5">
-      <div>
-        <h2 className="text-sm uppercase tracking-wider text-gray-400 mb-2">
-          Stream Settings
-        </h2>
-        <div className="rounded-lg border border-casper-border bg-black/30 p-4 space-y-3">
-          <label className="block text-sm">
-            <span className="text-gray-400">Price (CSPR / second)</span>
-            <input
-              type="number"
-              step="0.001"
-              disabled={live}
-              value={settings.pricePerSecond}
-              onChange={(e) =>
-                onChange({ ...settings, pricePerSecond: e.target.value })
-              }
-              className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 mono disabled:opacity-50"
-            />
-          </label>
+    <div className="glass rounded-2xl p-5 shadow-card">
+      <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-casper-muted">
+        Stream settings
+      </span>
 
-          <label className="block text-sm">
-            <span className="text-gray-400">Gating mode</span>
-            <select
-              disabled={live}
-              value={settings.gatingMode}
-              onChange={(e) =>
-                onChange({
-                  ...settings,
-                  gatingMode: e.target.value as StreamSettings["gatingMode"],
-                })
-              }
-              className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 disabled:opacity-50"
-            >
-              <option value="track">Track Gate (per-segment)</option>
-              <option value="signaling">Signaling Gate (whole-stream)</option>
-              <option value="crypto">Crypto Gate (per-segment, encrypted)</option>
-            </select>
-          </label>
+      {/* price */}
+      <label className="mt-4 block">
+        <span className="text-xs text-casper-muted">Price · CSPR per second</span>
+        <div className="mt-1.5 flex items-center rounded-xl border border-white/10 bg-black/30 px-3 focus-within:border-casper-violet/60">
+          <span className="font-mono text-sm text-casper-gold">◈</span>
+          <input
+            type="number"
+            step="0.001"
+            disabled={live}
+            value={settings.pricePerSecond}
+            onChange={(e) => onChange({ ...settings, pricePerSecond: e.target.value })}
+            className="w-full bg-transparent px-2 py-2.5 font-mono text-casper-ghost outline-none disabled:opacity-50"
+          />
+          <span className="text-xs text-casper-muted">CSPR/s</span>
+        </div>
+      </label>
 
-          <label className="block text-sm">
-            <span className="text-gray-400">Video source</span>
-            <select
-              disabled={live}
-              value={settings.source}
-              onChange={(e) =>
-                onChange({
-                  ...settings,
-                  source: e.target.value as StreamSettings["source"],
-                })
-              }
-              className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 disabled:opacity-50"
-            >
-              <option value="bbb">🐰 Big Buck Bunny (looping video)</option>
-              <option value="demo">Demo feed (animated, no camera)</option>
-              <option value="screen">Share screen / window</option>
-              <option value="auto">Camera (falls back to demo)</option>
-            </select>
-          </label>
-
-          <label className="block text-sm">
-            <span className="text-gray-400">Token</span>
-            <select
-              disabled={live}
-              value={settings.token}
-              onChange={(e) => onChange({ ...settings, token: e.target.value })}
-              className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 disabled:opacity-50"
-            >
-              <option value="CSPR">CSPR</option>
-            </select>
-          </label>
+      {/* gating mode — segmented */}
+      <div className="mt-4">
+        <span className="text-xs text-casper-muted">Gating mode</span>
+        <div className="mt-1.5 grid grid-cols-3 gap-1.5">
+          {MODES.map((m) => {
+            const active = settings.gatingMode === m.value;
+            return (
+              <button
+                key={m.value}
+                disabled={live}
+                onClick={() => onChange({ ...settings, gatingMode: m.value })}
+                className={`rounded-xl border px-2 py-2.5 text-left transition disabled:opacity-50 ${
+                  active
+                    ? "border-casper-violet/60 bg-casper-violet/10 shadow-glow"
+                    : "border-white/10 bg-white/[0.02] hover:border-white/20"
+                }`}
+              >
+                <div
+                  className={`text-sm font-semibold ${
+                    active ? "text-casper-ghost" : "text-casper-muted"
+                  }`}
+                >
+                  {m.label}
+                </div>
+                <div className="mt-0.5 text-[10px] leading-tight text-casper-muted">
+                  {m.hint}
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <div className="flex gap-3">
+      {/* source */}
+      <label className="mt-4 block">
+        <span className="text-xs text-casper-muted">Video source</span>
+        <select
+          disabled={live}
+          value={settings.source}
+          onChange={(e) =>
+            onChange({ ...settings, source: e.target.value as StreamSettings["source"] })
+          }
+          className="mt-1.5 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 text-casper-ghost outline-none focus:border-casper-violet/60 disabled:opacity-50"
+        >
+          {SOURCES.map((s) => (
+            <option key={s.value} value={s.value} className="bg-casper-surface">
+              {s.label}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      {/* actions */}
+      <div className="mt-5 flex gap-2.5">
         {!live ? (
           <button
             onClick={onStart}
-            className="flex-1 rounded-lg bg-casper-accent px-4 py-3 font-semibold hover:opacity-90"
+            className="group flex-1 rounded-xl bg-casper-accent px-4 py-3 font-semibold text-white shadow-glow-red transition hover:brightness-110"
           >
-            Start Stream
+            ● Go Live
           </button>
         ) : (
           <button
             onClick={onStop}
-            className="flex-1 rounded-lg border border-casper-accent text-casper-accent px-4 py-3 font-semibold hover:bg-casper-accent/10"
+            className="flex-1 rounded-xl border border-casper-accent/60 px-4 py-3 font-semibold text-casper-accent transition hover:bg-casper-accent/10"
           >
-            Stop Stream
+            ■ Stop Stream
           </button>
         )}
         <button
           onClick={copy}
           disabled={!streamLink}
-          className="rounded-lg border border-casper-border px-4 py-3 hover:bg-white/5 disabled:opacity-40"
+          className="rounded-xl border border-white/10 px-4 py-3 text-sm text-casper-ghost transition hover:bg-white/5 disabled:opacity-40"
         >
-          {copied ? "Copied!" : "Copy Stream Link"}
+          {copied ? "✓ Copied" : "Copy link"}
         </button>
       </div>
+
       {streamLink && (
-        <p className="mono text-xs text-gray-500 break-all">{streamLink}</p>
+        <div className="mt-3 rounded-xl border border-white/5 bg-black/30 px-3 py-2">
+          <p className="font-mono text-[11px] leading-relaxed text-casper-muted break-all">
+            {streamLink}
+          </p>
+        </div>
       )}
     </div>
   );
