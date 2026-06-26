@@ -241,6 +241,7 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
       }
     };
     pc.onconnectionstatechange = () => {
+      console.log(`[provider] connection state (${consumerId.slice(0, 6)}):`, pc.connectionState);
       if (["failed", "closed", "disconnected"].includes(pc.connectionState)) {
         this.dropConsumer(consumerId);
       }
@@ -250,7 +251,10 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
     if (this.cfg.gating.mode !== "signaling") {
       const channel = pc.createDataChannel(DC_LABEL, { ordered: true });
       ctx.dataChannel = channel;
-      channel.onopen = () => this.startSegmentLoop(consumerId);
+      channel.onopen = () => {
+        console.log("[provider] ✓ payment DataChannel OPEN → starting segment loop");
+        this.startSegmentLoop(consumerId);
+      };
       channel.onmessage = (ev) =>
         void this.onDCMessage(consumerId, String(ev.data)).catch((e) =>
           this.emit("error", e as Error),

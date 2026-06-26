@@ -19,6 +19,38 @@ export default function ConsumerViewer() {
   // env-backed rail/signer bundle (stable across renders)
   const bundle = useMemo(() => createConsumerRail(), []);
 
+  // DEV: call window.__casperTestSign() in the console to test browser signing
+  // in isolation (proves the rail can sign a payment without the WebRTC flow).
+  useEffect(() => {
+    (window as unknown as { __casperTestSign: () => Promise<unknown> }).__casperTestSign =
+      async () => {
+        try {
+          const req = {
+            network: "casper:casper-test",
+            scheme: "exact",
+            asset: process.env.NEXT_PUBLIC_CEP18_TOKEN_CONTRACT ?? "",
+            amount: "1000",
+            payTo: "account-hash-" + "22".repeat(32),
+            description: "test",
+            sessionId: "test",
+            nonce: "ab".repeat(32),
+          };
+          const payload = await bundle.rail.buildPayload(
+            req as Parameters<typeof bundle.rail.buildPayload>[0],
+            bundle.signFn,
+          );
+          return {
+            ok: true,
+            sig: payload.payload.signature.slice(0, 24),
+            from: payload.payload.authorization.from.slice(0, 16),
+            pubkey: payload.payload.publicKey.slice(0, 10),
+          };
+        } catch (e) {
+          return { ok: false, error: String((e as Error)?.message ?? e) };
+        }
+      };
+  }, [bundle]);
+
   const [room, setRoom] = useState("");
   const [phase, setPhase] = useState<"consent" | "watching">("consent");
   const [paid, setPaid] = useState("0");

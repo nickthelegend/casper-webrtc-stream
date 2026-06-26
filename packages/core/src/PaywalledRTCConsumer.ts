@@ -82,7 +82,14 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
         this.signaling?.send("ice-candidate", e.candidate.toJSON(), this.providerId);
       }
     };
-    this.pc.ondatachannel = (e) => this.attachDataChannel(e.channel);
+    this.pc.onconnectionstatechange = () =>
+      console.log("[consumer] connection state:", this.pc?.connectionState);
+    this.pc.oniceconnectionstatechange = () =>
+      console.log("[consumer] ICE state:", this.pc?.iceConnectionState);
+    this.pc.ondatachannel = (e) => {
+      console.log("[consumer] ◀ ondatachannel — payment channel received");
+      this.attachDataChannel(e.channel);
+    };
 
     await this.signaling.connect();
 
@@ -120,15 +127,19 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
 
   private attachDataChannel(channel: RTCDataChannel): void {
     this.dataChannel = channel;
+    console.log("[consumer] payment DataChannel attached (state:", channel.readyState, ")");
+    channel.onopen = () => console.log("[consumer] ✓ payment DataChannel OPEN");
     channel.onmessage = (ev) =>
-      void this.onDCMessage(String(ev.data)).catch((e) =>
-        this.emit("error", e as Error),
-      );
+      void this.onDCMessage(String(ev.data)).catch((e) => {
+        console.error("[consumer] DC message handler threw:", e);
+        this.emit("error", e as Error);
+      });
   }
 
   private async onDCMessage(raw: string): Promise<void> {
     const msg = decodeDC(raw);
     if (!msg) return;
+    console.log("[consumer] ◀ DC:", msg.type);
 
     switch (msg.type) {
       case "segment_payment_request":
