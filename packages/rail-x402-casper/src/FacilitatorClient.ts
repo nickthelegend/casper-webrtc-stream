@@ -5,7 +5,7 @@
  * per the documented examples. /verify and /settle take the same body:
  *   { paymentPayload, paymentRequirements }.
  */
-import type { PaymentPayload } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { PaymentPayload } from "@nickthelegend69/webrtc-payment-sdk-core";
 import type {
   FacilitatorSettleResponse,
   FacilitatorVerifyResponse,

@@ -1,7 +1,7 @@
 /**
  * Casper x402 rail config + facilitator wire types (real CSPR.cloud v2 API).
  */
-import type { SignFn, TokenMeta } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { SignFn, TokenMeta } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 export type CasperNetwork = "casper:casper" | "casper:casper-test";
 

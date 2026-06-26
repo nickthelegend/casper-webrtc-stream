@@ -1,5 +1,5 @@
 /**
- * @nickthelegend/webrtc-payment-rail-x402
+ * @nickthelegend69/webrtc-payment-rail-x402
  * Casper Network x402 payment rail (real CSPR.cloud facilitator + EIP-712).
  */
 export { CasperX402Rail } from "./CasperX402Rail.js";

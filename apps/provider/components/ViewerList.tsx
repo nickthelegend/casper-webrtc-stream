@@ -1,4 +1,4 @@
-import type { ViewerState } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { ViewerState } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 function shortHash(s?: string): string {
   if (!s) return "anon";

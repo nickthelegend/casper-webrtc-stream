@@ -7,7 +7,7 @@ import type {
   PaymentRequirements,
   SignFn,
   TokenMeta,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 import type { CasperNetwork } from "./types.js";
 import type { WireRequirements } from "./FacilitatorClient.js";
 import { buildTransferDigest, signEd25519 } from "./Eip712Signer.js";

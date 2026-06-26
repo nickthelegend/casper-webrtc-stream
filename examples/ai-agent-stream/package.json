@@ -8,8 +8,8 @@
     "start": "tsx src/agent-consumer.ts"
   },
   "dependencies": {
-    "@nickthelegend/webrtc-payment-sdk-core": "0.1.0",
-    "@nickthelegend/webrtc-payment-rail-x402": "0.1.0"
+    "@nickthelegend69/webrtc-payment-sdk-core": "0.1.0",
+    "@nickthelegend69/webrtc-payment-rail-x402": "0.1.0"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

@@ -4,7 +4,7 @@ import crypto from "node:crypto";
 import {
   CasperX402Rail,
   buildWireRequirements,
-} from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const hex = (b) => Buffer.from(b).toString("hex");
 const token = { name: "Cep18x402", version: "1", decimals: "2", symbol: "CSPR" };

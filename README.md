@@ -67,13 +67,13 @@ the browser.
 
 ## Architecture
 
-- **`packages/core`** — `@nickthelegend/webrtc-payment-sdk-core`
+- **`packages/core`** — `@nickthelegend69/webrtc-payment-sdk-core`
   - Rail-agnostic WebRTC payment middleware
   - `PaywalledRTCProvider` + `PaywalledRTCConsumer` peer classes
   - DataChannel payment protocol (Mode 2: per-segment)
   - AES-GCM crypto gate (Mode 3: trust-free)
   - `SessionManager` — deterministic segment nonces + replay protection
-- **`packages/rail-x402-casper`** — `@nickthelegend/webrtc-payment-rail-x402`
+- **`packages/rail-x402-casper`** — `@nickthelegend69/webrtc-payment-rail-x402`
   - Casper x402 payment rail
   - CSPR.cloud facilitator integration (`/verify`, `/settle`)
   - EIP-712 typed-data signing for CEP-18 tokens (`@casper-ecosystem/casper-eip-712` + ed25519 via WebCrypto)
@@ -95,8 +95,8 @@ Track gate is the demo default.
 ## SDK usage (10 lines)
 
 ```typescript
-import { PaywalledRTCProvider } from "@nickthelegend/webrtc-payment-sdk-core";
-import { CasperX402Rail } from "@nickthelegend/webrtc-payment-rail-x402";
+import { PaywalledRTCProvider } from "@nickthelegend69/webrtc-payment-sdk-core";
+import { CasperX402Rail } from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const rail = new CasperX402Rail({ /* facilitator + token + provider hash */ });
 const provider = new PaywalledRTCProvider({

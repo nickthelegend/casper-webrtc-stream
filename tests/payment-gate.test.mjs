@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { PaymentGate, SessionManager } from "@nickthelegend/webrtc-payment-sdk-core";
+import { PaymentGate, SessionManager } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 // A stub PaymentRail (test double, not a product mock) so the gate logic can be
 // exercised without a chain. Only verify()/settle() are used by processPayment.

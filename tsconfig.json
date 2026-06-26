@@ -4,8 +4,8 @@
     "noEmit": true,
     "skipLibCheck": true,
     "paths": {
-      "@nickthelegend/webrtc-payment-sdk-core": ["./packages/core/src/index.ts"],
-      "@nickthelegend/webrtc-payment-rail-x402": ["./packages/rail-x402-casper/src/index.ts"]
+      "@nickthelegend69/webrtc-payment-sdk-core": ["./packages/core/src/index.ts"],
+      "@nickthelegend69/webrtc-payment-rail-x402": ["./packages/rail-x402-casper/src/index.ts"]
     }
   },
   "include": ["packages/*/src/**/*"],

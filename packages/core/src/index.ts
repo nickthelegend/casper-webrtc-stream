@@ -1,5 +1,5 @@
 /**
- * @nickthelegend/webrtc-payment-sdk-core
+ * @nickthelegend69/webrtc-payment-sdk-core
  * Rail-agnostic core for paywalled WebRTC streams on any payment rail.
  */
 export * from "./types.js";

@@ -11,13 +11,13 @@ import type {
   PaymentRail,
   SignFn,
   TokenMeta,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 import {
   CasperX402Rail,
   createBrowserSigner,
   makeEd25519SignFn,
   type CasperNetwork,
-} from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const NETWORK = (process.env.NEXT_PUBLIC_CASPER_NETWORK as CasperNetwork) ?? "casper:casper-test";
 const ASSET = process.env.NEXT_PUBLIC_CEP18_TOKEN_CONTRACT ?? "";

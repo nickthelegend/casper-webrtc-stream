@@ -6,7 +6,7 @@ import {
   importKeyB64,
   encryptFrame,
   decryptFrame,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 
 const enc = new TextEncoder();
 const dec = new TextDecoder();

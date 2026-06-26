@@ -12,8 +12,8 @@ import {
   type GatingConfig,
   type SignFn,
   type TokenMeta,
-} from "@nickthelegend/webrtc-payment-sdk-core";
-import { CasperX402Rail } from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
+import { CasperX402Rail } from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const SIGNALING = "ws://localhost:3001";
 const TOKEN: TokenMeta = { name: "Cep18x402", version: "1", decimals: "2", symbol: "CSPR" };

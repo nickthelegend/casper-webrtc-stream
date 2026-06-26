@@ -10,7 +10,7 @@
  *   CONSUMER_PUBLIC_KEY=01... CONSUMER_PRIVATE_KEY=<ed25519 seed hex> \
  *   npm run test:facilitator
  */
-import { CasperX402Rail } from "@nickthelegend/webrtc-payment-rail-x402";
+import { CasperX402Rail } from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const need = [
   "CSPR_CLOUD_API_KEY",

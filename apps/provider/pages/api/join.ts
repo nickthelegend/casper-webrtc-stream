@@ -5,7 +5,7 @@
  * signaling WebSocket (the browser provider holds the MediaStream).
  */
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { PaymentPayload } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { PaymentPayload } from "@nickthelegend69/webrtc-payment-sdk-core";
 import { createServerRail } from "../../lib/server-rail";
 
 export default async function handler(

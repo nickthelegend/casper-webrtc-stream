@@ -14,7 +14,7 @@ import type {
   SettleResult,
   TokenMeta,
   VerifyResult,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 
 const NETWORK = process.env.NEXT_PUBLIC_CASPER_NETWORK ?? "casper:casper-test";
 const ASSET = process.env.NEXT_PUBLIC_CEP18_TOKEN_CONTRACT ?? "";

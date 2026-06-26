@@ -8,7 +8,7 @@ import {
   makeEd25519SignFn,
   buildTransferDigest,
   signEd25519,
-} from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const hex = (b) => Buffer.from(b).toString("hex");
 

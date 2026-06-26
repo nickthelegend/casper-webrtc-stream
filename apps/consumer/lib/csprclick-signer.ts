@@ -18,7 +18,7 @@
  * wallet. Validate end-to-end against the live facilitator (`npm run
  * test:facilitator` proves the digest; this proves the wallet signs that digest).
  */
-import type { PaymentPayload, PaymentRequirements } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { PaymentPayload, PaymentRequirements } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 /** Result returned by csprclick.signTypedData. */
 interface SignTypedDataResult {

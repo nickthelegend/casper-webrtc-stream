@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { SessionManager } from "@nickthelegend/webrtc-payment-sdk-core";
+import { SessionManager } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 test("generateSegmentNonce matches real SHA-256 and is deterministic", () => {
   const sm = new SessionManager();

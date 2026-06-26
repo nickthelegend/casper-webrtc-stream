@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { dc, encodeDC, decodeDC, DC_LABEL } from "@nickthelegend/webrtc-payment-sdk-core";
+import { dc, encodeDC, decodeDC, DC_LABEL } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 const reqs = {
   network: "casper:casper-test",

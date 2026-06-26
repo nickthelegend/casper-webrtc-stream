@@ -26,10 +26,10 @@ if (!g.crypto) g.crypto = (await import("node:crypto")).webcrypto;
 
 // import AFTER polyfills so the SDK binds to them
 const { PaywalledRTCConsumer } = await import(
-  "@nickthelegend/webrtc-payment-sdk-core"
+  "@nickthelegend69/webrtc-payment-sdk-core"
 );
 const { CasperX402Rail, makeEd25519SignFn } = await import(
-  "@nickthelegend/webrtc-payment-rail-x402"
+  "@nickthelegend69/webrtc-payment-rail-x402"
 );
 
 const room = process.argv[2] ?? process.env.ROOM;

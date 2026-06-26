@@ -5,7 +5,7 @@ This guide shows how to add Casper-paywalled WebRTC streaming to your own app.
 ## Install
 
 ```bash
-npm install @nickthelegend/webrtc-payment-sdk-core @nickthelegend/webrtc-payment-rail-x402
+npm install @nickthelegend69/webrtc-payment-sdk-core @nickthelegend69/webrtc-payment-rail-x402
 ```
 
 You also need a running signaling server (see `apps/signaling`) reachable by
@@ -16,7 +16,7 @@ both peers.
 The rail is the only Casper-specific piece. Everything else is rail-agnostic.
 
 ```ts
-import { CasperX402Rail } from "@nickthelegend/webrtc-payment-rail-x402";
+import { CasperX402Rail } from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const rail = new CasperX402Rail({
   facilitatorUrl: "https://x402-facilitator.cspr.cloud",
@@ -31,7 +31,7 @@ const rail = new CasperX402Rail({
 ## 2. Provider — paywall a stream
 
 ```ts
-import { PaywalledRTCProvider } from "@nickthelegend/webrtc-payment-sdk-core";
+import { PaywalledRTCProvider } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 const provider = new PaywalledRTCProvider({
   paymentRail: rail,
@@ -54,7 +54,7 @@ const link = `https://your-app/watch?room=${provider.room}`;
 ## 3. Consumer — pay to watch
 
 ```ts
-import { PaywalledRTCConsumer } from "@nickthelegend/webrtc-payment-sdk-core";
+import { PaywalledRTCConsumer } from "@nickthelegend69/webrtc-payment-sdk-core";
 
 const consumer = new PaywalledRTCConsumer({
   paymentRail: rail,

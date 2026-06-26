@@ -4,7 +4,7 @@ import {
   PaywalledRTCProvider,
   type GatingConfig,
   type ViewerState,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 import { createProviderRail, isConfigured } from "../lib/casper";
 import { createDemoStream, createVideoFileStream } from "../lib/demoStream";
 import { StreamControls, type StreamSettings } from "../components/StreamControls";
@@ -283,7 +283,7 @@ export default function ProviderDashboard() {
           <span className="text-white/20">·</span>
           <span>x402 facilitator: CSPR.cloud</span>
           <span className="text-white/20">·</span>
-          <span className="font-mono">@nickthelegend/webrtc-payment-sdk</span>
+          <span className="font-mono">@nickthelegend69/webrtc-payment-sdk</span>
         </footer>
       </main>
     </>

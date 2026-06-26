@@ -2,11 +2,11 @@
  * Server-side rail (API routes only). Holds the secret CSPR_CLOUD_API_KEY and
  * talks to the real facilitator. Never imported into client bundles.
  */
-import type { PaymentRail, TokenMeta } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { PaymentRail, TokenMeta } from "@nickthelegend69/webrtc-payment-sdk-core";
 import {
   CasperX402Rail,
   type CasperNetwork,
-} from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-rail-x402";
 
 export function createServerRail(): PaymentRail {
   const token: TokenMeta = {

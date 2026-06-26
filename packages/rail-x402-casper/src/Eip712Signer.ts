@@ -17,7 +17,7 @@ import {
   CASPER_DOMAIN_TYPES,
 } from "@casper-ecosystem/casper-eip-712";
 import { ed25519 } from "@noble/curves/ed25519";
-import type { SignFn, TokenMeta } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { SignFn, TokenMeta } from "@nickthelegend69/webrtc-payment-sdk-core";
 import type { CasperNetwork } from "./types.js";
 import { bareHash, bareNonce, bytesToHex, hexToBytes, tagged } from "./casperFormat.js";
 

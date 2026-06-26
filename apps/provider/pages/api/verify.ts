@@ -4,7 +4,7 @@
  * browser provider's ProxyRail so the key never reaches the client.
  */
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { PaymentPayload } from "@nickthelegend/webrtc-payment-sdk-core";
+import type { PaymentPayload } from "@nickthelegend69/webrtc-payment-sdk-core";
 import { createServerRail, serverConfigured } from "../../lib/server-rail";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

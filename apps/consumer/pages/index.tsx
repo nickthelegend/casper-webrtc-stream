@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { PaywalledRTCConsumer } from "@nickthelegend/webrtc-payment-sdk-core";
+import { PaywalledRTCConsumer } from "@nickthelegend69/webrtc-payment-sdk-core";
 import { createConsumerRail, isConfigured } from "../lib/casper";
 import { PaymentConsent } from "../components/PaymentConsent";
 import { StreamViewer } from "../components/StreamViewer";

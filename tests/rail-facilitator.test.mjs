@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { CasperX402Rail } from "@nickthelegend/webrtc-payment-rail-x402";
+import { CasperX402Rail } from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const hex = (b) => Buffer.from(b).toString("hex");
 const API_KEY = "test-api-key-uuid";

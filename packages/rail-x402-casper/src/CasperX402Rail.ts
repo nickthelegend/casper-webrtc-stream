@@ -16,7 +16,7 @@ import type {
   SettleResult,
   SignFn,
   VerifyResult,
-} from "@nickthelegend/webrtc-payment-sdk-core";
+} from "@nickthelegend69/webrtc-payment-sdk-core";
 import { FacilitatorClient } from "./FacilitatorClient.js";
 import { buildPaymentPayload, buildWireRequirements } from "./PayloadBuilder.js";
 import { bytesToHex } from "./casperFormat.js";

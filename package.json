@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "postinstall": "npm run build",
-    "build": "npm -w @nickthelegend/webrtc-payment-sdk-core run build && npm -w @nickthelegend/webrtc-payment-rail-x402 run build",
+    "build": "npm -w @nickthelegend69/webrtc-payment-sdk-core run build && npm -w @nickthelegend69/webrtc-payment-rail-x402 run build",
     "build:all": "npm run build --workspaces --if-present",
     "typecheck": "tsc --noEmit && npm run typecheck --workspaces --if-present",
     "test": "node --test tests/*.test.mjs",

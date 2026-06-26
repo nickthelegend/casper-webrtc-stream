@@ -7,7 +7,7 @@ import {
   bareNonce,
   hexToBytes,
   bytesToHex,
-} from "@nickthelegend/webrtc-payment-rail-x402";
+} from "@nickthelegend69/webrtc-payment-rail-x402";
 
 const H = "ab".repeat(32); // 64 hex chars
 
