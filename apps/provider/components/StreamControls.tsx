@@ -4,6 +4,7 @@ export interface StreamSettings {
   pricePerSecond: string; // CSPR
   gatingMode: "signaling" | "track" | "crypto";
   token: string;
+  source: "auto" | "demo" | "screen";
 }
 
 export function StreamControls({
@@ -67,6 +68,25 @@ export function StreamControls({
               <option value="track">Track Gate (per-segment)</option>
               <option value="signaling">Signaling Gate (whole-stream)</option>
               <option value="crypto">Crypto Gate (per-segment, encrypted)</option>
+            </select>
+          </label>
+
+          <label className="block text-sm">
+            <span className="text-gray-400">Video source</span>
+            <select
+              disabled={live}
+              value={settings.source}
+              onChange={(e) =>
+                onChange({
+                  ...settings,
+                  source: e.target.value as StreamSettings["source"],
+                })
+              }
+              className="mt-1 w-full rounded bg-casper-bg border border-casper-border px-3 py-2 disabled:opacity-50"
+            >
+              <option value="demo">Demo feed (animated, no camera)</option>
+              <option value="screen">Share screen / window</option>
+              <option value="auto">Camera (falls back to demo)</option>
             </select>
           </label>
 

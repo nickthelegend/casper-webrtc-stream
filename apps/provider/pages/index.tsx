@@ -35,6 +35,7 @@ export default function ProviderDashboard() {
     pricePerSecond: "0.01",
     gatingMode: "track",
     token: "CSPR",
+    source: "demo",
   });
   const [viewers, setViewers] = useState<ViewerState[]>([]);
   const [earnings, setEarnings] = useState("0");
@@ -54,15 +55,24 @@ export default function ProviderDashboard() {
   const start = async () => {
     try {
       let media: MediaStream;
-      try {
-        media = await navigator.mediaDevices.getUserMedia({
+      if (settings.source === "screen") {
+        media = await navigator.mediaDevices.getDisplayMedia({
           video: true,
           audio: true,
         });
-      } catch {
-        // No camera/mic (e.g. a Mac mini) → synthetic demo feed so the full
-        // WebRTC + payment pipeline still runs and viewers see live frames.
+      } else if (settings.source === "demo") {
+        // Synthetic animated feed — works on a machine with no camera.
         media = createDemoStream();
+      } else {
+        // "auto": real camera, falling back to the demo feed if none is found.
+        try {
+          media = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: true,
+          });
+        } catch {
+          media = createDemoStream();
+        }
       }
       if (videoRef.current) {
         videoRef.current.srcObject = media;
