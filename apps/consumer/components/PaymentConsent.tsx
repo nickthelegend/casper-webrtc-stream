@@ -1,19 +1,28 @@
 import { useState } from "react";
 import { WalletConnect } from "./WalletConnect";
+import type { WalletAccount } from "../lib/csprclick";
 
 export function PaymentConsent({
   pricePerSecond,
   providerHint,
-  walletAddress,
+  walletAccount,
+  walletReady,
+  demoAvailable,
+  onConnect,
+  onDisconnect,
   onStart,
 }: {
   pricePerSecond: string;
   providerHint: string;
-  walletAddress: string;
+  walletAccount: WalletAccount | null;
+  walletReady: boolean;
+  demoAvailable: boolean;
+  onConnect: () => void;
+  onDisconnect: () => void;
   onStart: (opts: { maxSpend: string }) => void;
 }) {
   const [maxSpend, setMaxSpend] = useState("1.00");
-  const [connected, setConnected] = useState(false);
+  const canStart = Boolean(walletAccount) || demoAvailable;
 
   return (
     <div className="mx-auto max-w-md">
@@ -64,24 +73,27 @@ export function PaymentConsent({
 
         <div className="mt-4">
           <WalletConnect
-            address={walletAddress}
-            connected={connected}
-            onConnect={() => setConnected(true)}
+            account={walletAccount}
+            ready={walletReady}
+            onConnect={onConnect}
+            onDisconnect={onDisconnect}
           />
         </div>
 
         <button
-          disabled={!connected || !walletAddress}
+          disabled={!canStart}
           onClick={() => onStart({ maxSpend })}
           className="mt-4 w-full rounded-xl bg-casper-accent px-4 py-3.5 font-semibold text-white shadow-glow-red transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
         >
-          ▶ Start watching — pay as you go
+          ▶ Start watching — {walletAccount ? "pay with wallet" : "pay as you go"}
         </button>
-        {!connected && (
-          <p className="mt-2 text-center text-xs text-casper-muted">
-            Connect your wallet to begin
-          </p>
-        )}
+        <p className="mt-2 text-center text-xs text-casper-muted">
+          {walletAccount
+            ? "Each segment is signed by your Casper wallet"
+            : demoAvailable
+              ? "Connect a wallet to sign with it — or start with the demo key"
+              : "Connect your Casper wallet to begin"}
+        </p>
       </div>
     </div>
   );

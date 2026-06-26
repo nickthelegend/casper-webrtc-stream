@@ -7,6 +7,8 @@
  *   - EIP-712 typed data:  "0x<64hex>"   (raw 32-byte value)
  */
 
+import { blake2b } from "@noble/hashes/blake2b";
+
 // Casper string prefixes seen on account hashes and contract package hashes.
 const HASH_PREFIXES = ["account-hash-", "contract-package-", "hash-"];
 
@@ -56,4 +58,28 @@ export function bytesToHex(b: Uint8Array): string {
   return Array.from(b)
     .map((x) => x.toString(16).padStart(2, "0"))
     .join("");
+}
+
+/**
+ * Derive a Casper account hash from an algorithm-prefixed public key hex
+ * ("01…" ed25519 / "02…" secp256k1). Returns the SDK form
+ * "account-hash-<64hex>".
+ *
+ * accountHash = blake2b256( utf8(algoName) ++ 0x00 ++ publicKeyBytes ).
+ * Verified against the known testnet pair
+ * 01771c87… → account-hash-11cf12a4….
+ *
+ * Used when a wallet (CSPR.click) hands us only the public key — x402 needs the
+ * payer's account hash for the authorization `from`.
+ */
+export function accountHashFromPublicKey(publicKeyHex: string): string {
+  const hex = publicKeyHex.trim().toLowerCase().replace(/^0x/, "");
+  const algo = hex.slice(0, 2) === "02" ? "secp256k1" : "ed25519";
+  const key = hexToBytes(hex.slice(2));
+  const name = new TextEncoder().encode(algo);
+  const pre = new Uint8Array(name.length + 1 + key.length);
+  pre.set(name, 0);
+  pre.set([0], name.length);
+  pre.set(key, name.length + 1);
+  return "account-hash-" + bytesToHex(blake2b(pre, { dkLen: 32 }));
 }

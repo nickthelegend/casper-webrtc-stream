@@ -25,6 +25,7 @@ export {
   bareNonce,
   hexToBytes,
   bytesToHex,
+  accountHashFromPublicKey,
 } from "./casperFormat.js";
 export type {
   CasperX402RailConfig,

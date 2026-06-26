@@ -193,7 +193,11 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
 
     let payload;
     try {
-      payload = await this.cfg.paymentRail.buildPayload(requirements, this.cfg.signFn);
+      // A connected wallet (CSPR.click) signs the typed data itself and returns
+      // the full payload; otherwise the rail builds it from a raw-digest signer.
+      payload = this.cfg.buildPayment
+        ? await this.cfg.buildPayment(requirements)
+        : await this.cfg.paymentRail.buildPayload(requirements, this.cfg.signFn);
     } catch (e) {
       console.error(`[consumer] ✗ failed to sign payment for segment ${segmentIndex}:`, e);
       this.emit("error", e as Error);

@@ -225,6 +225,13 @@ export interface ConsumerConfig {
   walletAddress: string;
   /** Async signer (CSPR.click in browser, raw key for demo). */
   signFn: SignFn;
+  /**
+   * Optional override for building a payment. When set, it is used instead of
+   * `paymentRail.buildPayload(req, signFn)`. Needed for wallets (e.g. CSPR.click)
+   * that sign the EIP-712 *typed data* themselves and return a full payload,
+   * rather than signing a raw digest through `signFn`.
+   */
+  buildPayment?: (requirements: PaymentRequirements) => Promise<PaymentPayload>;
   iceServers?: RTCIceServer[];
   /** Mode 3: the stream is AES-GCM encrypted; install the decrypt pipeline and
    *  apply per-segment keys delivered over the DataChannel after payment. */

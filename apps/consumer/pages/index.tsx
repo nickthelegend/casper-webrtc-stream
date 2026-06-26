@@ -2,9 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { PaywalledRTCConsumer } from "@nickthelegend69/webrtc-payment-sdk-core";
-import { createConsumerRail, isConfigured } from "../lib/casper";
+import { createConsumerRail, hasDemoKey, isConfigured } from "../lib/casper";
 import { PaymentConsent } from "../components/PaymentConsent";
 import { StreamViewer } from "../components/StreamViewer";
+import { useCsprClick, makeWalletBuildPayment } from "../lib/csprclick";
 
 const SIGNALING_URL =
   process.env.NEXT_PUBLIC_SIGNALING_URL ?? "ws://localhost:3001";
@@ -24,6 +25,9 @@ export default function ConsumerViewer() {
 
   // env-backed rail/signer bundle (stable across renders)
   const bundle = useMemo(() => createConsumerRail(), []);
+
+  // Real Casper wallet via CSPR.click (null until the user connects one).
+  const { ready: walletReady, account: wallet, connect, disconnect } = useCsprClick();
 
   // DEV: call window.__casperTestSign() in the console to test browser signing
   // in isolation (proves the rail can sign a payment without the WebRTC flow).
@@ -86,11 +90,15 @@ export default function ConsumerViewer() {
       return;
     }
     try {
+      // If a Casper wallet is connected, it signs each payment (the wallet
+      // hashes the EIP-712 typed data itself). Otherwise fall back to the demo
+      // hot key. The provider/facilitator path is identical either way.
       const consumer = new PaywalledRTCConsumer({
         paymentRail: bundle.rail,
         signalingServerUrl: SIGNALING_URL,
-        walletAddress: bundle.walletAddress,
+        walletAddress: wallet ? wallet.accountHash : bundle.walletAddress,
         signFn: bundle.signFn,
+        buildPayment: wallet ? makeWalletBuildPayment(wallet) : undefined,
       });
       consumerRef.current = consumer;
 
@@ -157,21 +165,26 @@ export default function ConsumerViewer() {
               </p>
             </div>
           </div>
-          {bundle.walletAddress && (
-            <a
-              href={`https://testnet.cspr.live/account/${
-                bundle.publicKeyHex || bundle.walletAddress.replace(/^account-hash-/, "")
-              }`}
-              target="_blank"
-              rel="noreferrer"
-              title={bundle.walletAddress}
-              className="flex items-center gap-2 rounded-full border border-casper-green/25 bg-casper-green/[0.06] px-3 py-1.5 text-xs font-medium text-casper-green transition hover:bg-casper-green/[0.12]"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-casper-green" />
-              <span className="font-mono">{shortAddr(bundle.walletAddress)}</span>
-              <span className="text-casper-green/60">↗</span>
-            </a>
-          )}
+          {(() => {
+            const addr = wallet ? wallet.accountHash : bundle.walletAddress;
+            if (!addr) return null;
+            const label = wallet ? "wallet" : "demo key";
+            return (
+              <a
+                href={`https://testnet.cspr.live/account/${
+                  wallet ? wallet.publicKey : bundle.publicKeyHex || addr.replace(/^account-hash-/, "")
+                }`}
+                target="_blank"
+                rel="noreferrer"
+                title={addr}
+                className="flex items-center gap-2 rounded-full border border-casper-green/25 bg-casper-green/[0.06] px-3 py-1.5 text-xs font-medium text-casper-green transition hover:bg-casper-green/[0.12]"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-casper-green" />
+                <span className="font-mono">{shortAddr(addr)}</span>
+                <span className="text-casper-green/50">· {label} ↗</span>
+              </a>
+            );
+          })()}
         </header>
 
         {!isConfigured() && phase === "consent" && (
@@ -203,7 +216,11 @@ export default function ConsumerViewer() {
             <PaymentConsent
               pricePerSecond={pricePerSecond}
               providerHint={room || "unknown"}
-              walletAddress={bundle.walletAddress}
+              walletAccount={wallet}
+              walletReady={walletReady}
+              demoAvailable={hasDemoKey()}
+              onConnect={connect}
+              onDisconnect={disconnect}
               onStart={start}
             />
           </>
