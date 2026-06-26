@@ -29,7 +29,11 @@ import {
 
 interface ProviderEvents extends Record<string, (...args: any[]) => void> {
   "consumer:joined": (consumerId: string) => void;
+  /** Segment verified (instant) — the viewer is authorized + the track is enabled. */
   "consumer:paid": (consumerId: string, amount: string, segmentIndex: number) => void;
+  /** That segment's on-chain settle confirmed (async) — one real tx per segment. */
+  "consumer:settled": (consumerId: string, segmentIndex: number, txHash: string) => void;
+  "consumer:settle_failed": (consumerId: string, segmentIndex: number, error: string) => void;
   "consumer:defaulted": (consumerId: string) => void;
   "consumer:left": (consumerId: string) => void;
   "earnings:update": (totalMotes: string) => void;
@@ -65,15 +69,15 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
     super();
     this.cfg = config;
     this.room = config.room ?? crypto.randomUUID();
-    // One-off (signaling) mode settles on verify — a single on-chain tx unlocks
-    // the stream. Per-segment (track/crypto) modes gate on /verify only (instant,
-    // smooth playback); each /settle is a real ~30–60s on-chain deploy, so they
-    // must NOT block every 5s segment — settle those in batches out of band.
-    this.gate = new PaymentGate(
-      config.paymentRail,
-      this.sessions,
-      config.gating.mode === "signaling",
-    );
+    // Settle EVERY segment on-chain — one real tx per segment, exactly like the
+    // reference SDK's partial-time mode ("On-chain tx count: N"). Settlement is
+    // async inside the gate: the video gates on the instant `verify`, while each
+    // segment's on-chain settle confirms in the background and emits below.
+    this.gate = new PaymentGate(config.paymentRail, this.sessions, true);
+    this.gate.onSettled = (consumerId, segmentIndex, txHash) =>
+      this.emit("consumer:settled", consumerId, segmentIndex, txHash);
+    this.gate.onSettleError = (consumerId, segmentIndex, err) =>
+      this.emit("consumer:settle_failed", consumerId, segmentIndex, err.message);
   }
 
   /** Begin broadcasting. Connects to signaling and waits for consumers. */

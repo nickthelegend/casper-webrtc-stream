@@ -33,16 +33,21 @@ function payloadFor(sm, sessionId, segmentIndex, amount = "10000") {
   };
 }
 
-test("accepts a valid payment, settles, accrues earnings", async () => {
+test("accepts a valid payment, enables on verify, settles on-chain async", async () => {
   const sm = new SessionManager();
   const gate = new PaymentGate(stubRail(), sm, true);
+  let settledTx;
+  gate.onSettled = (_c, _i, tx) => { settledTx = tx; };
   const sid = sm.generateSessionId();
   const d = await gate.processPayment("c1", 0, payloadFor(sm, sid, 0));
+  // gated + accounted on verify (instant — no waiting on chain finality)
   assert.equal(d.ok, true);
-  assert.equal(d.txHash, "tx-abc");
   assert.equal(gate.totalEarnings(), "10000");
   assert.equal(gate.getViewer("c1").segmentsPaid, 1);
   assert.equal(gate.getViewer("c1").enabled, true);
+  // one on-chain settle per segment, reported async
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(settledTx, "tx-abc");
 });
 
 test("rejects a replayed nonce", async () => {
@@ -72,23 +77,31 @@ test("rejects when the rail says the signature is invalid", async () => {
   assert.match(d.reason, /bad sig|verification/);
 });
 
-test("verify-only mode (track gate) does not settle", async () => {
+test("settleOnVerify=false skips the on-chain settle entirely", async () => {
   const sm = new SessionManager();
-  // settleThrows would explode IF settle were called — proves it isn't
-  const gate = new PaymentGate(stubRail({ settleThrows: true }), sm, false);
+  const rail = stubRail();
+  let settleCalled = false;
+  const orig = rail.settle;
+  rail.settle = async (p) => { settleCalled = true; return orig(p); };
+  const gate = new PaymentGate(rail, sm, false);
   const sid = sm.generateSessionId();
   const d = await gate.processPayment("c1", 0, payloadFor(sm, sid, 0));
   assert.equal(d.ok, true);
-  assert.equal(d.txHash, undefined);
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(settleCalled, false);
 });
 
-test("a failed settle still lets the stream continue (deferred)", async () => {
+test("a failed on-chain settle does NOT interrupt the already-paid segment", async () => {
   const sm = new SessionManager();
   const gate = new PaymentGate(stubRail({ settleThrows: true }), sm, true);
+  let settleErr;
+  gate.onSettleError = (_c, _i, e) => { settleErr = e; };
   const sid = sm.generateSessionId();
   const d = await gate.processPayment("c1", 0, payloadFor(sm, sid, 0));
-  assert.equal(d.ok, true);
-  assert.match(d.reason, /settle deferred/);
+  assert.equal(d.ok, true); // segment enabled despite the settle failing
+  assert.equal(gate.getViewer("c1").enabled, true);
+  await new Promise((r) => setTimeout(r, 0));
+  assert.ok(settleErr instanceof Error);
 });
 
 test("viewer lifecycle + multi-viewer earnings", async () => {

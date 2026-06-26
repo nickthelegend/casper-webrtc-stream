@@ -21,10 +21,18 @@ export interface GateDecision {
 export class PaymentGate {
   private viewers = new Map<string, ViewerState>();
 
+  /** Fired when a segment's on-chain settle confirms (async, one tx per segment). */
+  onSettled?: (consumerId: string, segmentIndex: number, txHash: string) => void;
+  /** Fired when a segment's on-chain settle fails (video already flowed on verify). */
+  onSettleError?: (consumerId: string, segmentIndex: number, error: Error) => void;
+
   constructor(
     private rail: PaymentRail,
     private sessions: SessionManager,
-    /** Settle on-chain after verify? (Mode 1 usually settles; Mode 2 batches.) */
+    /** Settle every verified payment on-chain? Settlement is ASYNC and never
+     *  blocks the stream — so each segment produces one on-chain tx (matching the
+     *  reference SDK's partial-time mode: "On-chain tx count: N") while the video
+     *  is gated on the instant `verify`. */
     private settleOnVerify = true,
   ) {}
 
@@ -91,34 +99,32 @@ export class PaymentGate {
       return { ok: false, reason: "nonce invalid or replayed" };
     }
 
-    // 2. rail verify
+    // 2. rail verify — this is the gate. Passing verify proves the payer signed a
+    //    valid, unspent authorization, so we enable the segment IMMEDIATELY (the
+    //    stream never waits on chain finality).
     const verified = await this.rail.verify(payload);
     if (!verified.valid) {
       v.enabled = false;
       return { ok: false, reason: verified.error ?? "verification failed" };
     }
 
-    // 3. optional settle
-    let txHash: string | undefined;
-    if (this.settleOnVerify) {
-      try {
-        const settled = await this.rail.settle(payload);
-        txHash = settled.txHash;
-      } catch (err) {
-        // verified but settlement failed — let the stream continue, surface error
-        return {
-          ok: true,
-          reason: `verified; settle deferred: ${(err as Error).message}`,
-        };
-      }
-    }
-
-    // 4. accounting
+    // 3. accounting + enable on verify
     v.segmentsPaid += 1;
     v.lastSegmentIndex = segmentIndex;
     v.totalPaid = (BigInt(v.totalPaid || "0") + BigInt(req.amount)).toString();
     v.enabled = true;
 
-    return { ok: true, txHash };
+    // 4. settle THIS segment on-chain, asynchronously — one real tx per segment
+    //    (the reference SDK's partial-time model). It runs during playback and
+    //    confirms in the background; failure doesn't interrupt the already-paid-
+    //    for segment.
+    if (this.settleOnVerify) {
+      void this.rail
+        .settle(payload)
+        .then((r) => this.onSettled?.(consumerId, segmentIndex, r.txHash))
+        .catch((e) => this.onSettleError?.(consumerId, segmentIndex, e as Error));
+    }
+
+    return { ok: true };
   }
 }

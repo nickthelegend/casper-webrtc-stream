@@ -15,7 +15,11 @@ const SIGNALING_URL =
   process.env.NEXT_PUBLIC_SIGNALING_URL ?? "ws://localhost:3001";
 const CONSUMER_URL =
   process.env.NEXT_PUBLIC_CONSUMER_URL ?? "http://localhost:3002";
-const SEGMENT_SECONDS = 5;
+// Seconds per paid segment = one on-chain settle each. Tunable: shorter = more
+// frequent on-chain payments, but Casper finality is ~30-60s and the facilitator
+// settles sequentially, so keep it ≥ ~10s so settles don't pile up. (The
+// reference SDK defaults to 30s.)
+const SEGMENT_SECONDS = 15;
 
 function csprToMotes(cspr: string): string {
   const n = Number(cspr || "0");
