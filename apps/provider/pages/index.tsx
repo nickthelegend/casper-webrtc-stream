@@ -40,6 +40,7 @@ export default function ProviderDashboard() {
   const [viewers, setViewers] = useState<ViewerState[]>([]);
   const [earnings, setEarnings] = useState("0");
   const [streamLink, setStreamLink] = useState<string>();
+  const [settlements, setSettlements] = useState<{ idx: number; txHash: string }[]>([]);
 
   useEffect(() => {
     return () => providerRef.current?.stop();
@@ -104,6 +105,10 @@ export default function ProviderDashboard() {
         setEarnings(total);
         refresh();
       });
+      // each segment's on-chain settle confirms here (one real tx per segment)
+      provider.on("consumer:settled", (_c, idx, txHash) =>
+        setSettlements((s) => [{ idx, txHash }, ...s].slice(0, 25)),
+      );
 
       await provider.startStream(media);
       setStreamLink(`${CONSUMER_URL}/?room=${provider.room}`);
@@ -120,6 +125,7 @@ export default function ProviderDashboard() {
     setLive(false);
     setViewers([]);
     setStreamLink(undefined);
+    setSettlements([]);
   };
 
   return (
@@ -158,6 +164,28 @@ export default function ProviderDashboard() {
             </div>
             <EarningsPanel amountMotes={earnings} viewers={viewers.length} />
             <ViewerList viewers={viewers} pricePerSecond={settings.pricePerSecond} />
+            {settlements.length > 0 && (
+              <div className="rounded-lg border border-casper-border bg-black/30 p-4">
+                <h3 className="text-xs uppercase tracking-wider text-gray-400 mb-2">
+                  ⛓ On-chain settlements · {settlements.length}
+                </h3>
+                <ul className="space-y-1 max-h-40 overflow-auto mono text-xs">
+                  {settlements.map((s) => (
+                    <li key={s.txHash} className="flex justify-between gap-2">
+                      <span className="text-gray-500">seg {s.idx}</span>
+                      <a
+                        href={`https://testnet.cspr.live/transaction/${s.txHash}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-casper-accent truncate hover:underline"
+                      >
+                        {s.txHash.slice(0, 18)}…
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
 
           <section>
