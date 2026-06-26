@@ -1,6 +1,6 @@
 {
   "name": "@nickthelegend69/webrtc-payment-sdk-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core SDK for paywalled WebRTC streams — rail-agnostic provider/consumer peers, gating, and DataChannel payment protocol.",
   "license": "MIT",
   "type": "module",
@@ -13,7 +13,11 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "src", "README.md"],
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
