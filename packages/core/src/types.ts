@@ -250,5 +250,18 @@ export interface ViewerState {
 }
 
 export const DEFAULT_ICE_SERVERS: RTCIceServer[] = [
-  { urls: "stun:stun.l.google.com:19302" },
+  { urls: ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"] },
+  // Free TURN relay so the connection still forms when direct host/reflexive
+  // candidates can't connect — e.g. Chrome's mDNS (.local) host candidates not
+  // resolving between two local browser contexts, VPNs, or restrictive networks.
+  // Without a relay, localhost-to-localhost WebRTC silently fails ICE.
+  {
+    urls: [
+      "turn:openrelay.metered.ca:80",
+      "turn:openrelay.metered.ca:443",
+      "turn:openrelay.metered.ca:443?transport=tcp",
+    ],
+    username: "openrelayproject",
+    credential: "openrelayproject",
+  },
 ];

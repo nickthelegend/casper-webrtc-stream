@@ -115,6 +115,7 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
           );
           break;
         case "ice-candidate":
+          console.log("[provider] ← ICE candidate from consumer");
           void this.peers.get(from)?.pc.addIceCandidate(
             msg.payload as RTCIceCandidateInit,
           );
@@ -237,6 +238,7 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
 
     pc.onicecandidate = (e) => {
       if (e.candidate) {
+        console.log("[provider] → ICE candidate:", e.candidate.type, e.candidate.protocol);
         this.signaling?.send("ice-candidate", e.candidate.toJSON(), consumerId);
       }
     };

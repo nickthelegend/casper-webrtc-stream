@@ -79,6 +79,7 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
     };
     this.pc.onicecandidate = (e) => {
       if (e.candidate && this.providerId) {
+        console.log("[consumer] → ICE candidate:", e.candidate.type, e.candidate.protocol);
         this.signaling?.send("ice-candidate", e.candidate.toJSON(), this.providerId);
       }
     };
@@ -107,6 +108,7 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
             this.sessionId = crypto.randomUUID();
             resolve({ stream: this.remote, sessionId: this.sessionId });
           } else if (msg.type === "ice-candidate") {
+            console.log("[consumer] ← ICE candidate from provider");
             await this.pc!.addIceCandidate(msg.payload as RTCIceCandidateInit);
           }
         } catch (err) {
