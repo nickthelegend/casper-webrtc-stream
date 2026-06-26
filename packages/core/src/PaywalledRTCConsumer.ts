@@ -159,25 +159,38 @@ export class PaywalledRTCConsumer extends TypedEmitter<ConsumerEvents> {
     segmentIndex: number,
     requirements: PaymentRequirements,
   ): Promise<void> {
-    if (!this.auto) return; // manual mode: app drives payment itself
+    console.log(
+      `[consumer] 💸 payment request — segment ${segmentIndex}, amount ${requirements.amount}`,
+      { auto: !!this.auto, capped: this.capped, spent: this.totalSpent.toString() },
+    );
+    if (!this.auto) {
+      console.warn("[consumer] auto-payment is OFF — ignoring request");
+      return; // manual mode: app drives payment itself
+    }
     if (this.capped) return;
 
     const next = this.totalSpent + BigInt(requirements.amount);
     if (next > BigInt(this.auto.maxTotalSpend)) {
+      console.warn("[consumer] spend cap reached — pausing");
       this.capped = true;
       this.auto.onMaxReached?.();
       this.emit("stream:paused");
       return;
     }
 
-    const payload = await this.cfg.paymentRail.buildPayload(
-      requirements,
-      this.cfg.signFn,
-    );
+    let payload;
+    try {
+      payload = await this.cfg.paymentRail.buildPayload(requirements, this.cfg.signFn);
+    } catch (e) {
+      console.error(`[consumer] ✗ failed to sign payment for segment ${segmentIndex}:`, e);
+      this.emit("error", e as Error);
+      return;
+    }
     this.dataChannel?.send(encodeDC(dc.paymentProof(segmentIndex, payload)));
     this.totalSpent = next;
     this.auto.onPayment?.(requirements.amount, segmentIndex);
     this.emit("payment:sent", requirements.amount, segmentIndex);
+    console.log(`[consumer] ✓ signed + sent payment proof for segment ${segmentIndex}`);
   }
 
   totalSpentMotes(): string {

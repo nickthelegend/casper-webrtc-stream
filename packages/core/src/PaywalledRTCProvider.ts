@@ -74,10 +74,18 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
     // async inside the gate: the video gates on the instant `verify`, while each
     // segment's on-chain settle confirms in the background and emits below.
     this.gate = new PaymentGate(config.paymentRail, this.sessions, true);
-    this.gate.onSettled = (consumerId, segmentIndex, txHash) =>
+    this.gate.onSettled = (consumerId, segmentIndex, txHash) => {
+      console.log(`[provider] ⛓ settled segment ${segmentIndex} → ${txHash}`);
       this.emit("consumer:settled", consumerId, segmentIndex, txHash);
-    this.gate.onSettleError = (consumerId, segmentIndex, err) =>
+      // push the on-chain tx hash to the consumer so its UI can show it too
+      this.peers
+        .get(consumerId)
+        ?.dataChannel?.send(encodeDC(dc.confirmed(segmentIndex, txHash)));
+    };
+    this.gate.onSettleError = (consumerId, segmentIndex, err) => {
+      console.error(`[provider] ✗ settle failed for segment ${segmentIndex}:`, err.message);
       this.emit("consumer:settle_failed", consumerId, segmentIndex, err.message);
+    };
   }
 
   /** Begin broadcasting. Connects to signaling and waits for consumers. */
@@ -281,6 +289,7 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
       reqs.nonce = nonce; // deterministic, replay-checked nonce
       ctx.awaitingProof = true;
       ctx.dataChannel?.send(encodeDC(dc.paymentRequest(idx, reqs)));
+      console.log(`[provider] ▶ requested payment for segment ${idx} (amount ${reqs.amount})`);
 
       // grace window: if no valid proof by next tick, suspend
       setTimeout(() => {
@@ -316,6 +325,9 @@ export class PaywalledRTCProvider extends TypedEmitter<ProviderEvents> {
         msg.payload,
       );
       ctx.awaitingProof = false;
+      console.log(
+        `[provider] ◀ proof for segment ${msg.segmentIndex} → ${decision.ok ? "✓ verified (settling on-chain…)" : "✗ " + decision.reason}`,
+      );
       if (decision.ok) {
         if (this.cfg.gating.mode === "crypto") {
           // Release this segment's decryption key — the actual unlock in Mode 3.

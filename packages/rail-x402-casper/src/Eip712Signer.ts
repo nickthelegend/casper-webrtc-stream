@@ -16,6 +16,7 @@ import {
   buildDomain,
   CASPER_DOMAIN_TYPES,
 } from "@casper-ecosystem/casper-eip-712";
+import { ed25519 } from "@noble/curves/ed25519";
 import type { SignFn, TokenMeta } from "@nickthelegend/webrtc-payment-sdk-core";
 import type { CasperNetwork } from "./types.js";
 import { bareHash, bareNonce, bytesToHex, hexToBytes, tagged } from "./casperFormat.js";
@@ -78,30 +79,19 @@ export function buildTransferDigest(i: TransferDigestInput): Uint8Array {
   return typeof digest === "string" ? hexToBytes(digest) : (digest as Uint8Array);
 }
 
-// pkcs8 DER prefix for a raw 32-byte Ed25519 seed
-const PKCS8_ED25519_PREFIX = hexToBytes("302e020100300506032b657004220420");
-
-/** Sign a digest with an Ed25519 seed; returns "01" + 64-byte sig (65 bytes). */
+/**
+ * Sign a digest with an Ed25519 seed; returns "01" + 64-byte sig (65 bytes).
+ * Uses @noble/curves (pure JS) rather than WebCrypto's `Ed25519`, which isn't
+ * available in every browser — and signs deterministically (RFC 8032), so the
+ * output is identical to a WebCrypto signature for the same key + message.
+ */
 export async function signEd25519(
   digest: Uint8Array,
   seedHex: string,
 ): Promise<string> {
   const seed = hexToBytes(seedHex);
   if (seed.length !== 32) throw new Error("ed25519 seed must be 32 bytes");
-  const pkcs8 = new Uint8Array(PKCS8_ED25519_PREFIX.length + 32);
-  pkcs8.set(PKCS8_ED25519_PREFIX, 0);
-  pkcs8.set(seed, PKCS8_ED25519_PREFIX.length);
-
-  const key = await crypto.subtle.importKey(
-    "pkcs8",
-    pkcs8 as BufferSource,
-    { name: "Ed25519" },
-    false,
-    ["sign"],
-  );
-  const sig = new Uint8Array(
-    await crypto.subtle.sign({ name: "Ed25519" }, key, digest as BufferSource),
-  );
+  const sig = ed25519.sign(digest, seed);
   return "01" + bytesToHex(sig);
 }
 

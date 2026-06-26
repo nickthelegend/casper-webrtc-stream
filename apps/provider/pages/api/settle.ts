@@ -15,10 +15,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!payload) return res.status(400).json({ error: "missing payload" });
 
   const rail = createServerRail();
+  console.log("[api/settle] → submitting on-chain settle…");
   try {
     const { txHash } = await rail.settle(payload);
+    console.log(`[api/settle] ⛓ settled → ${txHash}`);
     return res.status(200).json({ txHash });
   } catch (err) {
+    console.error("[api/settle] ✗ failed:", (err as Error).message);
     return res.status(200).json({ error: (err as Error).message });
   }
 }

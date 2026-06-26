@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@nickthelegend/webrtc-payment-sdk-core": "0.1.0",
-    "@casper-ecosystem/casper-eip-712": "^1.2.0"
+    "@casper-ecosystem/casper-eip-712": "^1.2.0",
+    "@noble/curves": "^1.8.0"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

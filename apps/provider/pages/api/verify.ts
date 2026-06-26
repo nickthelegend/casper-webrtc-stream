@@ -19,5 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const rail = createServerRail();
   const result = await rail.verify(payload);
+  console.log(
+    `[api/verify] ${result.valid ? "✓ valid" : "✗ " + result.error} — payer ${payload.payload?.authorization?.from?.slice(0, 12)}…`,
+  );
   return res.status(200).json(result);
 }

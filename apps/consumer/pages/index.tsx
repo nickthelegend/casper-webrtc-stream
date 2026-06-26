@@ -26,6 +26,7 @@ export default function ConsumerViewer() {
   const [suspended, setSuspended] = useState(false);
   const [pricePerSecond, setPricePerSecond] = useState("—");
   const [error, setError] = useState<string>();
+  const [settlements, setSettlements] = useState<{ idx: number; txHash: string }[]>([]);
 
   useEffect(() => {
     if (router.isReady && typeof router.query.room === "string") {
@@ -62,10 +63,18 @@ export default function ConsumerViewer() {
       });
       consumer.on("stream:paused", () => setSuspended(true));
       consumer.on("stream:resumed", () => setSuspended(false));
-      consumer.on("payment:sent", (amount) => {
+      consumer.on("payment:sent", (amount, segmentIndex) => {
+        console.log(`[consumer] 💸 paid segment ${segmentIndex} — ${amount}`);
         setPaid(consumer.totalSpentMotes());
         const perSec = Number(amount) / SEGMENT_SECONDS;
         if (perSec > 0) setPricePerSecond(String(perSec));
+      });
+      consumer.on("payment:confirmed", (segmentIndex, txHash) => {
+        if (!txHash) return;
+        console.log(
+          `[consumer] ⛓ segment ${segmentIndex} settled on-chain → https://testnet.cspr.live/transaction/${txHash}`,
+        );
+        setSettlements((s) => [{ idx: segmentIndex, txHash }, ...s].slice(0, 25));
       });
       consumer.on("error", (e) => {
         console.error("[consumer] error:", e);
@@ -147,6 +156,29 @@ export default function ConsumerViewer() {
             watching={watching}
             suspended={suspended}
           />
+        )}
+
+        {phase === "watching" && settlements.length > 0 && (
+          <div className="mt-4 rounded-lg border border-casper-border bg-black/30 p-4">
+            <h3 className="text-xs uppercase tracking-wider text-gray-400 mb-2">
+              ⛓ On-chain settlements · {settlements.length}
+            </h3>
+            <ul className="space-y-1 max-h-40 overflow-auto mono text-xs">
+              {settlements.map((s) => (
+                <li key={s.txHash} className="flex justify-between gap-2">
+                  <span className="text-gray-500">seg {s.idx}</span>
+                  <a
+                    href={`https://testnet.cspr.live/transaction/${s.txHash}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-casper-accent truncate hover:underline"
+                  >
+                    {s.txHash.slice(0, 18)}…
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {error && (
