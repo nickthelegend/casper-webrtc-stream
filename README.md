@@ -1,15 +1,37 @@
 # casper-webrtc-stream
 
-> Micropayment-gated WebRTC streams on Casper Network via x402
+> **A battle-ready x402 micropayments SDK for Casper** — charge for anything over
+> HTTP, settle on-chain. Plus a pay-per-second WebRTC streamer built on top.
 
 Built for the **Casper Agentic Buildathon 2026**.
 
 ## What it does
 
-Drop ~10 lines of code into your app and your WebRTC stream becomes a
-pay-per-second broadcast. Viewers pay in CSPR (or any CEP-18 token) directly to
-the creator — no platform, no middleman, no 30% cut. And because it speaks
-x402, AI agents can be viewers (or providers) too.
+At its core this is a **consumer-grade x402 payments SDK**: gate any HTTP route
+behind a Casper micropayment with one middleware, and have clients auto-pay with
+one wrapped `fetch`. Every payment settles on-chain as a real CEP-18
+`transfer_with_authorization` via the CSPR.cloud x402 facilitator.
+
+```ts
+// server — gate a route behind a payment
+app.get("/premium", paymentMiddleware({ rail, amount: "100000000", payTo }), handler);
+
+// client — the 402 is paid + retried invisibly
+const pay = wrapFetch(fetch, { rail, signFn, maxValue: "1000000000" });
+const res = await pay("https://api.example.com/premium");   // 200, content unlocked
+```
+
+→ **[docs/X402.md](./docs/X402.md)** is the integration guide. **[examples/paid-api](./examples/paid-api)**
+is a runnable, non-WebRTC demo (proven live on testnet:
+[`3e04ec4e…`](https://testnet.cspr.live/deploy/3e04ec4e1ade22418747d7c36f0b5f71554c27d861180ea317bd2f48958465e7)).
+
+**The flagship app on top of it:** drop ~10 lines into your app and a WebRTC
+stream becomes a pay-per-second broadcast — viewers pay the creator directly per
+segment, no platform, no 30% cut. See **[docs/USAGE.md](./docs/USAGE.md)**.
+
+Published on npm:
+[`@nickthelegend69/webrtc-payment-sdk-core`](https://www.npmjs.com/package/@nickthelegend69/webrtc-payment-sdk-core)
+· [`@nickthelegend69/webrtc-payment-rail-x402`](https://www.npmjs.com/package/@nickthelegend69/webrtc-payment-rail-x402)
 
 > **No mocks.** Payments are wired to the real CSPR.cloud x402 facilitator with
 > real EIP-712 signatures. There is no fake "demo mode" that pretends a payment
@@ -22,7 +44,7 @@ x402, AI agents can be viewers (or providers) too.
 cd casper-dev
 npm install        # also builds the SDK packages (postinstall)
 npm run dev        # starts signaling + provider + consumer together
-npm test              # full unit + integration suite (33 tests, node:test)
+npm test              # full unit + integration suite (40 tests, node:test)
 npm run test:signing  # EIP-712 payload verifies against the facilitator's digest
 npm run test:crypto   # Mode 3 crypto gate (AES-GCM frames)
 npm run test:contract # Odra contract on-chain logic (cargo odra test → 4/4)

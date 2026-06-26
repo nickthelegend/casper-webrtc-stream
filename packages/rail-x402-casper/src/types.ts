@@ -30,6 +30,10 @@ export interface CasperX402RailConfig {
   maxTimeoutSeconds?: number;
   /** Resource URL embedded in the payload (informational). */
   resourceUrl?: string;
+  /** Per-facilitator-request timeout in ms (default 20000). */
+  timeoutMs?: number;
+  /** Retries on facilitator network error / 5xx (default 2). */
+  retries?: number;
 }
 
 /** POST /verify response. */

@@ -22,11 +22,25 @@ export interface WireRequirements {
   extra: Record<string, string>;
 }
 
+export interface FacilitatorClientOpts {
+  /** Per-request timeout in ms (default 20000). */
+  timeoutMs?: number;
+  /** Retries on network error / 5xx (default 2). */
+  retries?: number;
+}
+
 export class FacilitatorClient {
+  private timeoutMs: number;
+  private retries: number;
+
   constructor(
     private baseUrl: string,
     private apiKey?: string,
-  ) {}
+    opts: FacilitatorClientOpts = {},
+  ) {
+    this.timeoutMs = opts.timeoutMs ?? 20_000;
+    this.retries = Math.max(0, opts.retries ?? 2);
+  }
 
   private headers(): Record<string, string> {
     return {
@@ -41,20 +55,45 @@ export class FacilitatorClient {
     paymentPayload: PaymentPayload,
     paymentRequirements: WireRequirements,
   ): Promise<T> {
-    const res = await fetch(`${this.baseUrl}${path}`, {
-      method: "POST",
-      headers: this.headers(),
-      body: JSON.stringify({ paymentPayload, paymentRequirements }),
-    });
-    const text = await res.text();
-    let json: unknown;
-    try {
-      json = JSON.parse(text);
-    } catch {
-      throw new Error(`facilitator ${path}: ${res.status} ${text.slice(0, 200)}`);
+    const body = JSON.stringify({ paymentPayload, paymentRequirements });
+    let lastErr: Error | undefined;
+
+    for (let attempt = 0; attempt <= this.retries; attempt++) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), this.timeoutMs);
+      try {
+        const res = await fetch(`${this.baseUrl}${path}`, {
+          method: "POST",
+          headers: this.headers(),
+          body,
+          signal: ctrl.signal,
+        });
+        const text = await res.text();
+        // Retry transient 5xx (the facilitator may be briefly unavailable).
+        if (res.status >= 500 && attempt < this.retries) {
+          lastErr = new Error(`facilitator ${path}: ${res.status} ${text.slice(0, 160)}`);
+          continue;
+        }
+        let json: unknown;
+        try {
+          json = JSON.parse(text);
+        } catch {
+          throw new Error(
+            `facilitator ${path}: ${res.status} non-JSON response: ${text.slice(0, 200)}`,
+          );
+        }
+        return json as T;
+      } catch (err) {
+        lastErr =
+          (err as Error)?.name === "AbortError"
+            ? new Error(`facilitator ${path}: timed out after ${this.timeoutMs}ms`)
+            : (err as Error);
+        if (attempt >= this.retries) break;
+      } finally {
+        clearTimeout(timer);
+      }
     }
-    // /settle always returns 200; /verify returns 200 with isValid flag.
-    return json as T;
+    throw lastErr ?? new Error(`facilitator ${path}: request failed`);
   }
 
   verify(

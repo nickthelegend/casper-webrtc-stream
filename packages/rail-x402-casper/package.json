@@ -1,6 +1,6 @@
 {
   "name": "@nickthelegend69/webrtc-payment-rail-x402",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Casper Network x402 payment rail for casper-webrtc-stream. Wraps the CSPR.cloud x402 facilitator (/verify, /settle) with CEP-18 + EIP-712 payloads.",
   "license": "MIT",
   "type": "module",
@@ -24,7 +24,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@nickthelegend69/webrtc-payment-sdk-core": "0.1.1",
+    "@nickthelegend69/webrtc-payment-sdk-core": "0.2.0",
     "@casper-ecosystem/casper-eip-712": "^1.2.0",
     "@noble/curves": "^1.8.0"
   },

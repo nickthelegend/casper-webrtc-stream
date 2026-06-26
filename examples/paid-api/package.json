@@ -1,0 +1,16 @@
+{
+  "name": "@casper-webrtc/example-paid-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Standalone x402 paid HTTP API — no WebRTC. Server gates a route behind a Casper micropayment; client auto-pays and retries.",
+  "scripts": {
+    "server": "node --env-file=../../apps/provider/.env.local server.mjs",
+    "client": "node --env-file=../../apps/provider/.env.local --env-file=../../apps/consumer/.env.local client.mjs"
+  },
+  "dependencies": {
+    "@nickthelegend69/webrtc-payment-sdk-core": "*",
+    "@nickthelegend69/webrtc-payment-rail-x402": "*",
+    "express": "^4.19.2"
+  }
+}

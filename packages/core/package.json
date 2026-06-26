@@ -1,6 +1,6 @@
 {
   "name": "@nickthelegend69/webrtc-payment-sdk-core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Core SDK for paywalled WebRTC streams — rail-agnostic provider/consumer peers, gating, and DataChannel payment protocol.",
   "license": "MIT",
   "type": "module",

@@ -29,6 +29,19 @@ A **provider** captures a `MediaStream` and broadcasts it over WebRTC. A
 
 It supports three enforcement modes (see [Gating modes](#gating-modes)).
 
+> **Not just streaming.** The same engine ships an **x402-over-HTTP** layer —
+> gate *any* API route behind a Casper micropayment and have clients auto-pay:
+>
+> ```ts
+> // server: one middleware
+> app.get("/premium", paymentMiddleware({ rail, amount: "100000000", payTo }), handler);
+> // client: one wrapped fetch — 402s are paid + retried invisibly
+> const pay = wrapFetch(fetch, { rail, signFn, maxValue: "1000000000" });
+> ```
+>
+> See [`docs/X402.md`](https://github.com/nickthelegend/casper-webrtc-stream/blob/main/docs/X402.md)
+> and the runnable [`examples/paid-api`](https://github.com/nickthelegend/casper-webrtc-stream/tree/main/examples/paid-api).
+
 ---
 
 ## Quick start

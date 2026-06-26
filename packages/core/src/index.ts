@@ -28,3 +28,18 @@ export {
   installSenderEncryption,
   installReceiverDecryption,
 } from "./crypto.js";
+export {
+  X402_PAYMENT_HEADER,
+  X402_TX_HEADER,
+  X402Error,
+  X402Gate,
+  encodePayment,
+  decodePayment,
+  wrapFetch,
+  paymentMiddleware,
+} from "./x402http.js";
+export type {
+  WrapFetchOpts,
+  X402GateConfig,
+  X402GateResult,
+} from "./x402http.js";

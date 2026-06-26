@@ -33,9 +33,25 @@ export class CasperX402Rail implements PaymentRail {
   private maxTimeoutSeconds: number;
 
   constructor(private config: CasperX402RailConfig) {
+    if (!config.facilitatorUrl) {
+      throw new Error("CasperX402Rail: facilitatorUrl is required");
+    }
+    if (!config.tokenContractHash) {
+      throw new Error("CasperX402Rail: tokenContractHash is required");
+    }
+    // The facilitator rejects a domain with no token name/version using the
+    // opaque `invalid_exact_casper_missing_token_name` — fail clearly instead.
+    if (!config.token?.name || !config.token?.version) {
+      throw new Error(
+        "CasperX402Rail: token.name and token.version are required (the facilitator " +
+          "needs them for the EIP-712 domain; a missing name fails verify with " +
+          "`invalid_exact_casper_missing_token_name`)",
+      );
+    }
     this.facilitator = new FacilitatorClient(
       config.facilitatorUrl,
       config.facilitatorApiKey,
+      { timeoutMs: config.timeoutMs, retries: config.retries },
     );
     this.maxTimeoutSeconds = Math.max(6, config.maxTimeoutSeconds ?? 300);
   }
