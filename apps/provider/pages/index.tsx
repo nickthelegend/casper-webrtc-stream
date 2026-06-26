@@ -6,6 +6,7 @@ import {
   type ViewerState,
 } from "@nickthelegend/webrtc-payment-sdk-core";
 import { createProviderRail, isConfigured } from "../lib/casper";
+import { createDemoStream } from "../lib/demoStream";
 import { StreamControls, type StreamSettings } from "../components/StreamControls";
 import { EarningsPanel } from "../components/EarningsPanel";
 import { ViewerList } from "../components/ViewerList";
@@ -48,10 +49,17 @@ export default function ProviderDashboard() {
 
   const start = async () => {
     try {
-      const media = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
+      let media: MediaStream;
+      try {
+        media = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true,
+        });
+      } catch {
+        // No camera/mic (e.g. a Mac mini) → synthetic demo feed so the full
+        // WebRTC + payment pipeline still runs and viewers see live frames.
+        media = createDemoStream();
+      }
       if (videoRef.current) {
         videoRef.current.srcObject = media;
         await videoRef.current.play().catch(() => {});
