@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "provider",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:provider"],
+      "port": 3000,
+      "autoPort": false
+    },
+    {
+      "name": "consumer",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:consumer"],
+      "port": 3002,
+      "autoPort": false
+    }
+  ]
+}
