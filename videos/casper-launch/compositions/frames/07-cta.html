@@ -1,0 +1,334 @@
+<template id="07-cta-template">
+  <div
+    id="root"
+    data-composition-id="07-cta"
+    data-width="1920"
+    data-height="1080"
+    data-duration="5.2"
+  >
+    <!-- Background layers -->
+    <div class="dot-grid"></div>
+    <div class="violet-glow"></div>
+
+    <!-- Centered lockup -->
+    <div class="lockup">
+      <!-- Monogram tile -->
+      <div class="monogram-wrap">
+        <div class="monogram-ring"></div>
+        <div class="monogram">
+          <span class="monogram-num">402</span>
+        </div>
+      </div>
+
+      <!-- Wordmark -->
+      <div class="wordmark">casper-webrtc-stream</div>
+
+      <!-- Install pill -->
+      <div class="install-pill">
+        <span class="install-cmd"
+          ><span class="muted">npm i </span><span class="pkg">@nickthelegend69/webrtc-payment-sdk-core</span></span
+        ><span class="caret"></span>
+      </div>
+
+      <!-- Tagline -->
+      <div class="tagline">
+        The payment rail for the agent economy — on Casper
+      </div>
+    </div>
+
+    <!-- Final fade-to-black veil -->
+    <div class="fade-veil"></div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        background: #070a10;
+        position: relative;
+        overflow: hidden;
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* Faint dot-grid */
+      #root .dot-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(139, 152, 171, 0.085) 1.2px,
+          transparent 1.2px
+        );
+        background-size: 38px 38px;
+        background-position: center center;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      /* Soft violet radial glow, center */
+      #root .violet-glow {
+        position: absolute;
+        left: 50%;
+        top: 47%;
+        width: 1500px;
+        height: 1500px;
+        transform: translate(-50%, -50%) scale(0.85);
+        background: radial-gradient(
+          circle,
+          rgba(139, 108, 255, 0.22) 0%,
+          rgba(139, 108, 255, 0.08) 32%,
+          rgba(7, 10, 16, 0) 62%
+        );
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Centered lockup — kept in the upper-center band so all content
+         stays above the bottom ~17% caption keep-out (y < 896px).
+         Lockup center sits ~y=470. */
+      #root .lockup {
+        position: absolute;
+        left: 50%;
+        top: 470px;
+        transform: translate(-50%, -50%);
+        width: 1680px; /* within ~120px safe margins */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+      }
+
+      /* Monogram */
+      #root .monogram-wrap {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        margin-bottom: 38px;
+      }
+
+      #root .monogram-ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 88px;
+        height: 88px;
+        transform: translate(-50%, -50%) scale(1);
+        border-radius: 26px;
+        border: 2px solid rgba(139, 108, 255, 0.85);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #root .monogram {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #8b6cff, #5b8cff);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 18px 48px rgba(139, 108, 255, 0.45),
+          0 6px 18px rgba(91, 140, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.4);
+        transform-origin: center center;
+      }
+
+      #root .monogram-num {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 1;
+        color: #ffffff;
+        letter-spacing: -0.5px;
+      }
+
+      /* Wordmark */
+      #root .wordmark {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 80px;
+        line-height: 1.04;
+        color: #eaf0f8;
+        letter-spacing: -1.5px;
+        text-align: center;
+        opacity: 0;
+        margin-bottom: 40px;
+      }
+
+      /* Install pill */
+      #root .install-pill {
+        display: inline-flex;
+        align-items: center;
+        background: #0d121c;
+        border: 1px solid rgba(139, 152, 171, 0.18);
+        border-radius: 12px;
+        padding: 14px 22px;
+        opacity: 0;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+      }
+
+      #root .install-cmd {
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 26px;
+        line-height: 1.5;
+        white-space: nowrap;
+        /* clip reveal */
+        display: inline-block;
+        overflow: hidden;
+        clip-path: inset(0 100% 0 0);
+      }
+
+      #root .install-cmd .muted {
+        color: #8b98ab;
+      }
+
+      #root .install-cmd .pkg {
+        color: #eaf0f8;
+      }
+
+      #root .caret {
+        display: inline-block;
+        width: 2px;
+        height: 28px;
+        margin-left: 8px;
+        background: #8b6cff;
+        opacity: 0;
+        transform: translateY(2px);
+      }
+
+      /* Tagline */
+      #root .tagline {
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        font-size: 28px;
+        font-weight: 400;
+        color: #8b98ab;
+        letter-spacing: 0.2px;
+        text-align: center;
+        opacity: 0;
+        margin-top: 40px;
+      }
+
+      /* Final fade veil */
+      #root .fade-veil {
+        position: absolute;
+        inset: 0;
+        background: #04060a;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 9;
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+
+        const id = '#root';
+        const dotGrid = id + " .dot-grid";
+        const glow = id + " .violet-glow";
+        const monogram = id + " .monogram";
+        const ring = id + " .monogram-ring";
+        const wordmark = id + " .wordmark";
+        const pill = id + " .install-pill";
+        const cmd = id + " .install-cmd";
+        const caret = id + " .caret";
+        const tagline = id + " .tagline";
+        const veil = id + " .fade-veil";
+
+        // === Beat 0: world fades in (0 .. ~0.5s) — hero visible by t<=0.5s ===
+        tl.to(dotGrid, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+        tl.fromTo(
+          glow,
+          { opacity: 0, scale: 0.85 },
+          { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" },
+          0,
+        );
+
+        // === Beat 1: monogram springs in + ring pulse (~0.2 .. 1.0s) ===
+        tl.fromTo(
+          monogram,
+          { opacity: 0, scale: 0.4, y: 8 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "back.out(1.7)" },
+          0.2,
+        );
+        // ring pulse outward as monogram lands
+        tl.fromTo(
+          ring,
+          { opacity: 0.9, scale: 1 },
+          { opacity: 0, scale: 2.1, duration: 0.85, ease: "expo.out" },
+          0.42,
+        );
+
+        // === Beat 2: wordmark rises in (~0.85 .. 1.8s) ===
+        tl.fromTo(
+          wordmark,
+          { opacity: 0, y: 34 },
+          { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" },
+          0.85,
+        );
+
+        // === Beat 3: install pill reveals; caret blinks then resolves (~1.7 .. 2.9s) ===
+        tl.fromTo(
+          pill,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          1.7,
+        );
+        // clip-path wipe reveal of the command text
+        tl.fromTo(
+          cmd,
+          { clipPath: "inset(0 100% 0 0)" },
+          { clipPath: "inset(0 0% 0 0)", duration: 0.75, ease: "expo.inOut" },
+          1.9,
+        );
+        // caret appears mid-reveal, blinks, then resolves (fades out)
+        tl.to(caret, { opacity: 1, duration: 0.12, ease: "none" }, 1.95);
+        tl.to(
+          caret,
+          { opacity: 0.15, duration: 0.3, ease: "power1.inOut", yoyo: true, repeat: 2 },
+          2.07,
+        );
+        tl.to(caret, { opacity: 0, duration: 0.28, ease: "power2.out" }, 2.85);
+
+        // === Beat 4: tagline fades up (~2.7 .. 3.6s) ===
+        tl.fromTo(
+          tagline,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" },
+          2.7,
+        );
+
+        // === Beat 5: gentle breathing + glow swell (~3.6 .. 4.6s) ===
+        tl.to(
+          glow,
+          { scale: 1.12, opacity: 1, duration: 1.0, ease: "sine.inOut" },
+          3.6,
+        );
+        tl.to(monogram, { scale: 1.035, duration: 1.0, ease: "sine.inOut" }, 3.6);
+        tl.to(monogram, { scale: 1, duration: 0.6, ease: "sine.inOut" }, 4.6);
+
+        // === Beat 6: soft fade toward near-black, clean end (~4.6 .. 5.2s) ===
+        tl.to(
+          [monogram, wordmark, pill, tagline, glow, dotGrid],
+          { opacity: 0, duration: 0.6, ease: "power2.inOut" },
+          4.6,
+        );
+        tl.to(veil, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 4.6);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["07-cta"] = tl;
+      })();
+    </script>
+  </div>
+</template>

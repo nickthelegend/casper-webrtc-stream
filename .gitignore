@@ -52,3 +52,13 @@ scripts/deploy/*.wasm
 
 # demo video asset (Big Buck Bunny, CC-BY Blender) — re-download, not committed
 apps/provider/public/*.mp4
+
+# hyperframes / agent skill installs (tooling caches, not project source)
+.agents/
+skills/
+skills-lock.json
+.claude/skills/
+my-video/
+# video project build caches
+videos/*/node_modules/
+videos/*/.hyperframes/cache/

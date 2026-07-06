@@ -1,0 +1,600 @@
+<template id="s4-proof-template">
+  <div
+    data-composition-id="s4-proof"
+    data-width="1920"
+    data-height="1080"
+    data-duration="11"
+  >
+    <div class="canvas">
+      <div class="dot-grid"></div>
+      <div class="green-glow"></div>
+
+      <!-- Content wrapper for global fade in/out -->
+      <div class="content">
+        <!-- Header -->
+        <div class="header">
+          <div class="kicker">SETTLED ON CASPER &middot; TESTNET</div>
+          <h1 class="title">Real on-chain settlement</h1>
+        </div>
+
+        <!-- Settlement Cards -->
+        <div class="cards">
+          <!-- Card 1 -->
+          <div class="card card-1">
+            <div class="card-ring"></div>
+            <div class="card-top">
+              <div class="check-chip">
+                <span class="check-mark">&#10003;</span>
+              </div>
+              <div class="card-meta">
+                <div class="card-status">Confirmed</div>
+                <div class="card-block">block 8308737</div>
+              </div>
+            </div>
+            <div class="tx-row">
+              <span class="tx-label">tx</span>
+              <span class="tx-hash">448eafae&hellip;2c2c15</span>
+            </div>
+            <div class="card-sub">CEP-18 transfer_with_authorization</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card card-2">
+            <div class="card-ring"></div>
+            <div class="card-top">
+              <div class="check-chip">
+                <span class="check-mark">&#10003;</span>
+              </div>
+              <div class="card-meta">
+                <div class="card-status">Confirmed</div>
+                <div class="card-block">block 8309369</div>
+              </div>
+            </div>
+            <div class="tx-row">
+              <span class="tx-label">tx</span>
+              <span class="tx-hash">3e04ec4e&hellip;8465e7</span>
+            </div>
+            <div class="card-sub">via CSPR.cloud x402 facilitator</div>
+          </div>
+        </div>
+
+        <!-- Hero stat lockup -->
+        <div class="hero-stat">
+          <div class="stat-number">
+            <span class="stat-val">0.00</span>
+            <span class="stat-unit">CSPR settled</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-count">
+            <span class="stat-count-val">0</span>
+            <span class="stat-count-unit">settlements</span>
+          </div>
+        </div>
+
+        <!-- Footer row: pill + facilitator tag -->
+        <div class="footer-row">
+          <div class="pill">testnet.cspr.live &#8599;</div>
+          <div class="facilitator-tag">
+            <span class="dot"></span>CSPR.cloud x402 facilitator
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      [data-composition-id="s4-proof"] {
+        font-family: "Inter", sans-serif;
+        color: #eaf0f8;
+        overflow: hidden;
+      }
+
+      [data-composition-id="s4-proof"] .canvas {
+        width: 1920px;
+        height: 1080px;
+        background-color: #070a10;
+        position: relative;
+        overflow: hidden;
+      }
+
+      [data-composition-id="s4-proof"] .dot-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+
+      [data-composition-id="s4-proof"] .green-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          700px 460px at 50% 30%,
+          rgba(46, 230, 166, 0.12),
+          transparent 60%
+        );
+        opacity: 0.85;
+      }
+
+      [data-composition-id="s4-proof"] .content {
+        position: absolute;
+        inset: 0;
+        padding: 120px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Header */
+      [data-composition-id="s4-proof"] .header {
+        text-align: center;
+        margin-top: 24px;
+      }
+
+      [data-composition-id="s4-proof"] .kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #2ee6a6;
+        opacity: 0;
+        margin-bottom: 22px;
+      }
+
+      [data-composition-id="s4-proof"] .title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 60px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: #eaf0f8;
+        opacity: 0;
+      }
+
+      /* Cards */
+      [data-composition-id="s4-proof"] .cards {
+        display: flex;
+        gap: 40px;
+        margin-top: 64px;
+      }
+
+      [data-composition-id="s4-proof"] .card {
+        position: relative;
+        width: 620px;
+        background: #0d121c;
+        border: 1px solid rgba(46, 230, 166, 0.25);
+        border-radius: 16px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        padding: 36px 40px 38px;
+        box-sizing: border-box;
+        opacity: 0;
+        transform-origin: center bottom;
+      }
+
+      [data-composition-id="s4-proof"] .card-ring {
+        position: absolute;
+        inset: -1px;
+        border-radius: 16px;
+        border: 2px solid rgba(46, 230, 166, 0.6);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      [data-composition-id="s4-proof"] .card-top {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 30px;
+      }
+
+      [data-composition-id="s4-proof"] .check-chip {
+        width: 52px;
+        height: 52px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: rgba(46, 230, 166, 0.14);
+        border: 1.5px solid rgba(46, 230, 166, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      [data-composition-id="s4-proof"] .check-mark {
+        color: #2ee6a6;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+        transform: scale(0);
+        display: inline-block;
+      }
+
+      [data-composition-id="s4-proof"] .card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      [data-composition-id="s4-proof"] .card-status {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: #2ee6a6;
+        letter-spacing: 0.01em;
+      }
+
+      [data-composition-id="s4-proof"] .card-block {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: #8b98ab;
+      }
+
+      [data-composition-id="s4-proof"] .tx-row {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      [data-composition-id="s4-proof"] .tx-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #8b6cff;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      [data-composition-id="s4-proof"] .tx-hash {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 500;
+        color: #eaf0f8;
+        letter-spacing: 0.01em;
+      }
+
+      [data-composition-id="s4-proof"] .card-sub {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        color: #8b98ab;
+        letter-spacing: 0.005em;
+      }
+
+      /* Hero stat */
+      [data-composition-id="s4-proof"] .hero-stat {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        margin-top: 60px;
+      }
+
+      [data-composition-id="s4-proof"] .stat-number,
+      [data-composition-id="s4-proof"] .stat-count {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        opacity: 0;
+      }
+
+      [data-composition-id="s4-proof"] .stat-val {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 76px;
+        font-weight: 700;
+        color: #ffc24b;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      [data-composition-id="s4-proof"] .stat-unit {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #8b98ab;
+      }
+
+      [data-composition-id="s4-proof"] .stat-divider {
+        width: 1px;
+        height: 56px;
+        background: rgba(255, 255, 255, 0.12);
+        opacity: 0;
+      }
+
+      [data-composition-id="s4-proof"] .stat-count-val {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 76px;
+        font-weight: 700;
+        color: #eaf0f8;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      [data-composition-id="s4-proof"] .stat-count-unit {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #8b98ab;
+      }
+
+      /* Footer */
+      [data-composition-id="s4-proof"] .footer-row {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-top: 56px;
+      }
+
+      [data-composition-id="s4-proof"] .pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        color: #2ee6a6;
+        padding: 12px 22px;
+        background: rgba(46, 230, 166, 0.08);
+        border: 1px solid rgba(46, 230, 166, 0.3);
+        border-radius: 999px;
+        opacity: 0;
+      }
+
+      [data-composition-id="s4-proof"] .facilitator-tag {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: #8b98ab;
+        padding: 12px 22px;
+        background: rgba(139, 108, 255, 0.08);
+        border: 1px solid rgba(139, 108, 255, 0.28);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+      }
+
+      [data-composition-id="s4-proof"] .facilitator-tag .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #8b6cff;
+        display: inline-block;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        const ID = '[data-composition-id="s4-proof"]';
+        const q = (sel) => ID + " " + sel;
+
+        // ---- Count-up helper (deterministic, writes innerText) ----
+        function countUp(selector, from, to, decimals, time, dur) {
+          const obj = { val: from };
+          tl.to(
+            obj,
+            {
+              val: to,
+              duration: dur,
+              ease: "power2.out",
+              onUpdate: () => {
+                const el = document.querySelector(ID + " " + selector);
+                if (el) el.innerText = obj.val.toFixed(decimals);
+              },
+            },
+            time
+          );
+        }
+
+        // ---- Initial states ----
+        gsap.set(q(".content"), { opacity: 0 });
+        gsap.set(q(".kicker"), { y: 24 });
+        gsap.set(q(".title"), { y: 30 });
+        gsap.set(q(".card-1"), { y: 70 });
+        gsap.set(q(".card-2"), { y: 70 });
+
+        // ============================================================
+        // BEAT 0 — global content fade in (0 .. 0.45)
+        // ============================================================
+        tl.to(q(".content"), { opacity: 1, duration: 0.45, ease: "power2.out" }, 0);
+
+        // ============================================================
+        // BEAT 1 — kicker + title rise in (0.5 .. 1.5)
+        // ============================================================
+        tl.to(
+          q(".kicker"),
+          { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+          0.5
+        );
+        tl.to(
+          q(".title"),
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          0.7
+        );
+
+        // ============================================================
+        // BEAT 2 — Card 1 slides up + springs, check pops, ring pulse (1.5 .. 3)
+        // ============================================================
+        tl.to(
+          q(".card-1"),
+          { opacity: 1, y: 0, duration: 0.9, ease: "back.out(1.5)" },
+          1.5
+        );
+        tl.to(
+          q(".card-1 .check-mark"),
+          { scale: 1, duration: 0.6, ease: "back.out(1.8)" },
+          2.15
+        );
+        // green ring pulse on card 1
+        tl.fromTo(
+          q(".card-1 .card-ring"),
+          { opacity: 0.85, scale: 1 },
+          { opacity: 0, scale: 1.04, duration: 0.8, ease: "power2.out" },
+          2.2
+        );
+
+        // ============================================================
+        // BEAT 3 — Card 2 slides up staggered, check pops (3 .. 4.5)
+        // ============================================================
+        tl.to(
+          q(".card-2"),
+          { opacity: 1, y: 0, duration: 0.9, ease: "back.out(1.5)" },
+          3.0
+        );
+        tl.to(
+          q(".card-2 .check-mark"),
+          { scale: 1, duration: 0.6, ease: "back.out(1.8)" },
+          3.65
+        );
+        tl.fromTo(
+          q(".card-2 .card-ring"),
+          { opacity: 0.85, scale: 1 },
+          { opacity: 0, scale: 1.04, duration: 0.8, ease: "power2.out" },
+          3.7
+        );
+
+        // ============================================================
+        // BEAT 4 — hero stat counts up 0.00 -> 0.20 + 0 -> 2 (4.5 .. 6.5)
+        // ============================================================
+        tl.to(
+          q(".stat-number"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.6
+        );
+        tl.to(
+          q(".stat-divider"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.7
+        );
+        tl.to(
+          q(".stat-count"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.8
+        );
+        // gold amount 0.00 -> 0.20
+        countUp(".stat-val", 0, 0.2, 2, 4.7, 1.4);
+        // settlements 0 -> 2 (integer)
+        (function () {
+          const obj = { val: 0 };
+          tl.to(
+            obj,
+            {
+              val: 2,
+              duration: 1.2,
+              ease: "power2.out",
+              onUpdate: () => {
+                const el = document.querySelector(q(".stat-count-val"));
+                if (el) el.innerText = Math.round(obj.val).toString();
+              },
+            },
+            4.8
+          );
+        })();
+        // tiny gold pop when amount lands
+        tl.fromTo(
+          q(".stat-val"),
+          { scale: 1 },
+          { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          6.05
+        );
+
+        // ============================================================
+        // BEAT 5 — pill + facilitator tag fade in, green glow pulse across cards (6.5 .. 8.5)
+        // ============================================================
+        tl.to(
+          q(".pill"),
+          { opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.5)" },
+          6.6
+        );
+        tl.fromTo(
+          q(".pill"),
+          { y: 14 },
+          { y: 0, duration: 0.6, ease: "back.out(1.5)" },
+          6.6
+        );
+        tl.to(
+          q(".facilitator-tag"),
+          { opacity: 1, duration: 0.6, ease: "back.out(1.5)" },
+          6.8
+        );
+        tl.fromTo(
+          q(".facilitator-tag"),
+          { y: 14 },
+          { y: 0, duration: 0.6, ease: "back.out(1.5)" },
+          6.8
+        );
+        // "confirmed" green glow pulse across BOTH cards (border + shadow)
+        tl.to(
+          q(".card"),
+          {
+            borderColor: "rgba(46,230,166,0.7)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.5), 0 0 46px rgba(46,230,166,0.32)",
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.12,
+          },
+          7.0
+        );
+        tl.to(
+          q(".card"),
+          {
+            borderColor: "rgba(46,230,166,0.25)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.5), 0 0 0px rgba(46,230,166,0)",
+            duration: 0.9,
+            ease: "power2.inOut",
+            stagger: 0.12,
+          },
+          7.7
+        );
+
+        // ============================================================
+        // BEAT 6 — gentle hold w/ slow breathing on cards (8.5 .. 10.6)
+        // ============================================================
+        tl.to(
+          q(".card-1"),
+          { y: -8, duration: 1.05, ease: "sine.inOut" },
+          8.5
+        );
+        tl.to(
+          q(".card-1"),
+          { y: 0, duration: 1.05, ease: "sine.inOut" },
+          9.55
+        );
+        tl.to(
+          q(".card-2"),
+          { y: -8, duration: 1.05, ease: "sine.inOut" },
+          8.65
+        );
+        tl.to(
+          q(".card-2"),
+          { y: 0, duration: 1.05, ease: "sine.inOut" },
+          9.7
+        );
+        // slow breathing on the green glow throughout the hold
+        tl.to(
+          q(".green-glow"),
+          { opacity: 1, duration: 1.05, ease: "sine.inOut" },
+          8.5
+        );
+        tl.to(
+          q(".green-glow"),
+          { opacity: 0.8, duration: 1.05, ease: "sine.inOut" },
+          9.55
+        );
+
+        // ============================================================
+        // BEAT 7 — fade out (last ~0.4s)
+        // ============================================================
+        tl.to(
+          q(".content"),
+          { opacity: 0, y: -18, duration: 0.4, ease: "power2.in" },
+          10.6
+        );
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["s4-proof"] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,0 +1,11 @@
+{
+  "name": "casper-promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.12 preview",
+    "check": "npx --yes hyperframes@0.7.12 lint && npx --yes hyperframes@0.7.12 validate && npx --yes hyperframes@0.7.12 inspect",
+    "render": "npx --yes hyperframes@0.7.12 render",
+    "publish": "npx --yes hyperframes@0.7.12 publish"
+  }
+}

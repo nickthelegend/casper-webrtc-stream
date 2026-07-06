@@ -1,0 +1,344 @@
+<template id="06-packages-template">
+  <div
+    id="root"
+    data-composition-id="06-packages"
+    data-width="1920"
+    data-height="1080"
+    data-duration="5.5"
+  >
+    <div class="stage">
+      <!-- Ambient background layers -->
+      <div class="bg-base"></div>
+      <div class="bg-grid"></div>
+      <div class="bg-glow"></div>
+      <!-- violet glow that swells UNDER the cards on settle -->
+      <div class="card-glow"></div>
+
+      <!-- Content band (top 83%, above caption keep-out at y=896) -->
+      <div class="band">
+        <!-- Mono kicker -->
+        <div class="kicker">PUBLISHED&nbsp;ON&nbsp;NPM</div>
+
+        <!-- Two npm package cards, stacked -->
+        <div class="cards">
+          <div class="pkg-card" data-i="0">
+            <div class="npm-mark"><span class="npm-txt">npm</span></div>
+            <div class="pkg-name">
+              <span class="scope">@nickthelegend69/</span><span class="name">webrtc-payment-sdk-core</span>
+            </div>
+          </div>
+
+          <div class="pkg-card" data-i="1">
+            <div class="npm-mark"><span class="npm-txt">npm</span></div>
+            <div class="pkg-name">
+              <span class="scope">@nickthelegend69/</span><span class="name">webrtc-payment-rail-x402</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three pill labels that tick in -->
+        <div class="pills">
+          <span class="pill" data-i="0">any&nbsp;rail</span>
+          <span class="pdot" data-i="0">·</span>
+          <span class="pill" data-i="1">any&nbsp;app</span>
+          <span class="pdot" data-i="1">·</span>
+          <span class="pill" data-i="2">any&nbsp;agent</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background-color: #070a10;
+        font-family: "Inter", sans-serif;
+      }
+
+      #root .stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      #root .bg-base {
+        position: absolute;
+        inset: 0;
+        background-color: #070a10;
+      }
+
+      /* faint dot-grid */
+      #root .bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(139, 152, 171, 0.05) 1px, transparent 1px);
+        background-size: 26px 26px;
+      }
+
+      /* subtle ambient violet glow, top-area */
+      #root .bg-glow {
+        position: absolute;
+        inset: -10%;
+        background: radial-gradient(620px 420px at 82% 16%, rgba(139, 108, 255, 0.14), transparent 60%);
+        will-change: opacity;
+      }
+
+      /* violet glow that swells UNDER the cards on settle (center ~y=520) */
+      #root .card-glow {
+        position: absolute;
+        left: 50%;
+        top: 520px;
+        width: 1200px;
+        height: 760px;
+        transform: translate(-50%, -50%) scale(0.86);
+        background: radial-gradient(
+          closest-side,
+          rgba(139, 108, 255, 0.26) 0%,
+          rgba(139, 108, 255, 0.10) 44%,
+          rgba(7, 10, 16, 0) 72%
+        );
+        opacity: 0;
+        pointer-events: none;
+        will-change: transform, opacity;
+      }
+
+      /* Content band — everything sits inside, above y=896 */
+      #root .band {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1680px;
+        height: 896px;
+      }
+
+      #root .kicker {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8b98ab;
+        opacity: 0;
+        will-change: transform, opacity;
+        white-space: nowrap;
+      }
+
+      /* ---- The two stacked package cards ---- */
+      #root .cards {
+        position: absolute;
+        top: 282px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        width: 1140px;
+      }
+
+      #root .pkg-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        padding: 32px 44px;
+        border-radius: 18px;
+        background: #0d121c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.05) inset,
+          0 26px 60px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform-origin: center center;
+        will-change: transform, opacity;
+      }
+
+      /* CSS-drawn npm mark — muted-red lowercase tile */
+      #root .npm-mark {
+        position: relative;
+        flex: 0 0 auto;
+        width: 90px;
+        height: 74px;
+        border-radius: 12px;
+        background: #cb3837;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.18) inset,
+          0 10px 24px rgba(203, 56, 55, 0.32);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transform-origin: center center;
+        will-change: transform;
+      }
+
+      #root .npm-txt {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+      }
+
+      #root .pkg-name {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.5;
+        letter-spacing: -0.005em;
+        white-space: nowrap;
+        text-overflow: clip;
+      }
+
+      #root .pkg-name .scope {
+        color: #8b98ab;
+      }
+
+      #root .pkg-name .name {
+        color: #b9a6ff;
+      }
+
+      /* ---- Three pill labels ---- */
+      #root .pills {
+        position: absolute;
+        top: 720px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        white-space: nowrap;
+      }
+
+      #root .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 16px 32px;
+        border-radius: 9999px;
+        background: #111927;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: -0.005em;
+        color: #eaf0f8;
+        opacity: 0;
+        transform-origin: center center;
+        will-change: transform, opacity;
+      }
+
+      #root .pdot {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1;
+        color: #46556e;
+        opacity: 0;
+        will-change: opacity;
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+
+        const Q = (s) => '#root ' + s;
+
+        const stage    = Q(".stage");
+        const bgGlow   = Q(".bg-glow");
+        const cardGlow = Q(".card-glow");
+        const kicker   = Q(".kicker");
+        const cards    = gsap.utils.toArray(Q(".pkg-card"));
+        const marks    = gsap.utils.toArray(Q(".npm-mark"));
+        const pills    = gsap.utils.toArray(Q(".pill"));
+        const pdots    = gsap.utils.toArray(Q(".pdot"));
+
+        // --- Initial states ---
+        tl.set(stage, { opacity: 0 });
+        tl.set(bgGlow, { opacity: 0.7 });
+        tl.set(cardGlow, { opacity: 0, scale: 0.86 });
+        tl.set(kicker, { y: 14, opacity: 0 });
+        tl.set(cards, { y: 26, scale: 0.94, opacity: 0 });
+        tl.set(marks, { scale: 0 });
+        tl.set(pills, { y: 16, scale: 0.9, opacity: 0 });
+        tl.set(pdots, { opacity: 0 });
+
+        // --- Scene fade IN (first ~0.4s) — hero visible by t≤0.5s ---
+        tl.fromTo(stage, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.0);
+
+        // --- Kicker fades up ---
+        tl.to(kicker, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.12);
+
+        // --- Card 1 springs in, then its npm mark pops ---
+        tl.to(cards[0], {
+          y: 0, scale: 1, opacity: 1,
+          duration: 0.62, ease: "back.out(1.4)",
+        }, 0.34);
+        tl.to(marks[0], {
+          scale: 1, duration: 0.4, ease: "back.out(2.4)",
+        }, 0.62);
+
+        // --- Card 2 springs in after, then its npm mark pops ---
+        tl.to(cards[1], {
+          y: 0, scale: 1, opacity: 1,
+          duration: 0.62, ease: "back.out(1.4)",
+        }, 0.74);
+        tl.to(marks[1], {
+          scale: 1, duration: 0.4, ease: "back.out(2.4)",
+        }, 1.02);
+
+        // --- Violet glow swells UNDER the cards as they settle ---
+        tl.to(cardGlow, {
+          opacity: 1, scale: 1,
+          duration: 1.2, ease: "power3.out",
+        }, 0.95);
+
+        // --- Three pills + separators stagger in ---
+        const pillStart = 1.55;
+        const pillGap = 0.34;
+        pills.forEach((pill, i) => {
+          const t = pillStart + i * pillGap;
+          tl.to(pill, {
+            y: 0, scale: 1, opacity: 1,
+            duration: 0.46, ease: "back.out(1.8)",
+          }, t);
+          if (pdots[i]) {
+            tl.to(pdots[i], { opacity: 1, duration: 0.3, ease: "power2.out" }, t + 0.12);
+          }
+        });
+
+        // --- Settle: glow breathes gently through the hold (no exit) ---
+        tl.to(cardGlow, {
+          opacity: 0.82, scale: 1.07,
+          duration: 1.6, ease: "sine.inOut",
+        }, 3.0);
+        tl.to(cardGlow, {
+          opacity: 1, scale: 1.02,
+          duration: 1.0, ease: "sine.inOut",
+        }, 4.6);
+
+        // NO exit tween — the framework owns the transition out.
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["06-packages"] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,0 +1,660 @@
+<template id="04-code-template">
+  <div
+    id="root"
+    data-composition-id="04-code"
+    data-width="1920"
+    data-height="1080"
+    data-duration="9.9"
+  >
+    <div class="dot-grid"></div>
+
+    <!-- Kicker -->
+    <div class="kicker">DROP IT INTO ANY APP</div>
+
+    <!-- Card A: server.ts (LEFT) -->
+    <div class="code-card card-a">
+      <div class="chrome">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="filename">server.ts</span>
+      </div>
+      <div class="code-body">
+        <div class="code-line line-a1"><span class="ln">1</span><span class="code-text"></span></div>
+        <div class="code-line line-a2"><span class="ln">2</span><span class="code-text"></span></div>
+        <div class="code-line line-a3"><span class="ln">3</span><span class="code-text"></span></div>
+        <div class="code-line line-a4"><span class="ln">4</span><span class="code-text"></span></div>
+        <div class="code-line line-a5"><span class="ln">5</span><span class="code-text"></span></div>
+        <div class="code-line line-a6"><span class="ln">6</span><span class="code-text"></span></div>
+        <div class="code-line line-a7"><span class="ln">7</span><span class="code-text"></span></div>
+        <!-- highlight sweep over the paymentMiddleware usage -->
+        <div class="highlight-sweep sweep-a"></div>
+      </div>
+    </div>
+
+    <!-- Card B: client.ts (RIGHT) -->
+    <div class="code-card card-b">
+      <div class="chrome">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="filename">client.ts</span>
+      </div>
+      <div class="code-body">
+        <div class="code-line line-b1"><span class="ln">1</span><span class="code-text"></span></div>
+        <div class="code-line line-b2"><span class="ln">2</span><span class="code-text"></span></div>
+        <div class="code-line line-b3"><span class="ln">3</span><span class="code-text"></span></div>
+        <div class="code-line line-b4"><span class="ln">4</span><span class="code-text"></span></div>
+        <div class="code-line line-b5"><span class="ln">5</span><span class="code-text"></span></div>
+        <div class="code-line line-b6"><span class="ln">6</span><span class="code-text"></span></div>
+        <div class="code-line line-b7">
+          <span class="ln">7</span>
+          <span class="code-text comment-host">
+            <span class="comment comment-402">// 402 payment required</span>
+            <span class="comment comment-200">// 200 OK</span>
+          </span>
+        </div>
+        <!-- highlight sweep over the wrapFetch usage -->
+        <div class="highlight-sweep sweep-b"></div>
+      </div>
+    </div>
+
+    <!-- Caption-free summary label, raised to sit under the cards (<= y=860) -->
+    <div class="summary-label">server + client &middot; one line each</div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        background-color: #070a10;
+        position: relative;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #eaf0f8;
+        opacity: 0;
+      }
+
+      #root .dot-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(rgba(139, 152, 171, 0.06) 1px, transparent 1px);
+        background-size: 34px 34px;
+        opacity: 0.6;
+      }
+
+      #root .kicker {
+        position: absolute;
+        top: 120px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: "JetBrains Mono", "Space Grotesk", monospace;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.42em;
+        color: #8b98ab;
+        text-transform: uppercase;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      #root .code-card {
+        position: absolute;
+        top: 252px;
+        width: 840px;
+        background: #0d121c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        overflow: hidden;
+        opacity: 0;
+        transform-origin: center center;
+        will-change: transform, opacity;
+      }
+
+      #root .card-a {
+        left: 110px;
+      }
+
+      #root .card-b {
+        left: 970px;
+      }
+
+      #root .chrome {
+        height: 52px;
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.015);
+      }
+
+      #root .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        margin-right: 9px;
+        opacity: 0.55;
+      }
+      #root .dot-r {
+        background: #ff5f57;
+      }
+      #root .dot-y {
+        background: #febc2e;
+      }
+      #root .dot-g {
+        background: #28c840;
+      }
+
+      #root .filename {
+        margin-left: 16px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        font-weight: 400;
+        color: #8b98ab;
+        letter-spacing: 0.01em;
+      }
+
+      #root .code-body {
+        position: relative;
+        padding: 28px 40px 30px 36px;
+      }
+
+      #root .code-line {
+        display: flex;
+        align-items: baseline;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.55;
+        min-height: 34px;
+        white-space: pre;
+      }
+
+      #root .ln {
+        display: inline-block;
+        width: 26px;
+        flex: 0 0 26px;
+        color: #5b6b80;
+        font-size: 16px;
+        user-select: none;
+        text-align: right;
+        margin-right: 20px;
+      }
+
+      #root .code-text {
+        position: relative;
+        white-space: pre;
+      }
+
+      /* syntax token colors (set on injected spans) */
+      #root .tok-kw {
+        color: #8b6cff;
+      }
+      #root .tok-fn {
+        color: #8b6cff;
+      }
+      /* hero: the SDK package strings POP in green with a soft glow */
+      #root .tok-pkg {
+        color: #2ee6a6;
+        text-shadow:
+          0 0 10px rgba(46, 230, 166, 0.55),
+          0 0 22px rgba(46, 230, 166, 0.3);
+      }
+      #root .tok-str {
+        color: #ffc24b;
+      }
+      #root .tok-com {
+        color: #5b6b80;
+      }
+      #root .tok-pn {
+        color: #eaf0f8;
+      }
+      /* named exports — violet, carry an underline/glow sweep on reveal */
+      #root .tok-exp {
+        color: #b9a6ff;
+        font-weight: 500;
+      }
+
+      /* caret */
+      #root .caret {
+        display: inline-block;
+        width: 2px;
+        height: 22px;
+        margin-left: 1px;
+        background: #8b6cff;
+        transform: translateY(4px);
+        opacity: 0;
+      }
+
+      /* highlight sweep underline/glow under a token */
+      #root .highlight-sweep {
+        position: absolute;
+        height: 32px;
+        border-radius: 6px;
+        background: linear-gradient(
+          90deg,
+          rgba(139, 108, 255, 0) 0%,
+          rgba(139, 108, 255, 0.22) 18%,
+          rgba(139, 108, 255, 0.22) 82%,
+          rgba(139, 108, 255, 0) 100%
+        );
+        box-shadow: 0 0 26px rgba(139, 108, 255, 0.45);
+        border-bottom: 2px solid #8b6cff;
+        opacity: 0;
+        pointer-events: none;
+        transform-origin: left center;
+      }
+
+      /* sweep sits under "paymentMiddleware" — server line 6, col offset for indent */
+      #root .sweep-a {
+        top: 126px;
+        left: 86px;
+        width: 224px;
+      }
+
+      /* sweep sits under "wrapFetch" — client line 5 */
+      #root .sweep-b {
+        top: 126px;
+        left: 226px;
+        width: 122px;
+      }
+
+      /* comment cross-fade hosts */
+      #root .comment-host {
+        position: relative;
+        display: inline-block;
+      }
+
+      #root .comment {
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: pre;
+      }
+
+      #root .comment-402 {
+        color: #ff453a;
+        opacity: 0;
+      }
+
+      #root .comment-200 {
+        color: #2ee6a6;
+        text-shadow: 0 0 10px rgba(46, 230, 166, 0.45);
+        opacity: 0;
+      }
+
+      /* bottom summary label — raised to sit just under the cards */
+      #root .summary-label {
+        position: absolute;
+        top: 824px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #8b98ab;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const ROOT = "#root";
+        const q = (sel) => document.querySelector(ROOT + " " + sel);
+
+        const tl = gsap.timeline({ paused: true });
+
+        // ---- Syntax highlighting helper -------------------------------------
+        // Each "line" is described as an array of [text, tokenClass] segments.
+        // We render progressively for a typewriter feel: a {val} object is
+        // tweened from 0..totalChars and onUpdate rewrites the visible prefix.
+        function fullText(segments) {
+          return segments.map((s) => s[0]).join("");
+        }
+
+        // Render the first `n` characters of a segmented line as colored spans.
+        function renderPrefix(el, segments, n, withCaret) {
+          let remaining = Math.max(0, Math.min(n, fullText(segments).length));
+          let html = "";
+          for (let i = 0; i < segments.length && remaining > 0; i++) {
+            const [text, cls] = segments[i];
+            const take = Math.min(text.length, remaining);
+            const chunk = text.substring(0, take);
+            const safe = chunk
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;");
+            html += '<span class="' + cls + '">' + safe + "</span>";
+            remaining -= take;
+          }
+          if (withCaret) html += '<span class="caret">&nbsp;</span>';
+          el.innerHTML = html;
+        }
+
+        // Build a typewriter tween for one code line. Returns the end time.
+        function typeLine(lineSel, segments, startAt, speed) {
+          const el = q(lineSel + " .code-text");
+          const total = fullText(segments).length;
+          const obj = { val: 0 };
+          tl.call(
+            () => {
+              renderPrefix(el, segments, 0, true);
+            },
+            null,
+            startAt
+          );
+          tl.to(
+            obj,
+            {
+              val: total,
+              duration: total / speed,
+              ease: "none",
+              onUpdate: () => {
+                renderPrefix(el, segments, Math.ceil(obj.val), true);
+              },
+            },
+            startAt
+          );
+          // settle: drop the caret at the end
+          tl.call(
+            () => {
+              renderPrefix(el, segments, total, false);
+            },
+            null,
+            startAt + total / speed
+          );
+          return startAt + total / speed;
+        }
+
+        // ---- Line definitions (segmented for color) -------------------------
+        // Card A — server.ts (imports lead; package strings are the hero)
+        const a1 = [
+          ["import", "tok-kw"],
+          [" { ", "tok-pn"],
+          ["paymentMiddleware", "tok-exp"],
+          [" } ", "tok-pn"],
+          ["from", "tok-kw"],
+        ];
+        const a2 = [
+          ['  "@nickthelegend69/webrtc-payment-sdk-core"', "tok-pkg"],
+        ];
+        const a3 = [
+          ["import", "tok-kw"],
+          [" { ", "tok-pn"],
+          ["CasperX402Rail", "tok-fn"],
+          [" } ", "tok-pn"],
+          ["from", "tok-kw"],
+        ];
+        const a4 = [
+          ['  "@nickthelegend69/webrtc-payment-rail-x402"', "tok-pkg"],
+        ];
+        const a5 = [
+          ["app", "tok-pn"],
+          [".", "tok-pn"],
+          ["get", "tok-fn"],
+          ["(", "tok-pn"],
+          ['"/premium"', "tok-str"],
+          [",", "tok-pn"],
+        ];
+        const a6 = [
+          ["  ", "tok-pn"],
+          ["paymentMiddleware", "tok-fn"],
+          ["({ ", "tok-pn"],
+          ["rail", "tok-pn"],
+          [", ", "tok-pn"],
+          ["amount", "tok-pn"],
+          [", ", "tok-pn"],
+          ["payTo", "tok-pn"],
+          [" }),", "tok-pn"],
+        ];
+        const a7 = [
+          ["  ", "tok-pn"],
+          ["handler", "tok-pn"],
+          [")", "tok-pn"],
+        ];
+
+        // Card B — client.ts (imports lead; package strings are the hero)
+        const b1 = [
+          ["import", "tok-kw"],
+          [" { ", "tok-pn"],
+          ["wrapFetch", "tok-exp"],
+          [" } ", "tok-pn"],
+          ["from", "tok-kw"],
+        ];
+        const b2 = [
+          ['  "@nickthelegend69/webrtc-payment-sdk-core"', "tok-pkg"],
+        ];
+        const b3 = [
+          ["import", "tok-kw"],
+          [" { ", "tok-pn"],
+          ["CasperX402Rail", "tok-fn"],
+          [", ", "tok-pn"],
+          ["makeEd25519SignFn", "tok-fn"],
+          [" }", "tok-pn"],
+        ];
+        const b4 = [
+          ["  ", "tok-pn"],
+          ["from", "tok-kw"],
+          [" ", "tok-pn"],
+          ['"@nickthelegend69/webrtc-payment-rail-x402"', "tok-pkg"],
+        ];
+        const b5 = [
+          ["const", "tok-kw"],
+          [" pay ", "tok-pn"],
+          ["= ", "tok-pn"],
+          ["wrapFetch", "tok-fn"],
+          ["(", "tok-pn"],
+          ["fetch", "tok-pn"],
+          [", { ", "tok-pn"],
+          ["rail", "tok-pn"],
+          [", ", "tok-pn"],
+          ["signFn", "tok-pn"],
+          [" })", "tok-pn"],
+        ];
+        const b6 = [
+          ["const", "tok-kw"],
+          [" res ", "tok-pn"],
+          ["= ", "tok-pn"],
+          ["await", "tok-kw"],
+          [" ", "tok-pn"],
+          ["pay", "tok-fn"],
+          ["(", "tok-pn"],
+          ['"/premium"', "tok-str"],
+          [")", "tok-pn"],
+        ];
+
+        // ---- Initial states -------------------------------------------------
+        gsap.set(ROOT + " .code-card", { y: 46, scale: 0.965 });
+        gsap.set(ROOT + " .kicker", { y: -14 });
+        gsap.set(ROOT + " .summary-label", { y: 12 });
+        gsap.set(ROOT + " .highlight-sweep", { scaleX: 0 });
+        gsap.set(ROOT + " .comment-200", { y: 6 });
+
+        // =====================================================================
+        // BEAT 0 — fade the whole scene up gently (0 .. 0.4s)
+        // =====================================================================
+        tl.to(ROOT, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+
+        // =====================================================================
+        // BEAT 1 — kicker + BOTH card frames spring in side by side.
+        //          Hero (both cards) visible by t<=0.5s. (0.1 .. 0.95s)
+        // =====================================================================
+        tl.to(
+          ROOT + " .kicker",
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          0.18
+        );
+        tl.to(
+          ROOT + " .card-a",
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" },
+          0.2
+        );
+        tl.to(
+          ROOT + " .card-b",
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" },
+          0.3
+        );
+
+        // =====================================================================
+        // BEAT 2 — the IMPORTS reveal/type line-by-line in BOTH cards.
+        //          The package strings land with their glow — hero moment.
+        //          (0.85 .. 4.6s) — interleave server/client so both build.
+        // =====================================================================
+        // Server imports
+        typeLine(".line-a1", a1, 0.9, 34);
+        typeLine(".line-a2", a2, 1.45, 60); // package string — lands with glow
+        typeLine(".line-a3", a3, 2.35, 34);
+        typeLine(".line-a4", a4, 2.9, 60); // package string — lands with glow
+
+        // Client imports (slightly offset so eyes catch both)
+        typeLine(".line-b1", b1, 1.15, 34);
+        typeLine(".line-b2", b2, 1.7, 60); // package string — lands with glow
+        typeLine(".line-b3", b3, 2.6, 38);
+        typeLine(".line-b4", b4, 3.3, 56); // package string — lands with glow
+
+        // =====================================================================
+        // BEAT 3 — the USAGE lines reveal, with the paymentMiddleware +
+        //          wrapFetch violet highlight sweeps (4.4 .. 7.5s)
+        // =====================================================================
+        // Server usage
+        typeLine(".line-a5", a5, 4.45, 38);
+        typeLine(".line-a6", a6, 5.0, 44);
+        typeLine(".line-a7", a7, 5.9, 34);
+
+        // Client usage
+        typeLine(".line-b5", b5, 4.7, 44);
+        typeLine(".line-b6", b6, 5.7, 40);
+
+        // paymentMiddleware highlight sweep (server, line 6) — fires as it lands
+        tl.to(
+          ROOT + " .sweep-a",
+          { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" },
+          6.2
+        );
+        tl.to(
+          ROOT + " .sweep-a",
+          { boxShadow: "0 0 40px rgba(139,108,255,0.7)", duration: 0.4, ease: "sine.inOut" },
+          6.5
+        );
+        tl.to(
+          ROOT + " .sweep-a",
+          { boxShadow: "0 0 24px rgba(139,108,255,0.4)", duration: 0.5, ease: "sine.inOut" },
+          6.9
+        );
+
+        // wrapFetch highlight sweep (client, line 5)
+        tl.to(
+          ROOT + " .sweep-b",
+          { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" },
+          6.35
+        );
+        tl.to(
+          ROOT + " .sweep-b",
+          { boxShadow: "0 0 40px rgba(139,108,255,0.7)", duration: 0.4, ease: "sine.inOut" },
+          6.65
+        );
+        tl.to(
+          ROOT + " .sweep-b",
+          { boxShadow: "0 0 24px rgba(139,108,255,0.4)", duration: 0.5, ease: "sine.inOut" },
+          7.05
+        );
+
+        // The 402 comment "types" on (client, line 7) after b6 settles
+        tl.set(ROOT + " .comment-402", { opacity: 1 }, 6.45);
+        (function typeComment() {
+          const el = q(".comment-402");
+          const txt = "// 402 payment required";
+          const obj = { val: 0 };
+          tl.call(
+            () => {
+              if (el) el.textContent = "";
+            },
+            null,
+            6.45
+          );
+          tl.to(
+            obj,
+            {
+              val: txt.length,
+              duration: txt.length / 46,
+              ease: "none",
+              onUpdate: () => {
+                if (el) el.textContent = txt.substring(0, Math.ceil(obj.val));
+              },
+            },
+            6.45
+          );
+        })();
+
+        // =====================================================================
+        // BEAT 4 — the client's last line 402 (red) cross-dissolves to
+        //          200 OK (green) (7.4 .. 8.8s)
+        // =====================================================================
+        tl.to(
+          ROOT + " .comment-402",
+          { opacity: 0, y: -6, filter: "blur(2px)", duration: 0.55, ease: "power2.in" },
+          7.45
+        );
+        tl.to(
+          ROOT + " .comment-200",
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          7.75
+        );
+        tl.fromTo(
+          ROOT + " .comment-200",
+          { scale: 0.96 },
+          { scale: 1, duration: 0.5, ease: "back.out(2.2)" },
+          7.75
+        );
+
+        // =====================================================================
+        // BEAT 5 — small label fades in centered below the cards (8.3 .. 9.0s)
+        // =====================================================================
+        tl.to(
+          ROOT + " .summary-label",
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          8.35
+        );
+        // both cards drift up a hair together to feel "locked in"
+        tl.to(
+          ROOT + " .code-card",
+          { y: -8, duration: 0.9, ease: "power2.out" },
+          8.4
+        );
+
+        // =====================================================================
+        // BEAT 6 — hold with a faint idle shimmer on the package glow
+        //          (9.0 .. 9.9s) — NO exit tween / no end fade-out.
+        // =====================================================================
+        tl.to(
+          ROOT + " .tok-pkg",
+          { textShadow: "0 0 16px rgba(46,230,166,0.8), 0 0 30px rgba(46,230,166,0.45)", duration: 0.45, ease: "sine.inOut" },
+          9.0
+        );
+        tl.to(
+          ROOT + " .tok-pkg",
+          { textShadow: "0 0 10px rgba(46,230,166,0.55), 0 0 22px rgba(46,230,166,0.3)", duration: 0.5, ease: "sine.inOut" },
+          9.45
+        );
+
+        // NO exit tween — the framework owns the transition out.
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["04-code"] = tl;
+      })();
+    </script>
+  </div>
+</template>

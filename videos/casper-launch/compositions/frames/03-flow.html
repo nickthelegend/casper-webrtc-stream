@@ -1,0 +1,796 @@
+<template id="03-flow-template">
+  <div
+    id="root"
+    data-composition-id="03-flow"
+    data-width="1920"
+    data-height="1080"
+    data-duration="13.4"
+  >
+    <div class="canvas">
+      <div class="dot-grid"></div>
+      <div class="violet-glow"></div>
+
+      <!-- Stage holds all animated content for global fade in -->
+      <div class="stage">
+        <!-- Kicker -->
+        <div class="kicker">THE x402 FLOW</div>
+
+        <!-- Request lane (hairline track between client + server) -->
+        <div class="lane">
+          <div class="lane-track"></div>
+        </div>
+
+        <!-- Client node (left) -->
+        <div class="node node-client">
+          <div class="node-head">
+            <span class="node-dot dot-violet"></span>
+            <span class="node-title">CLIENT</span>
+          </div>
+          <div class="node-sub">consumer app</div>
+          <div class="node-status" data-status="client">idle</div>
+        </div>
+
+        <!-- Server node (right) -->
+        <div class="node node-server">
+          <div class="node-head">
+            <span class="node-dot dot-muted"></span>
+            <span class="node-title">SERVER</span>
+          </div>
+          <div class="node-sub">/premium resource</div>
+          <div class="node-status" data-status="server">listening</div>
+        </div>
+
+        <!-- Casper / facilitator node (lower center) -->
+        <div class="node node-casper">
+          <div class="node-head">
+            <span class="node-dot dot-green"></span>
+            <span class="node-title">CASPER</span>
+          </div>
+          <div class="node-sub">facilitator · settle</div>
+        </div>
+
+        <!-- Casper link line (server -> casper) -->
+        <div class="casper-link">
+          <div class="casper-link-fill"></div>
+        </div>
+
+        <!-- Traveling packet (the hero) -->
+        <div class="packet">
+          <span class="packet-method">GET</span>
+          <span class="packet-path">/premium</span>
+        </div>
+
+        <!-- 402 badge (server -> client) -->
+        <div class="badge badge-402">
+          <span class="badge-code">402</span>
+          <span class="badge-label">Payment Required</span>
+        </div>
+
+        <!-- 200 badge (server -> client) -->
+        <div class="badge badge-200">
+          <span class="badge-check">&#10003;</span>
+          <span class="badge-code">200</span>
+          <span class="badge-label">OK</span>
+        </div>
+
+        <!-- Requirements card (near client) -->
+        <div class="reqs-card">
+          <div class="reqs-row">
+            <span class="reqs-key">amount</span>
+            <span class="reqs-val val-gold">0.10 X402</span>
+          </div>
+          <div class="reqs-row">
+            <span class="reqs-key">payTo</span>
+            <span class="reqs-val val-mono">8752&#8230;f39e</span>
+          </div>
+        </div>
+
+        <!-- Signed chip (near client) -->
+        <div class="chip chip-signed">
+          <span class="chip-tag">EIP-712</span>
+          <span class="chip-text">&#10003; signed</span>
+        </div>
+
+        <!-- X-PAYMENT header pill (near client) -->
+        <div class="header-pill">X-PAYMENT</div>
+
+        <!-- Casper settlement: tx chip + spinner/check + label -->
+        <div class="tx-cluster">
+          <div class="tx-chip">
+            <span class="tx-spinner"></span>
+            <span class="tx-check">&#10003;</span>
+            <span class="tx-hash">tx 448eafae&#8230;</span>
+          </div>
+          <div class="tx-label">settled on-chain</div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        background-color: #070a10;
+        font-family: "Inter", sans-serif;
+        color: #eaf0f8;
+        overflow: hidden;
+      }
+
+      #root .canvas {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background-color: #070a10;
+      }
+
+      #root .dot-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(139, 152, 171, 0.05) 1px, transparent 1px);
+        background-size: 26px 26px;
+      }
+
+      #root .violet-glow {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        width: 1300px;
+        height: 720px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+          ellipse at center,
+          rgba(139, 108, 255, 0.16) 0%,
+          rgba(139, 108, 255, 0.05) 38%,
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+
+      #root .stage {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+
+      #root .kicker {
+        position: absolute;
+        left: 120px;
+        top: 110px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.34em;
+        color: #8b98ab;
+        text-transform: uppercase;
+      }
+
+      /* ---- Lane ---- */
+      #root .lane {
+        position: absolute;
+        left: 560px;
+        top: 420px;
+        width: 800px;
+        height: 2px;
+      }
+
+      #root .lane-track {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04) 0%,
+          rgba(255, 255, 255, 0.16) 50%,
+          rgba(255, 255, 255, 0.04) 100%
+        );
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      /* ---- Nodes ---- */
+      #root .node {
+        position: absolute;
+        width: 300px;
+        background: #0d121c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 26px 28px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+      }
+
+      #root .node-client {
+        left: 180px;
+        top: 330px;
+      }
+
+      #root .node-server {
+        left: 1440px;
+        top: 330px;
+      }
+
+      #root .node-casper {
+        left: 810px;
+        top: 600px;
+        width: 300px;
+        padding: 22px 26px;
+      }
+
+      #root .node-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #root .node-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        flex: none;
+      }
+
+      #root .dot-violet {
+        background: #8b6cff;
+        box-shadow: 0 0 12px rgba(139, 108, 255, 0.8);
+      }
+      #root .dot-green {
+        background: #2ee6a6;
+        box-shadow: 0 0 12px rgba(46, 230, 166, 0.8);
+      }
+      #root .dot-muted {
+        background: #8b98ab;
+      }
+
+      #root .node-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #eaf0f8;
+      }
+
+      #root .node-sub {
+        margin-top: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #8b98ab;
+      }
+
+      #root .node-status {
+        margin-top: 18px;
+        display: inline-block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        color: #8b98ab;
+        padding: 5px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      /* ---- Casper link (server -> casper, an L joint) ---- */
+      #root .casper-link {
+        position: absolute;
+        left: 960px;
+        top: 422px;
+        width: 2px;
+        height: 178px;
+        overflow: hidden;
+      }
+
+      #root .casper-link-fill {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(46, 230, 166, 0.05) 0%,
+          rgba(46, 230, 166, 0.45) 100%
+        );
+        transform: scaleY(0);
+        transform-origin: top center;
+      }
+
+      /* ---- Packet (hero) ---- */
+      #root .packet {
+        position: absolute;
+        left: 0;
+        top: 392px;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 18px;
+        background: rgba(139, 108, 255, 0.14);
+        border: 1px solid rgba(139, 108, 255, 0.55);
+        border-radius: 12px;
+        box-shadow: 0 8px 28px rgba(139, 108, 255, 0.32);
+        white-space: nowrap;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        transform: translateX(540px);
+      }
+
+      #root .packet-method {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        font-weight: 700;
+        color: #8b6cff;
+      }
+
+      #root .packet-path {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: #eaf0f8;
+      }
+
+      /* ---- Badges ---- */
+      #root .badge {
+        position: absolute;
+        top: 394px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+      }
+
+      #root .badge-402 {
+        left: 1340px;
+        background: rgba(255, 69, 58, 0.13);
+        border: 1px solid rgba(255, 69, 58, 0.55);
+      }
+
+      #root .badge-402 .badge-code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        font-weight: 700;
+        color: #ff453a;
+      }
+
+      #root .badge-402 .badge-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #ffc24b;
+      }
+
+      #root .badge-200 {
+        left: 1340px;
+        background: rgba(46, 230, 166, 0.13);
+        border: 1px solid rgba(46, 230, 166, 0.6);
+      }
+
+      #root .badge-200 .badge-check {
+        font-size: 16px;
+        color: #2ee6a6;
+        font-weight: 700;
+      }
+
+      #root .badge-200 .badge-code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        font-weight: 700;
+        color: #2ee6a6;
+      }
+
+      #root .badge-200 .badge-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #2ee6a6;
+      }
+
+      /* ---- Requirements card ---- */
+      #root .reqs-card {
+        position: absolute;
+        left: 180px;
+        top: 540px;
+        width: 300px;
+        background: #111927;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 18px 22px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      #root .reqs-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0;
+      }
+
+      #root .reqs-key {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #8b98ab;
+      }
+
+      #root .reqs-val {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #eaf0f8;
+      }
+
+      #root .val-gold {
+        color: #ffc24b;
+        font-weight: 700;
+      }
+
+      #root .val-mono {
+        color: #eaf0f8;
+      }
+
+      /* ---- Signed chip ---- */
+      #root .chip {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        white-space: nowrap;
+        opacity: 0;
+      }
+
+      #root .chip-signed {
+        left: 180px;
+        top: 540px;
+        background: rgba(139, 108, 255, 0.14);
+        border: 1px solid rgba(139, 108, 255, 0.55);
+        box-shadow: 0 8px 24px rgba(139, 108, 255, 0.28);
+        transform: scale(0.8);
+      }
+
+      #root .chip-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        font-weight: 700;
+        color: #8b6cff;
+      }
+
+      #root .chip-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        color: #eaf0f8;
+      }
+
+      /* ---- X-PAYMENT header pill ---- */
+      #root .header-pill {
+        position: absolute;
+        left: 180px;
+        top: 606px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: #8b6cff;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(139, 108, 255, 0.08);
+        border: 1px dashed rgba(139, 108, 255, 0.5);
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      /* ---- Tx cluster (settlement) — under the Casper node, kept above y=860 ---- */
+      #root .tx-cluster {
+        position: absolute;
+        left: 810px;
+        top: 718px;
+        width: 320px;
+        opacity: 0;
+      }
+
+      #root .tx-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        border-radius: 10px;
+        background: rgba(46, 230, 166, 0.1);
+        border: 1px solid rgba(46, 230, 166, 0.4);
+      }
+
+      #root .tx-spinner {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid rgba(46, 230, 166, 0.25);
+        border-top-color: #2ee6a6;
+        flex: none;
+      }
+
+      #root .tx-check {
+        width: 14px;
+        height: 14px;
+        font-size: 14px;
+        line-height: 14px;
+        color: #2ee6a6;
+        font-weight: 700;
+        flex: none;
+        opacity: 0;
+        position: absolute;
+        left: 14px;
+      }
+
+      #root .tx-hash {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #2ee6a6;
+      }
+
+      #root .tx-label {
+        margin-top: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        color: #8b98ab;
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const ID = '#root';
+        const q = (sel) => ID + " " + sel;
+
+        const tl = gsap.timeline({ paused: true });
+
+        // ---------- Initial states ----------
+        gsap.set(q(".node-client"), { x: -60 });
+        gsap.set(q(".node-server"), { x: 60 });
+        gsap.set(q(".node-casper"), { y: 30 });
+        gsap.set(q(".tx-spinner"), { transformOrigin: "center center" });
+
+        // ======================================================
+        // GLOBAL FADE IN (0 -> 0.4s) — hero visible by t<=0.5s
+        // ======================================================
+        tl.to(q(".stage"), { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+
+        // Re-paced to 13.4s. Tween durations stay natural (packet travel, badge
+        // springs, settle); the extra room lives as calm holds BETWEEN beats,
+        // filled with subtle idle life (slow node breathing on the active side,
+        // a faint lane shimmer, a gentle violet-glow pulse) so no beat freezes.
+        // NO exit tween / no end fade-out.
+
+        // ======================================================
+        // BEAT 1 (0.4 - 2.6s): nodes spring in, lane draws, packet GET /premium travels client -> server
+        // ======================================================
+        tl.to(q(".node-client"), { opacity: 1, x: 0, duration: 0.55, ease: "back.out(1.4)" }, 0.4);
+        tl.to(q(".node-server"), { opacity: 1, x: 0, duration: 0.55, ease: "back.out(1.4)" }, 0.55);
+        tl.to(q(".node-casper"), { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, 0.7);
+
+        tl.to(q(".lane-track"), { scaleX: 1, duration: 0.7, ease: "power3.inOut" }, 0.95);
+
+        // Idle: faint glow breath while the diagram settles before the packet flies.
+        tl.to(q(".violet-glow"), { opacity: 0.72, duration: 0.55, ease: "sine.inOut" }, 1.0);
+        tl.to(q(".violet-glow"), { opacity: 1, duration: 0.55, ease: "sine.inOut" }, 1.55);
+
+        // Packet appears at client side, travels to server.
+        // lane spans x560..x1360; client-edge ~540, server-edge ~1310.
+        tl.to(q(".packet"), { opacity: 1, duration: 0.22, ease: "power2.out" }, 1.5);
+        tl.fromTo(
+          q(".packet"),
+          { x: 540 },
+          { x: 1250, duration: 0.85, ease: "power2.inOut" },
+          1.62,
+        );
+        tl.to(q(".packet"), { opacity: 0, duration: 0.2, ease: "power2.in" }, 2.42);
+
+        // Server reacts
+        tl.to(q(".node-server .node-dot"), { backgroundColor: "#ff453a", duration: 0.2 }, 2.5);
+        tl.add(setStatus("server", "402"), 2.5);
+
+        // Idle hold (2.6 - 3.1s): server breathes as it answers, lane glints.
+        tl.to(q(".node-server"), { scale: 1.018, transformOrigin: "center center", duration: 0.4, ease: "sine.inOut" }, 2.65);
+        tl.to(q(".node-server"), { scale: 1, duration: 0.4, ease: "sine.inOut" }, 3.05);
+        tl.to(q(".lane-track"), { opacity: 0.7, duration: 0.4, ease: "sine.inOut" }, 2.7);
+        tl.to(q(".lane-track"), { opacity: 1, duration: 0.4, ease: "sine.inOut" }, 3.1);
+
+        // ======================================================
+        // BEAT 2 (3.1 - 4.7s): 402 travels server -> client; requirements card appears near client
+        // ======================================================
+        tl.to(q(".badge-402"), { opacity: 1, duration: 0.22, ease: "back.out(1.4)" }, 3.15);
+        tl.fromTo(
+          q(".badge-402"),
+          { x: 0 },
+          { x: -1130, duration: 0.9, ease: "power2.inOut" },
+          3.25,
+        );
+        tl.to(q(".badge-402"), { opacity: 0, duration: 0.22, ease: "power2.in" }, 4.1);
+
+        // Client receives 402
+        tl.to(q(".node-client .node-dot"), { backgroundColor: "#ff453a", duration: 0.2 }, 4.05);
+        tl.add(setStatus("client", "402 received"), 4.05);
+
+        // Requirements card springs in near client
+        tl.to(
+          q(".reqs-card"),
+          { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+          4.15,
+        );
+
+        // Idle hold (4.6 - 5.2s): client breathes while the requirements register.
+        tl.to(q(".node-client"), { scale: 1.018, transformOrigin: "center center", duration: 0.4, ease: "sine.inOut" }, 4.65);
+        tl.to(q(".node-client"), { scale: 1, duration: 0.4, ease: "sine.inOut" }, 5.05);
+        tl.to(q(".reqs-card"), { opacity: 0.84, duration: 0.35, ease: "sine.inOut" }, 4.8);
+        tl.to(q(".reqs-card"), { opacity: 1, duration: 0.35, ease: "sine.inOut" }, 5.15);
+
+        // ======================================================
+        // BEAT 3 (5.2 - 6.8s): client signs -> EIP-712 chip; X-PAYMENT header pill forms
+        // ======================================================
+        // Requirements card slides up & dims to make room
+        tl.to(q(".reqs-card"), { y: -8, opacity: 0.35, duration: 0.45, ease: "power2.inOut" }, 5.2);
+
+        tl.to(q(".node-client .node-dot"), { backgroundColor: "#8b6cff", duration: 0.3 }, 5.3);
+        tl.add(setStatus("client", "signing"), 5.3);
+
+        // EIP-712 signed chip pops
+        tl.to(
+          q(".chip-signed"),
+          { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" },
+          5.7,
+        );
+
+        // X-PAYMENT header pill forms
+        tl.to(
+          q(".header-pill"),
+          { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" },
+          6.2,
+        );
+        tl.add(setStatus("client", "ready"), 6.6);
+
+        // Idle hold (6.5 - 7.0s): signed chip breathes; glow eases up as proof assembles.
+        tl.to(q(".chip-signed"), { scale: 1.04, transformOrigin: "left center", duration: 0.4, ease: "sine.inOut" }, 6.5);
+        tl.to(q(".chip-signed"), { scale: 1, duration: 0.4, ease: "sine.inOut" }, 6.9);
+        tl.to(q(".violet-glow"), { opacity: 0.78, duration: 0.4, ease: "sine.inOut" }, 6.55);
+        tl.to(q(".violet-glow"), { opacity: 1, duration: 0.4, ease: "sine.inOut" }, 6.95);
+
+        // ======================================================
+        // BEAT 4 (7.0 - 8.7s): packet GET /premium + X-PAYMENT travels client -> server again
+        // ======================================================
+        // Fade the client-side helper cards so the lane reads clean.
+        tl.to(
+          [q(".reqs-card"), q(".chip-signed"), q(".header-pill")],
+          { opacity: 0, duration: 0.35, ease: "power2.in" },
+          7.0,
+        );
+
+        // Relabel + widen the packet for the authenticated retry.
+        tl.add(setPacketPath("/premium + X-PAYMENT"), 7.2);
+        tl.to(q(".node-client .node-dot"), { backgroundColor: "#8b6cff", duration: 0.2 }, 7.2);
+        tl.fromTo(
+          q(".packet"),
+          { x: 470, opacity: 0 },
+          { x: 490, opacity: 1, duration: 0.28, ease: "power2.out" },
+          7.3,
+        );
+        tl.fromTo(
+          q(".packet"),
+          { x: 490 },
+          { x: 1190, duration: 0.95, ease: "power2.inOut" },
+          7.55,
+        );
+        tl.to(q(".packet"), { opacity: 0, duration: 0.22, ease: "power2.in" }, 8.5);
+
+        tl.to(q(".node-server .node-dot"), { backgroundColor: "#8b6cff", duration: 0.2 }, 8.55);
+        tl.add(setStatus("server", "verifying"), 8.55);
+
+        // Idle hold (8.6 - 9.1s): server breathes while it verifies the proof.
+        tl.to(q(".node-server"), { scale: 1.018, transformOrigin: "center center", duration: 0.4, ease: "sine.inOut" }, 8.6);
+        tl.to(q(".node-server"), { scale: 1, duration: 0.4, ease: "sine.inOut" }, 9.0);
+        tl.to(q(".node-server .node-dot"), { boxShadow: "0 0 14px rgba(139,108,255,0.9)", duration: 0.4, ease: "sine.inOut" }, 8.62);
+        tl.to(q(".node-server .node-dot"), { boxShadow: "0 0 0 rgba(139,108,255,0)", duration: 0.4, ease: "sine.inOut" }, 9.02);
+
+        // ======================================================
+        // BEAT 5 (9.1 - 11.2s): server -> Casper green pulse; tx chip spinner -> check; settled on-chain
+        // ======================================================
+        // Green pulse fills the server->casper link.
+        tl.fromTo(
+          q(".casper-link-fill"),
+          { scaleY: 0 },
+          { scaleY: 1, duration: 0.7, ease: "power2.inOut" },
+          9.1,
+        );
+        tl.to(q(".node-casper .node-dot"), { boxShadow: "0 0 22px rgba(46,230,166,1)", duration: 0.3 }, 9.75);
+        // Casper node pulse
+        tl.to(q(".node-casper"), { scale: 1.04, duration: 0.25, ease: "power2.out" }, 9.85);
+        tl.to(q(".node-casper"), { scale: 1, duration: 0.3, ease: "power2.inOut" }, 10.1);
+
+        // Tx chip appears with spinner
+        tl.to(q(".tx-cluster"), { opacity: 1, duration: 0.3, ease: "power2.out" }, 9.9);
+        tl.to(
+          q(".tx-spinner"),
+          { rotation: 1080, duration: 1.3, ease: "none" },
+          9.9,
+        );
+        // Spinner -> check
+        tl.to(q(".tx-spinner"), { opacity: 0, scale: 0.4, duration: 0.25, ease: "power2.in" }, 11.2);
+        tl.to(q(".tx-check"), { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 11.3);
+        // Confirm pulse on tx chip 1 -> 1.15 -> 1
+        tl.to(q(".tx-chip"), { scale: 1.15, transformOrigin: "left center", duration: 0.2, ease: "power2.out" }, 11.3);
+        tl.to(q(".tx-chip"), { scale: 1, duration: 0.3, ease: "power2.inOut" }, 11.5);
+        tl.add(setStatus("server", "settled"), 11.4);
+
+        // ======================================================
+        // BEAT 6 (11.5 - 12.9s): 200 OK badge travels server -> client; client flips green border + "unlocked"
+        // ======================================================
+        tl.to(q(".badge-200"), { opacity: 1, duration: 0.22, ease: "back.out(1.4)" }, 11.55);
+        tl.fromTo(
+          q(".badge-200"),
+          { x: 0 },
+          { x: -1130, duration: 0.9, ease: "power2.inOut" },
+          11.65,
+        );
+        tl.to(q(".badge-200"), { opacity: 0, duration: 0.22, ease: "power2.in" }, 12.5);
+
+        // Client flips to confirmed
+        tl.to(q(".node-client .node-dot"), { backgroundColor: "#2ee6a6", duration: 0.3 }, 12.45);
+        tl.to(
+          q(".node-client"),
+          {
+            borderColor: "rgba(46,230,166,0.7)",
+            boxShadow: "0 0 0 1px rgba(46,230,166,0.4), 0 24px 60px rgba(0,0,0,0.5)",
+            duration: 0.45,
+            ease: "power2.out",
+          },
+          12.45,
+        );
+        // Client confirm pulse 1 -> 1.15 -> 1
+        tl.to(q(".node-client"), { scale: 1.05, duration: 0.22, ease: "power2.out" }, 12.5);
+        tl.to(q(".node-client"), { scale: 1, duration: 0.3, ease: "power2.inOut" }, 12.72);
+        tl.add(setStatus("client", "unlocked", "#2ee6a6"), 12.6);
+
+        // ======================================================
+        // BEAT 7 (12.9 - 13.4s): gentle hold / breathe (NO exit)
+        // ======================================================
+        tl.to(q(".node-client"), { scale: 1.02, transformOrigin: "center center", duration: 0.45, ease: "sine.inOut" }, 12.95);
+        tl.to(q(".node-client"), { scale: 1, duration: 0.45, ease: "sine.inOut" }, 13.4);
+        tl.to(q(".violet-glow"), { opacity: 0.82, duration: 0.45, ease: "sine.inOut" }, 12.95);
+        tl.to(q(".violet-glow"), { opacity: 1, duration: 0.45, ease: "sine.inOut" }, 13.4);
+
+        // ---------- Helper: animate the status pill text + color ----------
+        function setStatus(which, text, color) {
+          const t = gsap.timeline();
+          const sel = q('.node-status[data-status="' + which + '"]');
+          t.to(sel, {
+            opacity: 0,
+            duration: 0.12,
+            ease: "power1.in",
+            onComplete: () => {
+              const el = document.querySelector(sel);
+              if (el) {
+                el.textContent = text;
+                if (color) {
+                  el.style.color = color;
+                  el.style.borderColor = "rgba(46,230,166,0.4)";
+                }
+              }
+            },
+          });
+          t.to(sel, { opacity: 1, duration: 0.18, ease: "power1.out" });
+          return t;
+        }
+
+        // ---------- Helper: set the traveling packet's path label (no TextPlugin) ----------
+        function setPacketPath(text) {
+          const t = gsap.timeline();
+          const sel = q(".packet .packet-path");
+          t.add(() => {
+            const el = document.querySelector(sel);
+            if (el) el.textContent = text;
+          });
+          return t;
+        }
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["03-flow"] = tl;
+      })();
+    </script>
+  </div>
+</template>

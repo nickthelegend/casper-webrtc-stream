@@ -1,0 +1,587 @@
+<template id="05-proof-template">
+  <div
+    id="root"
+    data-composition-id="05-proof"
+    data-width="1920"
+    data-height="1080"
+    data-duration="9.8"
+  >
+    <div class="dot-grid"></div>
+    <div class="green-glow"></div>
+
+    <!-- Content wrapper for global fade in -->
+    <div class="content">
+      <!-- Header -->
+      <div class="header">
+        <div class="kicker">SETTLED ON CASPER &middot; TESTNET</div>
+        <h1 class="title">Real on-chain settlement</h1>
+      </div>
+
+      <!-- Settlement Cards -->
+      <div class="cards">
+        <!-- Card 1 -->
+        <div class="card card-1">
+          <div class="card-ring"></div>
+          <div class="card-top">
+            <div class="check-chip">
+              <span class="check-mark">&#10003;</span>
+            </div>
+            <div class="card-meta">
+              <div class="card-status">Confirmed</div>
+              <div class="card-block">block 8308737</div>
+            </div>
+          </div>
+          <div class="tx-row">
+            <span class="tx-label">tx</span>
+            <span class="tx-hash">448eafae&hellip;2c2c15</span>
+          </div>
+          <div class="card-sub">CEP-18 transfer_with_authorization</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card card-2">
+          <div class="card-ring"></div>
+          <div class="card-top">
+            <div class="check-chip">
+              <span class="check-mark">&#10003;</span>
+            </div>
+            <div class="card-meta">
+              <div class="card-status">Confirmed</div>
+              <div class="card-block">block 8309369</div>
+            </div>
+          </div>
+          <div class="tx-row">
+            <span class="tx-label">tx</span>
+            <span class="tx-hash">3e04ec4e&hellip;8465e7</span>
+          </div>
+          <div class="card-sub">via CSPR.cloud x402 facilitator</div>
+        </div>
+      </div>
+
+      <!-- Hero stat lockup -->
+      <div class="hero-stat">
+        <div class="stat-number">
+          <span class="stat-val">0.00</span>
+          <span class="stat-unit">CSPR settled</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-count">
+          <span class="stat-count-val">0</span>
+          <span class="stat-count-unit">settlements</span>
+        </div>
+      </div>
+
+      <!-- Footer row: pill + facilitator tag -->
+      <div class="footer-row">
+        <div class="pill">testnet.cspr.live &#8599;</div>
+        <div class="facilitator-tag">
+          <span class="dot"></span>CSPR.cloud x402 facilitator
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        background-color: #070a10;
+        font-family: "Inter", sans-serif;
+        color: #eaf0f8;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #root .dot-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+
+      #root .green-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          700px 460px at 50% 30%,
+          rgba(46, 230, 166, 0.12),
+          transparent 60%
+        );
+        opacity: 0.85;
+      }
+
+      #root .content {
+        position: absolute;
+        inset: 0;
+        padding: 0 120px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Header — title anchored ~y 200-260 */
+      #root .header {
+        text-align: center;
+        margin-top: 150px;
+      }
+
+      #root .kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #2ee6a6;
+        opacity: 0;
+        margin-bottom: 20px;
+      }
+
+      #root .title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 58px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: #eaf0f8;
+        opacity: 0;
+      }
+
+      /* Cards — anchored ~y 380-620 */
+      #root .cards {
+        display: flex;
+        gap: 40px;
+        margin-top: 56px;
+      }
+
+      #root .card {
+        position: relative;
+        width: 620px;
+        background: #0d121c;
+        border: 1px solid rgba(46, 230, 166, 0.25);
+        border-radius: 16px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        padding: 32px 40px 34px;
+        box-sizing: border-box;
+        opacity: 0;
+        transform-origin: center bottom;
+      }
+
+      #root .card-ring {
+        position: absolute;
+        inset: -1px;
+        border-radius: 16px;
+        border: 2px solid rgba(46, 230, 166, 0.6);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #root .card-top {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 26px;
+      }
+
+      #root .check-chip {
+        width: 52px;
+        height: 52px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: rgba(46, 230, 166, 0.14);
+        border: 1.5px solid rgba(46, 230, 166, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      #root .check-mark {
+        color: #2ee6a6;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+        transform: scale(0);
+        display: inline-block;
+      }
+
+      #root .card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      #root .card-status {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: #2ee6a6;
+        letter-spacing: 0.01em;
+      }
+
+      #root .card-block {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: #8b98ab;
+      }
+
+      #root .tx-row {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        margin-bottom: 18px;
+      }
+
+      #root .tx-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #8b6cff;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      #root .tx-hash {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 500;
+        color: #eaf0f8;
+        letter-spacing: 0.01em;
+      }
+
+      #root .card-sub {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        color: #8b98ab;
+        letter-spacing: 0.005em;
+      }
+
+      /* Hero stat */
+      #root .hero-stat {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        margin-top: 50px;
+      }
+
+      #root .stat-number,
+      #root .stat-count {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        opacity: 0;
+      }
+
+      #root .stat-val {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 72px;
+        font-weight: 700;
+        color: #ffc24b;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      #root .stat-unit {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #8b98ab;
+      }
+
+      #root .stat-divider {
+        width: 1px;
+        height: 52px;
+        background: rgba(255, 255, 255, 0.12);
+        opacity: 0;
+      }
+
+      #root .stat-count-val {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 72px;
+        font-weight: 700;
+        color: #eaf0f8;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      #root .stat-count-unit {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #8b98ab;
+      }
+
+      /* Footer — lowest element kept <= y=860 */
+      #root .footer-row {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-top: 46px;
+      }
+
+      #root .pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        color: #2ee6a6;
+        padding: 12px 22px;
+        background: rgba(46, 230, 166, 0.08);
+        border: 1px solid rgba(46, 230, 166, 0.3);
+        border-radius: 999px;
+        opacity: 0;
+      }
+
+      #root .facilitator-tag {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: #8b98ab;
+        padding: 12px 22px;
+        background: rgba(139, 108, 255, 0.08);
+        border: 1px solid rgba(139, 108, 255, 0.28);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+      }
+
+      #root .facilitator-tag .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #8b6cff;
+        display: inline-block;
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        const ID = '#root';
+        const q = (sel) => ID + " " + sel;
+
+        // ---- Count-up helper (deterministic, writes innerText) ----
+        function countUp(selector, from, to, decimals, time, dur) {
+          const obj = { val: from };
+          tl.to(
+            obj,
+            {
+              val: to,
+              duration: dur,
+              ease: "power2.out",
+              onUpdate: () => {
+                const el = document.querySelector(ID + " " + selector);
+                if (el) el.innerText = obj.val.toFixed(decimals);
+              },
+            },
+            time
+          );
+        }
+
+        // ---- Initial states ----
+        gsap.set(q(".content"), { opacity: 0 });
+        gsap.set(q(".kicker"), { y: 24 });
+        gsap.set(q(".title"), { y: 30 });
+        gsap.set(q(".card-1"), { y: 70 });
+        gsap.set(q(".card-2"), { y: 70 });
+
+        // ============================================================
+        // BEAT 0 — global content fade in (0 .. 0.4) — hero visible by t<=0.5
+        // ============================================================
+        tl.to(q(".content"), { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+
+        // ============================================================
+        // BEAT 1 — kicker + title rise in (0.45 .. 1.4)
+        // ============================================================
+        tl.to(
+          q(".kicker"),
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          0.45
+        );
+        tl.to(
+          q(".title"),
+          { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+          0.6
+        );
+
+        // ============================================================
+        // BEAT 2 — Card 1 slides up + springs, check pops, ring pulse (1.3 .. 2.7)
+        // ============================================================
+        tl.to(
+          q(".card-1"),
+          { opacity: 1, y: 0, duration: 0.85, ease: "back.out(1.5)" },
+          1.3
+        );
+        tl.to(
+          q(".card-1 .check-mark"),
+          { scale: 1, duration: 0.55, ease: "back.out(1.8)" },
+          1.9
+        );
+        // green ring pulse on card 1
+        tl.fromTo(
+          q(".card-1 .card-ring"),
+          { opacity: 0.85, scale: 1 },
+          { opacity: 0, scale: 1.04, duration: 0.75, ease: "power2.out" },
+          1.95
+        );
+
+        // ============================================================
+        // BEAT 3 — Card 2 slides up staggered, check pops (2.6 .. 4.0)
+        // ============================================================
+        tl.to(
+          q(".card-2"),
+          { opacity: 1, y: 0, duration: 0.85, ease: "back.out(1.5)" },
+          2.6
+        );
+        tl.to(
+          q(".card-2 .check-mark"),
+          { scale: 1, duration: 0.55, ease: "back.out(1.8)" },
+          3.2
+        );
+        tl.fromTo(
+          q(".card-2 .card-ring"),
+          { opacity: 0.85, scale: 1 },
+          { opacity: 0, scale: 1.04, duration: 0.75, ease: "power2.out" },
+          3.25
+        );
+
+        // ============================================================
+        // BEAT 4 — hero stat counts up 0.00 -> 0.20 + 0 -> 2 (4.0 .. 5.8)
+        // ============================================================
+        tl.to(
+          q(".stat-number"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.0
+        );
+        tl.to(
+          q(".stat-divider"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.1
+        );
+        tl.to(
+          q(".stat-count"),
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          4.2
+        );
+        // gold amount 0.00 -> 0.20
+        countUp(".stat-val", 0, 0.2, 2, 4.1, 1.4);
+        // settlements 0 -> 2 (integer)
+        (function () {
+          const obj = { val: 0 };
+          tl.to(
+            obj,
+            {
+              val: 2,
+              duration: 1.2,
+              ease: "power2.out",
+              onUpdate: () => {
+                const el = document.querySelector(q(".stat-count-val"));
+                if (el) el.innerText = Math.round(obj.val).toString();
+              },
+            },
+            4.2
+          );
+        })();
+        // tiny gold pop when amount lands
+        tl.fromTo(
+          q(".stat-val"),
+          { scale: 1 },
+          { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          5.45
+        );
+
+        // ============================================================
+        // BEAT 5 — pill + facilitator tag fade in, green confirm glow across cards (5.7 .. 7.6)
+        // ============================================================
+        tl.to(
+          q(".pill"),
+          { opacity: 1, duration: 0.55, ease: "back.out(1.5)" },
+          5.7
+        );
+        tl.fromTo(
+          q(".pill"),
+          { y: 14 },
+          { y: 0, duration: 0.55, ease: "back.out(1.5)" },
+          5.7
+        );
+        tl.to(
+          q(".facilitator-tag"),
+          { opacity: 1, duration: 0.55, ease: "back.out(1.5)" },
+          5.9
+        );
+        tl.fromTo(
+          q(".facilitator-tag"),
+          { y: 14 },
+          { y: 0, duration: 0.55, ease: "back.out(1.5)" },
+          5.9
+        );
+        // "confirmed" green glow pulse across BOTH cards (border + shadow)
+        tl.to(
+          q(".card"),
+          {
+            borderColor: "rgba(46,230,166,0.7)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.5), 0 0 46px rgba(46,230,166,0.32)",
+            duration: 0.55,
+            ease: "power2.out",
+            stagger: 0.12,
+          },
+          6.1
+        );
+        tl.to(
+          q(".card"),
+          {
+            borderColor: "rgba(46,230,166,0.25)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.5), 0 0 0px rgba(46,230,166,0)",
+            duration: 0.85,
+            ease: "power2.inOut",
+            stagger: 0.12,
+          },
+          6.75
+        );
+
+        // ============================================================
+        // BEAT 6 — gentle breathe / hold to the end (7.6 .. 9.8) — NO exit fade
+        // ============================================================
+        tl.to(
+          q(".card-1"),
+          { y: -8, duration: 1.1, ease: "sine.inOut" },
+          7.6
+        );
+        tl.to(
+          q(".card-1"),
+          { y: 0, duration: 1.1, ease: "sine.inOut" },
+          8.7
+        );
+        tl.to(
+          q(".card-2"),
+          { y: -8, duration: 1.1, ease: "sine.inOut" },
+          7.75
+        );
+        tl.to(
+          q(".card-2"),
+          { y: 0, duration: 1.1, ease: "sine.inOut" },
+          8.85
+        );
+        // slow breathing on the green glow throughout the hold
+        tl.to(
+          q(".green-glow"),
+          { opacity: 1, duration: 1.1, ease: "sine.inOut" },
+          7.6
+        );
+        tl.to(
+          q(".green-glow"),
+          { opacity: 0.8, duration: 1.1, ease: "sine.inOut" },
+          8.7
+        );
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["05-proof"] = tl;
+      })();
+    </script>
+  </div>
+</template>

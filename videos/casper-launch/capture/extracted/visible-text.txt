@@ -1,0 +1,25 @@
+casper-webrtc-stream — a battle-ready x402 micropayments SDK for Casper Network.
+Tagline: HTTP-native money, settled on Casper. The payment rail for the agent economy.
+
+THE PROBLEM
+Apps and AI agents need to pay per call — per API request, per second of a stream.
+Card rails don't do micropayments; crypto checkout is clunky. HTTP has no built-in
+pay-per-use money rail.
+
+HOW IT WORKS (x402 flow)
+A server replies 402 Payment Required. The client signs an EIP-712 authorization,
+retries with an X-PAYMENT header, the server verifies, settles on-chain, returns 200.
+Real CEP-18 transfer_with_authorization via the CSPR.cloud x402 facilitator.
+
+FEATURES (2-3 to feature)
+1. One line each. Server: paymentMiddleware({ rail, amount, payTo }). Client:
+   wrapFetch(fetch, { rail, signFn }). Drop into any app.
+2. Real on-chain settlement. Proven live on Casper testnet —
+   tx 448eafae… block 8308737, tx 3e04ec4e… block 8309369.
+3. Two published npm packages, framework-agnostic:
+   @nickthelegend69/webrtc-payment-sdk-core + @nickthelegend69/webrtc-payment-rail-x402.
+
+CALL TO ACTION
+npm i @nickthelegend69/webrtc-payment-sdk-core
+The payment rail for the agent economy — on Casper. Built for the Casper Agentic
+Buildathon 2026.

@@ -1,0 +1,1162 @@
+{
+  "total_duration_s": 57.045,
+  "width": 1920,
+  "height": 1080,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0.08,
+      "end": 2.32,
+      "text": "This is casper-webrtc-stream",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "This",
+          "start": 0.08,
+          "end": 0.46
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "is",
+          "start": 0.495,
+          "end": 0.722
+        },
+        {
+          "id": "caption-word-0-2",
+          "text": "casper-webrtc-stream",
+          "start": 0.757,
+          "end": 2.2
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 2.497,
+      "end": 3.858,
+      "text": "HTTP-native money,",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "HTTP-native",
+          "start": 2.497,
+          "end": 3.332
+        },
+        {
+          "id": "caption-word-1-1",
+          "text": "money,",
+          "start": 3.367,
+          "end": 3.823
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 3.858,
+      "end": 5.414,
+      "text": "settled on Casper.",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "settled",
+          "start": 3.858,
+          "end": 4.465
+        },
+        {
+          "id": "caption-word-2-1",
+          "text": "on",
+          "start": 4.5,
+          "end": 4.728
+        },
+        {
+          "id": "caption-word-2-2",
+          "text": "Casper.",
+          "start": 4.763,
+          "end": 5.294
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 2,
+      "start": 5.712,
+      "end": 6.782,
+      "text": "Apps and agents",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "Apps",
+          "start": 5.712,
+          "end": 6.014
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "and",
+          "start": 6.049,
+          "end": 6.29
+        },
+        {
+          "id": "caption-word-3-2",
+          "text": "agents",
+          "start": 6.325,
+          "end": 6.747
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 2,
+      "start": 6.782,
+      "end": 7.335,
+      "text": "need to",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "need",
+          "start": 6.782,
+          "end": 7.084
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "to",
+          "start": 7.119,
+          "end": 7.3
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 2,
+      "start": 7.335,
+      "end": 8.309,
+      "text": "pay per call",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "pay",
+          "start": 7.335,
+          "end": 7.576
+        },
+        {
+          "id": "caption-word-5-1",
+          "text": "per",
+          "start": 7.611,
+          "end": 7.852
+        },
+        {
+          "id": "caption-word-5-2",
+          "text": "call",
+          "start": 7.887,
+          "end": 8.189
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 2,
+      "start": 8.44,
+      "end": 9.234,
+      "text": "per request,",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "per",
+          "start": 8.44,
+          "end": 8.681
+        },
+        {
+          "id": "caption-word-6-1",
+          "text": "request,",
+          "start": 8.716,
+          "end": 9.199
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 2,
+      "start": 9.234,
+      "end": 9.967,
+      "text": "per second.",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "per",
+          "start": 9.234,
+          "end": 9.475
+        },
+        {
+          "id": "caption-word-7-1",
+          "text": "second.",
+          "start": 9.51,
+          "end": 9.932
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 2,
+      "start": 9.967,
+      "end": 11.038,
+      "text": "Card rails can't.",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "Card",
+          "start": 9.967,
+          "end": 10.269
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "rails",
+          "start": 10.304,
+          "end": 10.666
+        },
+        {
+          "id": "caption-word-8-2",
+          "text": "can't.",
+          "start": 10.701,
+          "end": 11.003
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 11.038,
+      "end": 12.831,
+      "text": "Crypto checkout is clunky.",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "Crypto",
+          "start": 11.038,
+          "end": 11.46
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "checkout",
+          "start": 11.495,
+          "end": 12.038
+        },
+        {
+          "id": "caption-word-9-2",
+          "text": "is",
+          "start": 12.073,
+          "end": 12.254
+        },
+        {
+          "id": "caption-word-9-3",
+          "text": "clunky.",
+          "start": 12.289,
+          "end": 12.711
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 3,
+      "start": 13.243,
+      "end": 14.64,
+      "text": "x402 makes payment",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "x402",
+          "start": 13.243,
+          "end": 13.583
+        },
+        {
+          "id": "caption-word-10-1",
+          "text": "makes",
+          "start": 13.618,
+          "end": 14.026
+        },
+        {
+          "id": "caption-word-10-2",
+          "text": "payment",
+          "start": 14.061,
+          "end": 14.605
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 3,
+      "start": 14.64,
+      "end": 15.254,
+      "text": "part of",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "part",
+          "start": 14.64,
+          "end": 14.98
+        },
+        {
+          "id": "caption-word-11-1",
+          "text": "of",
+          "start": 15.015,
+          "end": 15.219
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 3,
+      "start": 15.254,
+      "end": 15.629,
+      "text": "HTTP.",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "HTTP.",
+          "start": 15.254,
+          "end": 15.594
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 3,
+      "start": 15.629,
+      "end": 16.822,
+      "text": "The server asks",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "The",
+          "start": 15.629,
+          "end": 15.901
+        },
+        {
+          "id": "caption-word-13-1",
+          "text": "server",
+          "start": 15.936,
+          "end": 16.412
+        },
+        {
+          "id": "caption-word-13-2",
+          "text": "asks",
+          "start": 16.447,
+          "end": 16.787
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 3,
+      "start": 16.822,
+      "end": 17.707,
+      "text": "for payment,",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "for",
+          "start": 16.822,
+          "end": 17.093
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "payment,",
+          "start": 17.128,
+          "end": 17.672
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 3,
+      "start": 17.707,
+      "end": 18.968,
+      "text": "the client signs",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "the",
+          "start": 17.707,
+          "end": 17.979
+        },
+        {
+          "id": "caption-word-15-1",
+          "text": "client",
+          "start": 18.014,
+          "end": 18.49
+        },
+        {
+          "id": "caption-word-15-2",
+          "text": "signs",
+          "start": 18.525,
+          "end": 18.933
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 3,
+      "start": 18.968,
+      "end": 19.854,
+      "text": "and retries,",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "and",
+          "start": 18.968,
+          "end": 19.24
+        },
+        {
+          "id": "caption-word-16-1",
+          "text": "retries,",
+          "start": 19.275,
+          "end": 19.819
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 3,
+      "start": 19.854,
+      "end": 20.979,
+      "text": "and the server",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "and",
+          "start": 19.854,
+          "end": 20.126
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "the",
+          "start": 20.161,
+          "end": 20.433
+        },
+        {
+          "id": "caption-word-17-2",
+          "text": "server",
+          "start": 20.468,
+          "end": 20.944
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 3,
+      "start": 20.979,
+      "end": 22.461,
+      "text": "settles it on-chain",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "settles",
+          "start": 20.979,
+          "end": 21.523
+        },
+        {
+          "id": "caption-word-18-1",
+          "text": "it",
+          "start": 21.558,
+          "end": 21.762
+        },
+        {
+          "id": "caption-word-18-2",
+          "text": "on-chain",
+          "start": 21.797,
+          "end": 22.341
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 3,
+      "start": 22.615,
+      "end": 23.672,
+      "text": "a real token",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "a",
+          "start": 22.615,
+          "end": 22.819
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "real",
+          "start": 22.854,
+          "end": 23.194
+        },
+        {
+          "id": "caption-word-19-2",
+          "text": "token",
+          "start": 23.229,
+          "end": 23.637
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 3,
+      "start": 23.672,
+      "end": 24.319,
+      "text": "transfer,",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "transfer,",
+          "start": 23.672,
+          "end": 24.284
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 3,
+      "start": 24.319,
+      "end": 25.936,
+      "text": "confirmed in seconds.",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "confirmed",
+          "start": 24.319,
+          "end": 24.998
+        },
+        {
+          "id": "caption-word-21-1",
+          "text": "in",
+          "start": 25.033,
+          "end": 25.237
+        },
+        {
+          "id": "caption-word-21-2",
+          "text": "seconds.",
+          "start": 25.272,
+          "end": 25.816
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 4,
+      "start": 26.704,
+      "end": 28.009,
+      "text": "Integrating it takes",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "Integrating",
+          "start": 26.704,
+          "end": 27.39
+        },
+        {
+          "id": "caption-word-22-1",
+          "text": "it",
+          "start": 27.425,
+          "end": 27.596
+        },
+        {
+          "id": "caption-word-22-2",
+          "text": "takes",
+          "start": 27.631,
+          "end": 27.974
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 4,
+      "start": 28.009,
+      "end": 28.593,
+      "text": "one line",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "one",
+          "start": 28.009,
+          "end": 28.237
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "line",
+          "start": 28.272,
+          "end": 28.558
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 4,
+      "start": 28.593,
+      "end": 28.914,
+      "text": "each.",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "each.",
+          "start": 28.593,
+          "end": 28.879
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 4,
+      "start": 28.914,
+      "end": 30.997,
+      "text": "paymentMiddleware gates any route",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "paymentMiddleware",
+          "start": 28.914,
+          "end": 29.942
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "gates",
+          "start": 29.977,
+          "end": 30.32
+        },
+        {
+          "id": "caption-word-25-2",
+          "text": "any",
+          "start": 30.355,
+          "end": 30.584
+        },
+        {
+          "id": "caption-word-25-3",
+          "text": "route",
+          "start": 30.619,
+          "end": 30.962
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 4,
+      "start": 30.997,
+      "end": 31.467,
+      "text": "on the",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "on",
+          "start": 30.997,
+          "end": 31.168
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "the",
+          "start": 31.203,
+          "end": 31.432
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 4,
+      "start": 31.467,
+      "end": 31.902,
+      "text": "server.",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "server.",
+          "start": 31.467,
+          "end": 31.867
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 4,
+      "start": 31.902,
+      "end": 33.664,
+      "text": "wrapFetch pays automatically",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "wrapFetch",
+          "start": 31.902,
+          "end": 32.473
+        },
+        {
+          "id": "caption-word-28-1",
+          "text": "pays",
+          "start": 32.508,
+          "end": 32.794
+        },
+        {
+          "id": "caption-word-28-2",
+          "text": "automatically",
+          "start": 32.829,
+          "end": 33.629
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 4,
+      "start": 33.664,
+      "end": 34.133,
+      "text": "on the",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "on",
+          "start": 33.664,
+          "end": 33.835
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "the",
+          "start": 33.87,
+          "end": 34.098
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 4,
+      "start": 34.133,
+      "end": 34.568,
+      "text": "client.",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "client.",
+          "start": 34.133,
+          "end": 34.533
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 4,
+      "start": 34.568,
+      "end": 35.096,
+      "text": "Drop it",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "Drop",
+          "start": 34.568,
+          "end": 34.854
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "it",
+          "start": 34.889,
+          "end": 35.061
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 4,
+      "start": 35.096,
+      "end": 36.028,
+      "text": "into any app.",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "into",
+          "start": 35.096,
+          "end": 35.381
+        },
+        {
+          "id": "caption-word-32-1",
+          "text": "any",
+          "start": 35.416,
+          "end": 35.645
+        },
+        {
+          "id": "caption-word-32-2",
+          "text": "app.",
+          "start": 35.68,
+          "end": 35.908
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 5,
+      "start": 36.581,
+      "end": 38.213,
+      "text": "Every payment is real,",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "Every",
+          "start": 36.581,
+          "end": 36.988
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "payment",
+          "start": 37.023,
+          "end": 37.566
+        },
+        {
+          "id": "caption-word-33-2",
+          "text": "is",
+          "start": 37.601,
+          "end": 37.804
+        },
+        {
+          "id": "caption-word-33-3",
+          "text": "real,",
+          "start": 37.839,
+          "end": 38.178
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 5,
+      "start": 38.213,
+      "end": 39.301,
+      "text": "and verifiable.",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "and",
+          "start": 38.213,
+          "end": 38.485
+        },
+        {
+          "id": "caption-word-34-1",
+          "text": "verifiable.",
+          "start": 38.52,
+          "end": 39.266
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 5,
+      "start": 39.301,
+      "end": 40.423,
+      "text": "These are live",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "These",
+          "start": 39.301,
+          "end": 39.708
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "are",
+          "start": 39.743,
+          "end": 40.014
+        },
+        {
+          "id": "caption-word-35-2",
+          "text": "live",
+          "start": 40.049,
+          "end": 40.388
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 5,
+      "start": 40.423,
+      "end": 42.683,
+      "text": "settlements on Casper testnet",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "settlements",
+          "start": 40.423,
+          "end": 41.237
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "on",
+          "start": 41.272,
+          "end": 41.476
+        },
+        {
+          "id": "caption-word-36-2",
+          "text": "Casper",
+          "start": 41.511,
+          "end": 41.986
+        },
+        {
+          "id": "caption-word-36-3",
+          "text": "testnet",
+          "start": 42.021,
+          "end": 42.563
+        }
+      ]
+    },
+    {
+      "id": "caption-group-37",
+      "frame": 5,
+      "start": 42.837,
+      "end": 44.502,
+      "text": "actual CEP-18 transfers,",
+      "words": [
+        {
+          "id": "caption-word-37-0",
+          "text": "actual",
+          "start": 42.837,
+          "end": 43.312
+        },
+        {
+          "id": "caption-word-37-1",
+          "text": "CEP-18",
+          "start": 43.347,
+          "end": 43.754
+        },
+        {
+          "id": "caption-word-37-2",
+          "text": "transfers,",
+          "start": 43.789,
+          "end": 44.467
+        }
+      ]
+    },
+    {
+      "id": "caption-group-38",
+      "frame": 5,
+      "start": 44.502,
+      "end": 45.845,
+      "text": "on actual blocks.",
+      "words": [
+        {
+          "id": "caption-word-38-0",
+          "text": "on",
+          "start": 44.502,
+          "end": 44.706
+        },
+        {
+          "id": "caption-word-38-1",
+          "text": "actual",
+          "start": 44.741,
+          "end": 45.215
+        },
+        {
+          "id": "caption-word-38-2",
+          "text": "blocks.",
+          "start": 45.25,
+          "end": 45.725
+        }
+      ]
+    },
+    {
+      "id": "caption-group-39",
+      "frame": 6,
+      "start": 46.394,
+      "end": 48.109,
+      "text": "Two published packages.",
+      "words": [
+        {
+          "id": "caption-word-39-0",
+          "text": "Two",
+          "start": 46.394,
+          "end": 46.674
+        },
+        {
+          "id": "caption-word-39-1",
+          "text": "published",
+          "start": 46.709,
+          "end": 47.409
+        },
+        {
+          "id": "caption-word-39-2",
+          "text": "packages.",
+          "start": 47.444,
+          "end": 48.074
+        }
+      ]
+    },
+    {
+      "id": "caption-group-40",
+      "frame": 6,
+      "start": 48.109,
+      "end": 49.403,
+      "text": "Framework-agnostic.",
+      "words": [
+        {
+          "id": "caption-word-40-0",
+          "text": "Framework-agnostic.",
+          "start": 48.109,
+          "end": 49.368
+        }
+      ]
+    },
+    {
+      "id": "caption-group-41",
+      "frame": 6,
+      "start": 49.403,
+      "end": 50.103,
+      "text": "Any rail,",
+      "words": [
+        {
+          "id": "caption-word-41-0",
+          "text": "Any",
+          "start": 49.403,
+          "end": 49.683
+        },
+        {
+          "id": "caption-word-41-1",
+          "text": "rail,",
+          "start": 49.718,
+          "end": 50.068
+        }
+      ]
+    },
+    {
+      "id": "caption-group-42",
+      "frame": 6,
+      "start": 50.103,
+      "end": 50.733,
+      "text": "any app,",
+      "words": [
+        {
+          "id": "caption-word-42-0",
+          "text": "any",
+          "start": 50.103,
+          "end": 50.383
+        },
+        {
+          "id": "caption-word-42-1",
+          "text": "app,",
+          "start": 50.418,
+          "end": 50.698
+        }
+      ]
+    },
+    {
+      "id": "caption-group-43",
+      "frame": 6,
+      "start": 50.733,
+      "end": 51.588,
+      "text": "any agent.",
+      "words": [
+        {
+          "id": "caption-word-43-0",
+          "text": "any",
+          "start": 50.733,
+          "end": 51.013
+        },
+        {
+          "id": "caption-word-43-1",
+          "text": "agent.",
+          "start": 51.048,
+          "end": 51.468
+        }
+      ]
+    },
+    {
+      "id": "caption-group-44",
+      "frame": 7,
+      "start": 51.877,
+      "end": 53.117,
+      "text": "casper-webrtc-stream.",
+      "words": [
+        {
+          "id": "caption-word-44-0",
+          "text": "casper-webrtc-stream.",
+          "start": 51.877,
+          "end": 53.082
+        }
+      ]
+    },
+    {
+      "id": "caption-group-45",
+      "frame": 7,
+      "start": 53.117,
+      "end": 54.3,
+      "text": "The payment rail",
+      "words": [
+        {
+          "id": "caption-word-45-0",
+          "text": "The",
+          "start": 53.117,
+          "end": 53.371
+        },
+        {
+          "id": "caption-word-45-1",
+          "text": "payment",
+          "start": 53.406,
+          "end": 53.913
+        },
+        {
+          "id": "caption-word-45-2",
+          "text": "rail",
+          "start": 53.948,
+          "end": 54.265
+        }
+      ]
+    },
+    {
+      "id": "caption-group-46",
+      "frame": 7,
+      "start": 54.3,
+      "end": 54.878,
+      "text": "for the",
+      "words": [
+        {
+          "id": "caption-word-46-0",
+          "text": "for",
+          "start": 54.3,
+          "end": 54.554
+        },
+        {
+          "id": "caption-word-46-1",
+          "text": "the",
+          "start": 54.589,
+          "end": 54.843
+        }
+      ]
+    },
+    {
+      "id": "caption-group-47",
+      "frame": 7,
+      "start": 54.878,
+      "end": 55.921,
+      "text": "agent economy",
+      "words": [
+        {
+          "id": "caption-word-47-0",
+          "text": "agent",
+          "start": 54.878,
+          "end": 55.258
+        },
+        {
+          "id": "caption-word-47-1",
+          "text": "economy",
+          "start": 55.293,
+          "end": 55.801
+        }
+      ]
+    },
+    {
+      "id": "caption-group-48",
+      "frame": 7,
+      "start": 56.061,
+      "end": 56.85,
+      "text": "on Casper.",
+      "words": [
+        {
+          "id": "caption-word-48-0",
+          "text": "on",
+          "start": 56.061,
+          "end": 56.251
+        },
+        {
+          "id": "caption-word-48-1",
+          "text": "Casper.",
+          "start": 56.286,
+          "end": 56.73
+        }
+      ]
+    }
+  ]
+}

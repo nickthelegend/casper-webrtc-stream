@@ -1,0 +1,50 @@
+{
+  "lines": [
+    {
+      "id": "01",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "02",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "click-402",
+        "click-200"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "05",
+      "sfx": [
+        "confirm-soft"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "07",
+      "sfx": [
+        "tick-soft"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

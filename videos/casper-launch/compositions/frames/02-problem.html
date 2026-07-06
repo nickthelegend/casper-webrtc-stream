@@ -1,0 +1,468 @@
+<template id="02-problem-template">
+  <div
+    id="root"
+    data-composition-id="02-problem"
+    data-width="1920"
+    data-height="1080"
+    data-duration="7.5"
+  >
+    <div class="stage">
+      <!-- Ambient background layers -->
+      <div class="bg-base"></div>
+      <div class="bg-grid"></div>
+      <!-- Violet hint creeping from the right edge at the very end -->
+      <div class="bg-hint"></div>
+
+      <!-- Content band (top 83%, above caption keep-out) -->
+      <div class="band">
+        <!-- Mono kicker -->
+        <div class="kicker">THE&nbsp;PROBLEM</div>
+
+        <!-- Card glyph: cards can't do micropayments -->
+        <div class="card-wrap">
+          <div class="card">
+            <div class="card-stripe"></div>
+            <div class="card-chip"></div>
+            <div class="card-dots">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="card-brand"></div>
+          </div>
+          <!-- red ✗ slash over the card -->
+          <svg class="card-x" viewBox="0 0 120 120" aria-hidden="true">
+            <line class="cx cx1" x1="20" y1="20" x2="100" y2="100" />
+            <line class="cx cx2" x1="100" y1="20" x2="20" y2="100" />
+          </svg>
+          <div class="card-label">cards&nbsp;can't&nbsp;do&nbsp;micropayments</div>
+        </div>
+
+        <!-- Three pill chips that tick in, each stamped ✗ -->
+        <div class="chips">
+          <div class="chip" data-i="0">
+            <span class="chip-txt">per request</span>
+            <span class="chip-x">✗</span>
+          </div>
+          <div class="chip" data-i="1">
+            <span class="chip-txt">per second</span>
+            <span class="chip-x">✗</span>
+          </div>
+          <div class="chip" data-i="2">
+            <span class="chip-txt">per call</span>
+            <span class="chip-x">✗</span>
+          </div>
+        </div>
+
+        <!-- Unpaid agent node -->
+        <div class="agent">
+          <span class="agent-pulse"></span>
+          <span class="agent-dot"></span>
+          <span class="agent-name">agent</span>
+          <span class="agent-state">unpaid</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-500-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:600;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-600-normal.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.woff2') format('woff2');}
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background-color: #070a10;
+        font-family: "Inter", sans-serif;
+      }
+
+      #root .stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      #root .bg-base {
+        position: absolute;
+        inset: 0;
+        background-color: #070a10;
+      }
+
+      /* faint dot-grid */
+      #root .bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(139, 152, 171, 0.045) 1px, transparent 1px);
+        background-size: 26px 26px;
+      }
+
+      /* violet "a fix is coming" hint — creeps in from the right edge at the end */
+      #root .bg-hint {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(760px 620px at 112% 46%, rgba(139, 108, 255, 0.22), transparent 62%);
+        opacity: 0;
+        will-change: opacity, transform;
+        transform: translateX(40px);
+      }
+
+      /* Content band — everything sits inside, above y=896 */
+      #root .band {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1680px;
+        height: 896px;
+      }
+
+      #root .kicker {
+        position: absolute;
+        top: 96px;
+        left: 0;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8b98ab;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      /* ---- Credit card glyph ---- */
+      #root .card-wrap {
+        position: absolute;
+        top: 232px;
+        left: 116px;
+        width: 360px;
+        will-change: transform, opacity;
+      }
+
+      #root .card {
+        position: relative;
+        width: 360px;
+        height: 228px;
+        border-radius: 18px;
+        background:
+          linear-gradient(155deg, #141d2c 0%, #0e1626 60%, #0c1320 100%);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.05) inset,
+          0 24px 60px rgba(0, 0, 0, 0.55);
+        overflow: hidden;
+        will-change: filter, opacity;
+        transform-origin: center center;
+      }
+
+      #root .card-stripe {
+        position: absolute;
+        top: 34px;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        background: linear-gradient(180deg, #1d2740, #11192a);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      }
+
+      #root .card-chip {
+        position: absolute;
+        top: 104px;
+        left: 34px;
+        width: 52px;
+        height: 40px;
+        border-radius: 7px;
+        background: linear-gradient(135deg, #b9a05a, #8c7635);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset;
+      }
+
+      #root .card-chip::before {
+        content: "";
+        position: absolute;
+        inset: 8px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.28);
+        border-radius: 3px;
+      }
+
+      #root .card-dots {
+        position: absolute;
+        top: 164px;
+        left: 34px;
+        width: 252px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 9px;
+      }
+
+      #root .card-dots span {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #46556e;
+      }
+
+      /* break the 16 dots into 4-4-4-4 visual groups */
+      #root .card-dots span:nth-child(4n) {
+        margin-right: 14px;
+      }
+
+      #root .card-brand {
+        position: absolute;
+        right: 28px;
+        bottom: 26px;
+        width: 60px;
+        height: 38px;
+      }
+      #root .card-brand::before,
+      #root .card-brand::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+      }
+      #root .card-brand::before { left: 0;  background: #3a465c; }
+      #root .card-brand::after  { right: 0; background: #4a566e; mix-blend-mode: screen; }
+
+      /* red ✗ slash drawn over the card */
+      #root .card-x {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 168px;
+        height: 168px;
+        margin: -84px 0 0 -84px;
+        overflow: visible;
+        pointer-events: none;
+      }
+      #root .card-x .cx {
+        stroke: #ff453a;
+        stroke-width: 9;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 10px rgba(255, 69, 58, 0.45));
+        stroke-dasharray: 120;
+        stroke-dashoffset: 120;
+        will-change: stroke-dashoffset;
+      }
+
+      #root .card-label {
+        margin-top: 26px;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 21px;
+        letter-spacing: 0.02em;
+        color: #8b98ab;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      /* ---- Pill chips ---- */
+      #root .chips {
+        position: absolute;
+        top: 300px;
+        left: 612px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+      }
+
+      #root .chip {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        padding: 22px 36px;
+        border-radius: 9999px;
+        background: #0d121c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+        opacity: 0;
+        will-change: transform, opacity;
+        transform-origin: left center;
+      }
+
+      #root .chip-txt {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        color: #eaf0f8;
+      }
+
+      #root .chip-x {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1;
+        color: #ff453a;
+        opacity: 0;
+        transform-origin: center center;
+        will-change: transform, opacity;
+        text-shadow: 0 0 12px rgba(255, 69, 58, 0.4);
+      }
+
+      /* ---- Unpaid agent node ---- */
+      #root .agent {
+        position: absolute;
+        top: 738px;
+        left: 116px;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 28px 18px 24px;
+        border-radius: 9999px;
+        background: #0d121c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      #root .agent-dot {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #8b98ab;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+
+      /* slow idle pulse ring — stays grey ("unpaid") */
+      #root .agent-pulse {
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        width: 16px;
+        height: 16px;
+        margin-top: -8px;
+        border-radius: 50%;
+        background: rgba(139, 152, 171, 0.5);
+        transform-origin: center center;
+        will-change: transform, opacity;
+        pointer-events: none;
+      }
+
+      #root .agent-name {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 24px;
+        letter-spacing: 0.02em;
+        color: #eaf0f8;
+      }
+
+      #root .agent-state {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8b98ab;
+        padding: 5px 12px;
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+      }
+    #root{isolation:isolate;position:relative;}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+
+        const Q = (s) => '#root ' + s;
+
+        const stage    = Q(".stage");
+        const hint     = Q(".bg-hint");
+        const kicker   = Q(".kicker");
+        const cardWrap = Q(".card-wrap");
+        const card     = Q(".card");
+        const cardX1   = Q(".card-x .cx1");
+        const cardX2   = Q(".card-x .cx2");
+        const cardLbl  = Q(".card-label");
+        const chips    = gsap.utils.toArray(Q(".chip"));
+        const chipXs   = gsap.utils.toArray(Q(".chip-x"));
+        const agent    = Q(".agent");
+        const aPulse   = Q(".agent-pulse");
+
+        // --- Initial states ---
+        tl.set(stage, { opacity: 0 });
+        tl.set(kicker, { y: 14, opacity: 0 });
+        tl.set(cardWrap, { y: 16, opacity: 0 });
+        tl.set(card, { filter: "saturate(1) brightness(1)", opacity: 1 });
+        tl.set([cardX1, cardX2], { strokeDashoffset: 120 });
+        tl.set(cardLbl, { y: 8, opacity: 0 });
+        tl.set(chips, { y: 18, scale: 0.92, opacity: 0 });
+        tl.set(chipXs, { scale: 0, opacity: 0 });
+        tl.set(agent, { y: 14, opacity: 0 });
+        tl.set(aPulse, { scale: 1, opacity: 0.55 });
+        tl.set(hint, { opacity: 0, x: 40 });
+
+        // --- Scene fade IN (first ~0.4s) — hero visible by t≤0.5s ---
+        tl.fromTo(stage, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.0);
+
+        // --- Kicker fades up ---
+        tl.to(kicker, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.12);
+
+        // --- Card settles in (still "alive", not yet dimmed) ---
+        tl.to(cardWrap, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.30);
+
+        // --- Agent node appears early; idle pulse runs throughout ---
+        tl.to(agent, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.55);
+
+        // slow continuous "unpaid" pulse on the agent dot (idle life, grey)
+        tl.to(aPulse, {
+          scale: 2.4, opacity: 0,
+          duration: 1.9, ease: "sine.out",
+          repeat: 3, repeatDelay: 0.45,
+        }, 0.9);
+
+        // --- Three chips tick in one by one (spring), each ✗ pops after it lands ---
+        const chipStart = 1.05;
+        const chipGap = 0.62;
+        chips.forEach((chip, i) => {
+          const t = chipStart + i * chipGap;
+          tl.to(chip, {
+            y: 0, scale: 1, opacity: 1,
+            duration: 0.55, ease: "back.out(1.4)",
+          }, t);
+          // red ✗ stamps after the chip lands
+          tl.to(chipXs[i], {
+            scale: 1, opacity: 1,
+            duration: 0.34, ease: "back.out(2.2)",
+          }, t + 0.34);
+        });
+
+        // --- Card DIMS + desaturates mid-shot, red ✗ slash draws on ---
+        const cardDim = 2.95;
+        tl.to(card, {
+          filter: "saturate(0.18) brightness(0.62)",
+          opacity: 0.78,
+          duration: 0.9, ease: "power2.inOut",
+        }, cardDim);
+        tl.to(cardX1, { strokeDashoffset: 0, duration: 0.34, ease: "power2.out" }, cardDim + 0.18);
+        tl.to(cardX2, { strokeDashoffset: 0, duration: 0.34, ease: "power2.out" }, cardDim + 0.40);
+        tl.to(cardLbl, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, cardDim + 0.55);
+
+        // --- Very end: faint violet glow creeps in from the right edge (a fix is coming) ---
+        tl.to(hint, {
+          opacity: 1, x: 0,
+          duration: 1.6, ease: "sine.out",
+        }, 5.7);
+
+        // keep the violet alive, breathing, but unresolved (no payoff here)
+        tl.to(hint, {
+          opacity: 0.82,
+          duration: 1.0, ease: "sine.inOut",
+        }, 7.0);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["02-problem"] = tl;
+      })();
+    </script>
+  </div>
+</template>

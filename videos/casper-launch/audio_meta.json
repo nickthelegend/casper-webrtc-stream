@@ -1,0 +1,737 @@
+{
+  "bgm": {
+    "path": "assets/bgm/track.mp3",
+    "volume": 0.05,
+    "query": "minimal electronic, premium fintech — confident, restrained, low synth pad, soft pulse, unhurried",
+    "duration_s": 32
+  },
+  "voices": [
+    {
+      "frame": 1,
+      "path": "assets/voice/01.wav",
+      "duration_s": 5.632,
+      "words": [
+        {
+          "text": "This",
+          "start": 0.08,
+          "end": 0.46
+        },
+        {
+          "text": "is",
+          "start": 0.495,
+          "end": 0.722
+        },
+        {
+          "text": "casper-webrtc-stream",
+          "start": 0.757,
+          "end": 2.2
+        },
+        {
+          "text": "—",
+          "start": 2.235,
+          "end": 2.462
+        },
+        {
+          "text": "HTTP-native",
+          "start": 2.497,
+          "end": 3.332
+        },
+        {
+          "text": "money,",
+          "start": 3.367,
+          "end": 3.823
+        },
+        {
+          "text": "settled",
+          "start": 3.858,
+          "end": 4.465
+        },
+        {
+          "text": "on",
+          "start": 4.5,
+          "end": 4.728
+        },
+        {
+          "text": "Casper.",
+          "start": 4.763,
+          "end": 5.294
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "assets/voice/02.wav",
+      "duration_s": 7.531,
+      "words": [
+        {
+          "text": "Apps",
+          "start": 0.08,
+          "end": 0.382
+        },
+        {
+          "text": "and",
+          "start": 0.417,
+          "end": 0.658
+        },
+        {
+          "text": "agents",
+          "start": 0.693,
+          "end": 1.115
+        },
+        {
+          "text": "need",
+          "start": 1.15,
+          "end": 1.452
+        },
+        {
+          "text": "to",
+          "start": 1.487,
+          "end": 1.668
+        },
+        {
+          "text": "pay",
+          "start": 1.703,
+          "end": 1.944
+        },
+        {
+          "text": "per",
+          "start": 1.979,
+          "end": 2.22
+        },
+        {
+          "text": "call",
+          "start": 2.255,
+          "end": 2.557
+        },
+        {
+          "text": "—",
+          "start": 2.592,
+          "end": 2.773
+        },
+        {
+          "text": "per",
+          "start": 2.808,
+          "end": 3.049
+        },
+        {
+          "text": "request,",
+          "start": 3.084,
+          "end": 3.567
+        },
+        {
+          "text": "per",
+          "start": 3.602,
+          "end": 3.843
+        },
+        {
+          "text": "second.",
+          "start": 3.878,
+          "end": 4.3
+        },
+        {
+          "text": "Card",
+          "start": 4.335,
+          "end": 4.637
+        },
+        {
+          "text": "rails",
+          "start": 4.672,
+          "end": 5.034
+        },
+        {
+          "text": "can't.",
+          "start": 5.069,
+          "end": 5.371
+        },
+        {
+          "text": "Crypto",
+          "start": 5.406,
+          "end": 5.828
+        },
+        {
+          "text": "checkout",
+          "start": 5.863,
+          "end": 6.406
+        },
+        {
+          "text": "is",
+          "start": 6.441,
+          "end": 6.622
+        },
+        {
+          "text": "clunky.",
+          "start": 6.657,
+          "end": 7.079
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "assets/voice/03.wav",
+      "duration_s": 13.461,
+      "words": [
+        {
+          "text": "x402",
+          "start": 0.08,
+          "end": 0.42
+        },
+        {
+          "text": "makes",
+          "start": 0.455,
+          "end": 0.863
+        },
+        {
+          "text": "payment",
+          "start": 0.898,
+          "end": 1.442
+        },
+        {
+          "text": "part",
+          "start": 1.477,
+          "end": 1.817
+        },
+        {
+          "text": "of",
+          "start": 1.852,
+          "end": 2.056
+        },
+        {
+          "text": "HTTP.",
+          "start": 2.091,
+          "end": 2.431
+        },
+        {
+          "text": "The",
+          "start": 2.466,
+          "end": 2.738
+        },
+        {
+          "text": "server",
+          "start": 2.773,
+          "end": 3.249
+        },
+        {
+          "text": "asks",
+          "start": 3.284,
+          "end": 3.624
+        },
+        {
+          "text": "for",
+          "start": 3.659,
+          "end": 3.93
+        },
+        {
+          "text": "payment,",
+          "start": 3.965,
+          "end": 4.509
+        },
+        {
+          "text": "the",
+          "start": 4.544,
+          "end": 4.816
+        },
+        {
+          "text": "client",
+          "start": 4.851,
+          "end": 5.327
+        },
+        {
+          "text": "signs",
+          "start": 5.362,
+          "end": 5.77
+        },
+        {
+          "text": "and",
+          "start": 5.805,
+          "end": 6.077
+        },
+        {
+          "text": "retries,",
+          "start": 6.112,
+          "end": 6.656
+        },
+        {
+          "text": "and",
+          "start": 6.691,
+          "end": 6.963
+        },
+        {
+          "text": "the",
+          "start": 6.998,
+          "end": 7.27
+        },
+        {
+          "text": "server",
+          "start": 7.305,
+          "end": 7.781
+        },
+        {
+          "text": "settles",
+          "start": 7.816,
+          "end": 8.36
+        },
+        {
+          "text": "it",
+          "start": 8.395,
+          "end": 8.599
+        },
+        {
+          "text": "on-chain",
+          "start": 8.634,
+          "end": 9.178
+        },
+        {
+          "text": "—",
+          "start": 9.213,
+          "end": 9.417
+        },
+        {
+          "text": "a",
+          "start": 9.452,
+          "end": 9.656
+        },
+        {
+          "text": "real",
+          "start": 9.691,
+          "end": 10.031
+        },
+        {
+          "text": "token",
+          "start": 10.066,
+          "end": 10.474
+        },
+        {
+          "text": "transfer,",
+          "start": 10.509,
+          "end": 11.121
+        },
+        {
+          "text": "confirmed",
+          "start": 11.156,
+          "end": 11.835
+        },
+        {
+          "text": "in",
+          "start": 11.87,
+          "end": 12.074
+        },
+        {
+          "text": "seconds.",
+          "start": 12.109,
+          "end": 12.653
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "assets/voice/04.wav",
+      "duration_s": 9.877,
+      "words": [
+        {
+          "text": "Integrating",
+          "start": 0.08,
+          "end": 0.766
+        },
+        {
+          "text": "it",
+          "start": 0.801,
+          "end": 0.972
+        },
+        {
+          "text": "takes",
+          "start": 1.007,
+          "end": 1.35
+        },
+        {
+          "text": "one",
+          "start": 1.385,
+          "end": 1.613
+        },
+        {
+          "text": "line",
+          "start": 1.648,
+          "end": 1.934
+        },
+        {
+          "text": "each.",
+          "start": 1.969,
+          "end": 2.255
+        },
+        {
+          "text": "paymentMiddleware",
+          "start": 2.29,
+          "end": 3.318
+        },
+        {
+          "text": "gates",
+          "start": 3.353,
+          "end": 3.696
+        },
+        {
+          "text": "any",
+          "start": 3.731,
+          "end": 3.96
+        },
+        {
+          "text": "route",
+          "start": 3.995,
+          "end": 4.338
+        },
+        {
+          "text": "on",
+          "start": 4.373,
+          "end": 4.544
+        },
+        {
+          "text": "the",
+          "start": 4.579,
+          "end": 4.808
+        },
+        {
+          "text": "server.",
+          "start": 4.843,
+          "end": 5.243
+        },
+        {
+          "text": "wrapFetch",
+          "start": 5.278,
+          "end": 5.849
+        },
+        {
+          "text": "pays",
+          "start": 5.884,
+          "end": 6.17
+        },
+        {
+          "text": "automatically",
+          "start": 6.205,
+          "end": 7.005
+        },
+        {
+          "text": "on",
+          "start": 7.04,
+          "end": 7.211
+        },
+        {
+          "text": "the",
+          "start": 7.246,
+          "end": 7.474
+        },
+        {
+          "text": "client.",
+          "start": 7.509,
+          "end": 7.909
+        },
+        {
+          "text": "Drop",
+          "start": 7.944,
+          "end": 8.23
+        },
+        {
+          "text": "it",
+          "start": 8.265,
+          "end": 8.437
+        },
+        {
+          "text": "into",
+          "start": 8.472,
+          "end": 8.757
+        },
+        {
+          "text": "any",
+          "start": 8.792,
+          "end": 9.021
+        },
+        {
+          "text": "app.",
+          "start": 9.056,
+          "end": 9.284
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "assets/voice/05.wav",
+      "duration_s": 9.813,
+      "words": [
+        {
+          "text": "Every",
+          "start": 0.08,
+          "end": 0.487
+        },
+        {
+          "text": "payment",
+          "start": 0.522,
+          "end": 1.065
+        },
+        {
+          "text": "is",
+          "start": 1.1,
+          "end": 1.303
+        },
+        {
+          "text": "real,",
+          "start": 1.338,
+          "end": 1.677
+        },
+        {
+          "text": "and",
+          "start": 1.712,
+          "end": 1.984
+        },
+        {
+          "text": "verifiable.",
+          "start": 2.019,
+          "end": 2.765
+        },
+        {
+          "text": "These",
+          "start": 2.8,
+          "end": 3.207
+        },
+        {
+          "text": "are",
+          "start": 3.242,
+          "end": 3.513
+        },
+        {
+          "text": "live",
+          "start": 3.548,
+          "end": 3.887
+        },
+        {
+          "text": "settlements",
+          "start": 3.922,
+          "end": 4.736
+        },
+        {
+          "text": "on",
+          "start": 4.771,
+          "end": 4.975
+        },
+        {
+          "text": "Casper",
+          "start": 5.01,
+          "end": 5.485
+        },
+        {
+          "text": "testnet",
+          "start": 5.52,
+          "end": 6.062
+        },
+        {
+          "text": "—",
+          "start": 6.097,
+          "end": 6.301
+        },
+        {
+          "text": "actual",
+          "start": 6.336,
+          "end": 6.811
+        },
+        {
+          "text": "CEP-18",
+          "start": 6.846,
+          "end": 7.253
+        },
+        {
+          "text": "transfers,",
+          "start": 7.288,
+          "end": 7.966
+        },
+        {
+          "text": "on",
+          "start": 8.001,
+          "end": 8.205
+        },
+        {
+          "text": "actual",
+          "start": 8.24,
+          "end": 8.714
+        },
+        {
+          "text": "blocks.",
+          "start": 8.749,
+          "end": 9.224
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "assets/voice/06.wav",
+      "duration_s": 5.483,
+      "words": [
+        {
+          "text": "Two",
+          "start": 0.08,
+          "end": 0.36
+        },
+        {
+          "text": "published",
+          "start": 0.395,
+          "end": 1.095
+        },
+        {
+          "text": "packages.",
+          "start": 1.13,
+          "end": 1.76
+        },
+        {
+          "text": "Framework-agnostic.",
+          "start": 1.795,
+          "end": 3.054
+        },
+        {
+          "text": "Any",
+          "start": 3.089,
+          "end": 3.369
+        },
+        {
+          "text": "rail,",
+          "start": 3.404,
+          "end": 3.754
+        },
+        {
+          "text": "any",
+          "start": 3.789,
+          "end": 4.069
+        },
+        {
+          "text": "app,",
+          "start": 4.104,
+          "end": 4.384
+        },
+        {
+          "text": "any",
+          "start": 4.419,
+          "end": 4.699
+        },
+        {
+          "text": "agent.",
+          "start": 4.734,
+          "end": 5.154
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "assets/voice/07.wav",
+      "duration_s": 5.248,
+      "words": [
+        {
+          "text": "casper-webrtc-stream.",
+          "start": 0.08,
+          "end": 1.285
+        },
+        {
+          "text": "The",
+          "start": 1.32,
+          "end": 1.574
+        },
+        {
+          "text": "payment",
+          "start": 1.609,
+          "end": 2.116
+        },
+        {
+          "text": "rail",
+          "start": 2.151,
+          "end": 2.468
+        },
+        {
+          "text": "for",
+          "start": 2.503,
+          "end": 2.757
+        },
+        {
+          "text": "the",
+          "start": 2.792,
+          "end": 3.046
+        },
+        {
+          "text": "agent",
+          "start": 3.081,
+          "end": 3.461
+        },
+        {
+          "text": "economy",
+          "start": 3.496,
+          "end": 4.004
+        },
+        {
+          "text": "—",
+          "start": 4.039,
+          "end": 4.229
+        },
+        {
+          "text": "on",
+          "start": 4.264,
+          "end": 4.454
+        },
+        {
+          "text": "Casper.",
+          "start": 4.489,
+          "end": 4.933
+        }
+      ]
+    }
+  ],
+  "sfx": [
+    {
+      "frame": 1,
+      "file": "assets/sfx/tick-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 7.778,
+      "volume": 0.2
+    },
+    {
+      "frame": 2,
+      "file": "assets/sfx/tick-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 7.778,
+      "volume": 0.2
+    },
+    {
+      "frame": 3,
+      "file": "assets/sfx/click-402.mp3",
+      "offset_s": 0,
+      "duration_s": 0.936,
+      "volume": 0.2
+    },
+    {
+      "frame": 3,
+      "file": "assets/sfx/click-200.mp3",
+      "offset_s": 0,
+      "duration_s": 0.936,
+      "volume": 0.2
+    },
+    {
+      "frame": 4,
+      "file": "assets/sfx/tick-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 7.778,
+      "volume": 0.2
+    },
+    {
+      "frame": 5,
+      "file": "assets/sfx/confirm-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 0.144,
+      "volume": 0.2
+    },
+    {
+      "frame": 6,
+      "file": "assets/sfx/tick-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 7.778,
+      "volume": 0.2
+    },
+    {
+      "frame": 7,
+      "file": "assets/sfx/tick-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 7.778,
+      "volume": 0.2
+    }
+  ]
+}
