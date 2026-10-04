@@ -1,0 +1,220 @@
+<template id="04-flow-template">
+  <div id="root" data-composition-id="04-flow" data-width="1920" data-height="1080" data-duration="12.5">
+    <div class="f4-grid"></div>
+    <div class="f4-vig"></div>
+
+    <div class="f4-head">Borrowed. Settled. Served.</div>
+
+    <div class="f4-wire w-12"><span class="f4-pulse"></span></div>
+    <div class="f4-wire w-23"><span class="f4-pulse"></span></div>
+    <div class="f4-wire w-34"><span class="f4-pulse"></span></div>
+
+    <div class="f4-node n1">
+      <div class="f4-k">◇ agent</div>
+      <div class="f4-t">Agent</div>
+      <div class="f4-v">wallet 0.00</div>
+    </div>
+    <div class="f4-node n2">
+      <div class="f4-k">◆ Fund402 vault</div>
+      <div class="f4-t">Liquidity pool</div>
+      <div class="f4-v f4-v2">fronts 1,000,000</div>
+    </div>
+    <div class="f4-node n3">
+      <div class="f4-k">⬡ casper</div>
+      <div class="f4-t f4-settle">settling…</div>
+      <div class="f4-v f4-dep">deploy 96f30ddf…</div>
+    </div>
+    <div class="f4-node n4">
+      <div class="f4-200">200 OK</div>
+      <div class="f4-k f4-k4">BTC-USD</div>
+    </div>
+
+    <div class="f4-receipt">
+      <span class="f4-rc">✓</span> settled · <b>casper-test</b>&nbsp;&nbsp;·&nbsp;&nbsp;amount <b>1,000,000</b>&nbsp;&nbsp;·&nbsp;&nbsp;collateral <b>0</b>&nbsp;&nbsp;·&nbsp;&nbsp;status <b>processed</b>
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f4-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(92% 78% at 50% 46%, #000 40%, transparent 86%);
+        mask-image: radial-gradient(92% 78% at 50% 46%, #000 40%, transparent 86%);
+      }
+      .f4-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 44%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      .f4-head {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 158px;
+        text-align: center;
+        font-size: 68px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #f4f5f7;
+        opacity: 0;
+      }
+      .f4-node {
+        position: absolute;
+        top: 380px;
+        width: 360px;
+        height: 200px;
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+        border-radius: 15px;
+        padding: 22px 26px;
+        opacity: 0;
+      }
+      .n1 { left: 90px; }
+      .n2 { left: 550px; }
+      .n3 { left: 1010px; }
+      .n4 { left: 1470px; }
+      .f4-k {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: #6a6f7e;
+      }
+      .f4-t {
+        font-size: 33px;
+        font-weight: 800;
+        color: #f4f5f7;
+        margin-top: 16px;
+        letter-spacing: -0.02em;
+      }
+      .f4-v {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 23px;
+        color: #9a9fb0;
+        margin-top: 16px;
+      }
+      .f4-settle.done {
+        color: #22e0a6;
+      }
+      .f4-dep {
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f4-200 {
+        font-size: 50px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        color: #9a9fb0;
+      }
+      .f4-200.lit {
+        color: #22e0a6;
+        text-shadow: 0 0 30px rgba(34, 224, 166, 0.4);
+      }
+      .f4-k4 {
+        margin-top: 18px;
+      }
+      .f4-wire {
+        position: absolute;
+        top: 479px;
+        height: 2px;
+        background: #20232c;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+      .w-12 { left: 450px; width: 100px; }
+      .w-23 { left: 910px; width: 100px; }
+      .w-34 { left: 1370px; width: 100px; }
+      .f4-pulse {
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #22e0a6;
+        box-shadow: 0 0 16px 3px rgba(34, 224, 166, 0.7);
+        opacity: 0;
+      }
+      .f4-receipt {
+        position: absolute;
+        left: 50%;
+        top: 716px;
+        transform: translateX(-50%);
+        padding: 20px 34px;
+        background: #0c0d11;
+        border: 1px solid #1c1f26;
+        border-radius: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 23px;
+        color: #8a8fa0;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      .f4-receipt b {
+        color: #c9ccd6;
+        font-weight: 600;
+      }
+      .f4-rc {
+        color: #22e0a6;
+        font-weight: 700;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="04-flow"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+        const litBorder = "1px solid rgba(34,224,166,0.55)";
+        const dim = "1px solid #1c1f26";
+
+        tl.fromTo(q(".f4-head"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.15);
+        tl.fromTo(q(".n1"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.7);
+        tl.fromTo(q(".n2"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.95);
+        tl.fromTo(q(".n3"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.2);
+        tl.fromTo(q(".n4"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.45);
+
+        // 1 -> 2 : pool fronts (~3.3s VO)
+        tl.to(q(".w-12"), { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 3.0);
+        tl.fromTo(q(".w-12 .f4-pulse"), { opacity: 1, x: 0 }, { x: 90, duration: 0.5, ease: "power1.in" }, 3.1);
+        tl.set(q(".w-12 .f4-pulse"), { opacity: 0 }, 3.6);
+        tl.fromTo(q(".n2"), { borderColor: "#1c1f26" }, { borderColor: "rgba(34,224,166,0.55)", duration: 0.3 }, 3.6);
+        tl.fromTo(q(".f4-v2"), { color: "#9a9fb0" }, { color: "#22e0a6", duration: 0.3 }, 3.6);
+
+        // 2 -> 3 : settle on Casper (~6s VO)
+        tl.to(q(".n2"), { borderColor: "#1c1f26", duration: 0.4 }, 4.8);
+        tl.to(q(".f4-v2"), { color: "#9a9fb0", duration: 0.4 }, 4.8);
+        tl.to(q(".w-23"), { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 5.2);
+        tl.fromTo(q(".w-23 .f4-pulse"), { opacity: 1, x: 0 }, { x: 90, duration: 0.5, ease: "power1.in" }, 5.3);
+        tl.set(q(".w-23 .f4-pulse"), { opacity: 0 }, 5.8);
+        tl.call(() => { const e = q(".f4-settle"); if (e) { e.textContent = "✓ processed"; e.classList.add("done"); } }, null, 5.9);
+        tl.to(q(".f4-dep"), { opacity: 1, duration: 0.4 }, 6.2);
+
+        // 3 -> 4 : 200 OK (~8.5s VO)
+        tl.to(q(".w-34"), { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 7.4);
+        tl.fromTo(q(".w-34 .f4-pulse"), { opacity: 1, x: 0 }, { x: 90, duration: 0.5, ease: "power1.in" }, 7.5);
+        tl.set(q(".w-34 .f4-pulse"), { opacity: 0 }, 8.0);
+        tl.call(() => { q(".f4-200").classList.add("lit"); }, null, 8.1);
+        tl.fromTo(q(".f4-200"), { scale: 1.18 }, { scale: 1, duration: 0.4, ease: "power3.out", transformOrigin: "left center" }, 8.1);
+
+        // receipt — "every hash is real" (~10s VO)
+        tl.fromTo(q(".f4-receipt"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 9.6);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["04-flow"] = tl;
+      })();
+    </script>
+  </div>
+</template>

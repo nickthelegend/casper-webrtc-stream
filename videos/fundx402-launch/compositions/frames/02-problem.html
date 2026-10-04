@@ -1,0 +1,200 @@
+<template id="02-problem-template">
+  <div id="root" data-composition-id="02-problem" data-width="1920" data-height="1080" data-duration="11.2">
+    <div class="f2-grid"></div>
+    <div class="f2-vig"></div>
+
+    <div class="f2-kick">WHEN THE WALLET IS EMPTY</div>
+
+    <div class="f2-card">
+      <div class="f2-bar">
+        <span class="f2-dot"></span><span class="f2-dot"></span><span class="f2-dot"></span>
+        <span class="f2-bartxt">autonomous agent · x402 client</span>
+      </div>
+      <div class="f2-body">
+        <div class="f2-row f2-req"><span class="f2-arrow">▸</span><span class="f2-verb">GET</span><span class="f2-path">/v/price/BTC-USD</span></div>
+        <div class="f2-row f2-wait"><span class="f2-dots">· · ·</span></div>
+        <div class="f2-row f2-res"><span class="f2-arrow f2-in">←</span><span class="f2-402">402</span><span class="f2-402t">PAYMENT&nbsp;REQUIRED</span></div>
+      </div>
+      <div class="f2-wallet">
+        <span class="f2-wl">balance</span><span class="f2-wv">0.00&nbsp;<i>USDC</i></span><span class="f2-wn">insufficient funds</span>
+      </div>
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f2-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(70% 66% at 50% 42%, #000 28%, transparent 76%);
+        mask-image: radial-gradient(70% 66% at 50% 42%, #000 28%, transparent 76%);
+      }
+      .f2-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 40%, transparent 56%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      .f2-kick {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 196px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f2-card {
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        width: 880px;
+        transform: translateX(-50%);
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+        border-radius: 16px;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .f2-bar {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 20px 28px;
+        border-bottom: 1px solid #16181d;
+      }
+      .f2-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #2a2d36;
+      }
+      .f2-bartxt {
+        margin-left: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        color: #5a5f6e;
+      }
+      .f2-body {
+        padding: 34px 40px 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 34px;
+      }
+      .f2-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 56px;
+      }
+      .f2-arrow {
+        color: #5a5f6e;
+      }
+      .f2-verb {
+        color: #c9ccd6;
+        font-weight: 700;
+      }
+      .f2-path {
+        color: #8a8fa0;
+      }
+      .f2-req {
+        opacity: 0;
+      }
+      .f2-wait {
+        opacity: 0;
+      }
+      .f2-dots {
+        color: #3a3d46;
+        letter-spacing: 6px;
+      }
+      .f2-res {
+        opacity: 0;
+      }
+      .f2-402 {
+        font-weight: 700;
+        font-size: 40px;
+        color: #f4f5f7;
+      }
+      .f2-402t {
+        color: #8a8fa0;
+        letter-spacing: 0.1em;
+        font-size: 27px;
+        font-weight: 600;
+      }
+      .f2-wallet {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin: 14px 40px 32px;
+        padding: 18px 24px;
+        border: 1px solid #1c1f26;
+        border-radius: 12px;
+        background: #0b0c10;
+        font-family: "JetBrains Mono", monospace;
+        opacity: 0;
+      }
+      .f2-wl {
+        font-size: 21px;
+        color: #8a8fa0;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+      .f2-wv {
+        font-size: 30px;
+        font-weight: 700;
+        color: #c9ccd6;
+      }
+      .f2-wv i {
+        font-style: normal;
+        font-size: 22px;
+        color: #8a8fa0;
+      }
+      .f2-wn {
+        margin-left: auto;
+        font-size: 20px;
+        color: #6a6f7e;
+        letter-spacing: 0.03em;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="02-problem"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(q(".f2-kick"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.3);
+        tl.fromTo(q(".f2-card"), { opacity: 0, y: 26, scale: 0.985 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.4);
+        tl.fromTo(q(".f2-req"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.1);
+        tl.fromTo(q(".f2-wait"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 2.2);
+        // 402 stamps in on the VO cue (~4.3s)
+        tl.set(q(".f2-wait"), { opacity: 0 }, 4.2);
+        tl.fromTo(q(".f2-res"), { opacity: 0 }, { opacity: 1, duration: 0.18 }, 4.3);
+        tl.fromTo(q(".f2-402"), { scale: 1.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 4.3);
+        tl.fromTo(q(".f2-402t"), { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: 0.3 }, 4.65);
+        // wallet 0.00
+        tl.fromTo(q(".f2-wallet"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 5.6);
+        // the stall — card settles to a dimmer state (no exit; content holds)
+        tl.to(q(".f2-card"), { opacity: 0.62, duration: 0.8, ease: "power2.inOut" }, 7.6);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["02-problem"] = tl;
+      })();
+    </script>
+  </div>
+</template>

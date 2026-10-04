@@ -1,0 +1,206 @@
+<template id="scene9-cta-template">
+  <div
+    data-composition-id="scene9-cta"
+    data-width="1920"
+    data-height="1080"
+    data-duration="9"
+  >
+    <div class="s9-canvas">
+      <div class="s9-grid"></div>
+      <div class="s9-glow"></div>
+
+      <div class="s9-hero">Payward</div>
+
+      <div class="s9-layers">
+        <div class="s9-lyr">
+          <svg viewBox="0 0 100 100" width="40" height="40">
+            <defs>
+              <linearGradient id="s9fg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff3b5c" /><stop offset="0.55" stop-color="#f5b301" /><stop offset="1" stop-color="#25d3a6" />
+              </linearGradient>
+            </defs>
+            <rect x="8" y="8" width="84" height="84" rx="22" fill="#0f0f18" stroke="url(#s9fg)" stroke-width="4" />
+            <path d="M56 24 L34 54 L48 54 L44 76 L66 46 L52 46 Z" fill="url(#s9fg)" />
+          </svg>
+          <span class="s9-lname">Fund402</span><span class="s9-lrole">· credit</span>
+        </div>
+        <div class="s9-plus2">+</div>
+        <div class="s9-lyr">
+          <svg viewBox="0 0 100 112" width="36" height="40">
+            <defs>
+              <linearGradient id="s9cg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#c4b5ff" /><stop offset="1" stop-color="#7c6cff" />
+              </linearGradient>
+            </defs>
+            <path d="M50 6 L88 20 V54 C88 82 70 98 50 106 C30 98 12 82 12 54 V20 Z" fill="#0f0f18" stroke="url(#s9cg)" stroke-width="4" />
+            <path d="M33 55 L45 68 L69 41" fill="none" stroke="url(#s9cg)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="s9-lname cb">Clawback</span><span class="s9-lrole">· settlement</span>
+        </div>
+      </div>
+
+      <div class="s9-tagline">The credit &amp; settlement layer for the machine economy.</div>
+
+      <div class="s9-pills">
+        <div class="s9-pill prime"><span class="s9-pic">$</span>npm i @nickthelegend69/fund402</div>
+        <div class="s9-pill"><span class="s9-pic gh">⌥</span>github.com/nickthelegend</div>
+      </div>
+
+      <div class="s9-foot">casper testnet · open source · Casper Agentic Buildathon 2026</div>
+    </div>
+
+    <style>
+      [data-composition-id="scene9-cta"] .s9-canvas {
+        width: 1920px;
+        height: 1080px;
+        background: radial-gradient(120% 100% at 50% 46%, #0c0c16 0%, #07070b 60%);
+        position: relative;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+      [data-composition-id="scene9-cta"] .s9-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(85% 85% at 50% 46%, #000 38%, transparent 84%);
+      }
+      [data-composition-id="scene9-cta"] .s9-glow {
+        position: absolute;
+        left: 50%;
+        top: 44%;
+        width: 1500px;
+        height: 820px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(120, 110, 200, 0.1), transparent 62%);
+        opacity: 0;
+        filter: blur(12px);
+      }
+      [data-composition-id="scene9-cta"] .s9-hero {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 288px;
+        text-align: center;
+        font-size: 138px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        background: linear-gradient(100deg, #ff3b5c, #f5b301 38%, #25d3a6 66%, #a18cff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        opacity: 0;
+      }
+      [data-composition-id="scene9-cta"] .s9-layers {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 470px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        opacity: 0;
+      }
+      [data-composition-id="scene9-cta"] .s9-lyr {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      [data-composition-id="scene9-cta"] .s9-lname { color: #f3f3f8; }
+      [data-composition-id="scene9-cta"] .s9-lname.cb { color: #c4b5ff; }
+      [data-composition-id="scene9-cta"] .s9-lrole {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 24px;
+        font-weight: 500;
+        color: #8b8b9e;
+      }
+      [data-composition-id="scene9-cta"] .s9-plus2 {
+        font-size: 40px;
+        font-weight: 300;
+        color: #56566c;
+      }
+      [data-composition-id="scene9-cta"] .s9-tagline {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 566px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 500;
+        color: #c9c9da;
+        opacity: 0;
+      }
+      [data-composition-id="scene9-cta"] .s9-pills {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 672px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+      }
+      [data-composition-id="scene9-cta"] .s9-pill {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 30px;
+        border-radius: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 28px;
+        color: #c9c9da;
+        background: #12121d;
+        border: 1px solid #262633;
+        opacity: 0;
+      }
+      [data-composition-id="scene9-cta"] .s9-pill.prime {
+        color: #07070b;
+        background: linear-gradient(100deg, #ffd152, #f5b301);
+        border: none;
+        font-weight: 600;
+      }
+      [data-composition-id="scene9-cta"] .s9-pic { font-weight: 700; opacity: 0.7; }
+      [data-composition-id="scene9-cta"] .s9-pill.prime .s9-pic { color: #7a5a00; opacity: 1; }
+      [data-composition-id="scene9-cta"] .s9-pic.gh { color: #5b8cff; }
+      [data-composition-id="scene9-cta"] .s9-foot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 790px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        color: #56566c;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const q = (s) => '[data-composition-id="scene9-cta"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+
+        tl.to(q(".s9-glow"), { opacity: 1, duration: 1.2, ease: "power2.out" }, 0.1);
+        tl.fromTo(q(".s9-hero"), { opacity: 0, y: 26, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.3);
+        tl.fromTo(q(".s9-layers"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.1);
+        tl.fromTo(q(".s9-tagline"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 1.6);
+        tl.fromTo(q(".s9-pill.prime"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.2);
+        tl.fromTo(q(".s9-pill:not(.prime)"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.4);
+        tl.fromTo(q(".s9-foot"), { opacity: 0 }, { opacity: 1, duration: 0.5 }, 2.9);
+
+        // hold — a single soft glow on the Payward wordmark + the prime pill
+        tl.fromTo(q(".s9-hero"), { filter: "brightness(1)" }, { filter: "brightness(1.22)", duration: 0.9, yoyo: true, repeat: 2, ease: "sine.inOut" }, 3.4);
+        tl.to(q(".s9-pill.prime"), { boxShadow: "0 0 38px rgba(245,179,1,0.4)", duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.6);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["scene9-cta"] = tl;
+      })();
+    </script>
+  </div>
+</template>

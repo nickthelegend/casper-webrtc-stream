@@ -1,0 +1,135 @@
+{
+  "tts_provider": "kokoro",
+  "voice_id": "am_michael",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "01",
+      "path": "assets/voice/01.wav",
+      "duration_s": 7.083,
+      "words": []
+    },
+    {
+      "id": "02",
+      "path": "assets/voice/02.wav",
+      "duration_s": 10.027,
+      "words": []
+    },
+    {
+      "id": "03",
+      "path": "assets/voice/03.wav",
+      "duration_s": 6.997,
+      "words": []
+    },
+    {
+      "id": "04",
+      "path": "assets/voice/04.wav",
+      "duration_s": 11.349,
+      "words": []
+    },
+    {
+      "id": "05",
+      "path": "assets/voice/05.wav",
+      "duration_s": 7.083,
+      "words": []
+    },
+    {
+      "id": "06",
+      "path": "assets/voice/06.wav",
+      "duration_s": 6.827,
+      "words": []
+    },
+    {
+      "id": "07",
+      "path": "assets/voice/07.wav",
+      "duration_s": 11.968,
+      "words": []
+    },
+    {
+      "id": "08",
+      "path": "assets/voice/08.wav",
+      "duration_s": 7.467,
+      "words": []
+    },
+    {
+      "id": "09",
+      "path": "assets/voice/09.wav",
+      "duration_s": 5.867,
+      "words": []
+    }
+  ],
+  "sfx": [
+    {
+      "id": "02",
+      "name": "soft ui click as the 402 stamps in",
+      "file": "assets/sfx/soft-ui-click-as-the-402-stamps-in.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 0.24,
+      "volume": 0.35
+    },
+    {
+      "id": "03",
+      "name": "soft whoosh on the wipe",
+      "file": "assets/sfx/soft-whoosh-on-the-wipe.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 1.834,
+      "volume": 0.35
+    },
+    {
+      "id": "04",
+      "name": "soft click when 200 OK lands",
+      "file": "assets/sfx/soft-click-when-200-ok-lands.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 0.24,
+      "volume": 0.35
+    },
+    {
+      "id": "06",
+      "name": "soft whoosh as the shield/word \"Clawback\" resolves",
+      "file": "assets/sfx/soft-whoosh-as-the-shield-word-clawback-.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 1.472,
+      "volume": 0.35
+    },
+    {
+      "id": "07",
+      "name": "soft click on release",
+      "file": "assets/sfx/soft-click-on-release.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 0.264,
+      "volume": 0.35
+    },
+    {
+      "id": "07",
+      "name": "soft click on the clawback",
+      "file": "assets/sfx/soft-click-on-the-clawback.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 0.264,
+      "volume": 0.35
+    },
+    {
+      "id": "08",
+      "name": "soft click as the five chips settle in",
+      "file": "assets/sfx/soft-click-as-the-five-chips-settle-in.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 0.264,
+      "volume": 0.35
+    }
+  ],
+  "total_duration_s": 74.668
+}

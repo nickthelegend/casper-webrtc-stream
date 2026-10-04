@@ -1,0 +1,1954 @@
+{
+  "total_duration_s": 105,
+  "width": 1920,
+  "height": 1080,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0.12,
+      "end": 2.28,
+      "text": "Autonomous agents run real",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "Autonomous",
+          "start": 0.12,
+          "end": 0.98
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "agents",
+          "start": 0.98,
+          "end": 1.58
+        },
+        {
+          "id": "caption-word-0-2",
+          "text": "run",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "id": "caption-word-0-3",
+          "text": "real",
+          "start": 1.88,
+          "end": 2.28
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 2.28,
+      "end": 2.73,
+      "text": "work",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "work",
+          "start": 2.28,
+          "end": 2.61
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 2.88,
+      "end": 3.11,
+      "text": "now,",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "now,",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 1,
+      "start": 3.11,
+      "end": 3.52,
+      "text": "until the",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "until",
+          "start": 3.11,
+          "end": 3.36
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "the",
+          "start": 3.36,
+          "end": 3.52
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 1,
+      "start": 3.52,
+      "end": 4.77,
+      "text": "wallet hits zero",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "wallet",
+          "start": 3.52,
+          "end": 3.83
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "hits",
+          "start": 3.83,
+          "end": 4.42
+        },
+        {
+          "id": "caption-word-4-2",
+          "text": "zero",
+          "start": 4.42,
+          "end": 4.65
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 1,
+      "start": 5.1,
+      "end": 5.3,
+      "text": "and a",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "and",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "id": "caption-word-5-1",
+          "text": "a",
+          "start": 5.2,
+          "end": 5.23
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 1,
+      "start": 5.3,
+      "end": 6.44,
+      "text": "paywall stops them",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "paywall",
+          "start": 5.3,
+          "end": 5.76
+        },
+        {
+          "id": "caption-word-6-1",
+          "text": "stops",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "id": "caption-word-6-2",
+          "text": "them",
+          "start": 6.16,
+          "end": 6.39
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 1,
+      "start": 6.44,
+      "end": 7.11,
+      "text": "cold.",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "cold.",
+          "start": 6.44,
+          "end": 6.99
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 2,
+      "start": 7.56,
+      "end": 7.81,
+      "text": "So we",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "So",
+          "start": 7.56,
+          "end": 7.66
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "we",
+          "start": 7.66,
+          "end": 7.81
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 7.81,
+      "end": 9,
+      "text": "built Payward,",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "built",
+          "start": 7.81,
+          "end": 8.22
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "Payward,",
+          "start": 8.22,
+          "end": 8.96
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 2,
+      "start": 9,
+      "end": 9.52,
+      "text": "the credit",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "the",
+          "start": 9,
+          "end": 9.12
+        },
+        {
+          "id": "caption-word-10-1",
+          "text": "credit",
+          "start": 9.15,
+          "end": 9.52
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 2,
+      "start": 9.52,
+      "end": 10.52,
+      "text": "and settlement layer",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "and",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "id": "caption-word-11-1",
+          "text": "settlement",
+          "start": 9.66,
+          "end": 10.13
+        },
+        {
+          "id": "caption-word-11-2",
+          "text": "layer",
+          "start": 10.14,
+          "end": 10.41
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 2,
+      "start": 10.52,
+      "end": 11.61,
+      "text": "for AI agents",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "for",
+          "start": 10.52,
+          "end": 10.77
+        },
+        {
+          "id": "caption-word-12-1",
+          "text": "AI",
+          "start": 10.83,
+          "end": 10.96
+        },
+        {
+          "id": "caption-word-12-2",
+          "text": "agents",
+          "start": 11.09,
+          "end": 11.49
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 2,
+      "start": 11.92,
+      "end": 13.02,
+      "text": "on Casper.",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "on",
+          "start": 11.92,
+          "end": 12
+        },
+        {
+          "id": "caption-word-13-1",
+          "text": "Casper.",
+          "start": 12,
+          "end": 12.96
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 2,
+      "start": 13.02,
+      "end": 13.62,
+      "text": "It comes",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "It",
+          "start": 13.02,
+          "end": 13.15
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "comes",
+          "start": 13.15,
+          "end": 13.6
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 2,
+      "start": 13.62,
+      "end": 14.92,
+      "text": "in two parts.",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "in",
+          "start": 13.62,
+          "end": 13.81
+        },
+        {
+          "id": "caption-word-15-1",
+          "text": "two",
+          "start": 13.81,
+          "end": 13.99
+        },
+        {
+          "id": "caption-word-15-2",
+          "text": "parts.",
+          "start": 14.08,
+          "end": 14.86
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 2,
+      "start": 14.92,
+      "end": 16.14,
+      "text": "Fund402",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "Fund402",
+          "start": 14.92,
+          "end": 16.02
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 2,
+      "start": 16.36,
+      "end": 17.4,
+      "text": "fronts and agents",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "fronts",
+          "start": 16.36,
+          "end": 16.7
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "and",
+          "start": 16.7,
+          "end": 16.93
+        },
+        {
+          "id": "caption-word-17-2",
+          "text": "agents",
+          "start": 16.93,
+          "end": 17.4
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 2,
+      "start": 17.4,
+      "end": 18.72,
+      "text": "payments as credit",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "payments",
+          "start": 17.4,
+          "end": 17.94
+        },
+        {
+          "id": "caption-word-18-1",
+          "text": "as",
+          "start": 18.06,
+          "end": 18.17
+        },
+        {
+          "id": "caption-word-18-2",
+          "text": "credit",
+          "start": 18.17,
+          "end": 18.66
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 2,
+      "start": 18.72,
+      "end": 19.82,
+      "text": "and Clawback settles",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "and",
+          "start": 18.72,
+          "end": 18.88
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "Clawback",
+          "start": 18.88,
+          "end": 19.46
+        },
+        {
+          "id": "caption-word-19-2",
+          "text": "settles",
+          "start": 19.46,
+          "end": 19.7
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 2,
+      "start": 20.16,
+      "end": 20.41,
+      "text": "them in",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "them",
+          "start": 20.16,
+          "end": 20.24
+        },
+        {
+          "id": "caption-word-20-1",
+          "text": "in",
+          "start": 20.28,
+          "end": 20.41
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 2,
+      "start": 20.41,
+      "end": 21.53,
+      "text": "escrow with an",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "escrow",
+          "start": 20.41,
+          "end": 20.89
+        },
+        {
+          "id": "caption-word-21-1",
+          "text": "with",
+          "start": 20.9,
+          "end": 21.32
+        },
+        {
+          "id": "caption-word-21-2",
+          "text": "an",
+          "start": 21.32,
+          "end": 21.53
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 2,
+      "start": 21.53,
+      "end": 22.63,
+      "text": "AI judge.",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "AI",
+          "start": 21.53,
+          "end": 21.74
+        },
+        {
+          "id": "caption-word-22-1",
+          "text": "judge.",
+          "start": 21.74,
+          "end": 22.56
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 3,
+      "start": 22.63,
+      "end": 25.58,
+      "text": "Fund402 is just-in-time credit",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "Fund402",
+          "start": 22.63,
+          "end": 23.68
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "is",
+          "start": 23.68,
+          "end": 23.86
+        },
+        {
+          "id": "caption-word-23-2",
+          "text": "just-in-time",
+          "start": 23.86,
+          "end": 24.94
+        },
+        {
+          "id": "caption-word-23-3",
+          "text": "credit",
+          "start": 24.94,
+          "end": 25.46
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 3,
+      "start": 25.6,
+      "end": 26.88,
+      "text": "for agents.",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "for",
+          "start": 25.6,
+          "end": 25.94
+        },
+        {
+          "id": "caption-word-24-1",
+          "text": "agents.",
+          "start": 25.94,
+          "end": 26.76
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 3,
+      "start": 26.89,
+      "end": 29.29,
+      "text": "An x402 paywall settled",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "An",
+          "start": 26.89,
+          "end": 26.95
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "x402",
+          "start": 26.95,
+          "end": 27.98
+        },
+        {
+          "id": "caption-word-25-2",
+          "text": "paywall",
+          "start": 27.98,
+          "end": 28.63
+        },
+        {
+          "id": "caption-word-25-3",
+          "text": "settled",
+          "start": 28.63,
+          "end": 29.29
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 3,
+      "start": 29.29,
+      "end": 30.47,
+      "text": "on Casper.",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "on",
+          "start": 29.29,
+          "end": 29.4
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "Casper.",
+          "start": 29.48,
+          "end": 30.35
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 4,
+      "start": 30.52,
+      "end": 31.52,
+      "text": "Two functions,",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "Two",
+          "start": 30.52,
+          "end": 30.71
+        },
+        {
+          "id": "caption-word-27-1",
+          "text": "functions,",
+          "start": 30.81,
+          "end": 31.52
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 4,
+      "start": 31.52,
+      "end": 32.1,
+      "text": "a paywall",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "a",
+          "start": 31.52,
+          "end": 31.59
+        },
+        {
+          "id": "caption-word-28-1",
+          "text": "paywall",
+          "start": 31.59,
+          "end": 32.1
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 4,
+      "start": 32.1,
+      "end": 33.18,
+      "text": "on your server,",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "on",
+          "start": 32.1,
+          "end": 32.23
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "your",
+          "start": 32.24,
+          "end": 32.53
+        },
+        {
+          "id": "caption-word-29-2",
+          "text": "server,",
+          "start": 32.53,
+          "end": 33.16
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 4,
+      "start": 33.18,
+      "end": 34.19,
+      "text": "one fetch on",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "one",
+          "start": 33.18,
+          "end": 33.34
+        },
+        {
+          "id": "caption-word-30-1",
+          "text": "fetch",
+          "start": 33.47,
+          "end": 33.99
+        },
+        {
+          "id": "caption-word-30-2",
+          "text": "on",
+          "start": 33.99,
+          "end": 34.19
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 4,
+      "start": 34.19,
+      "end": 35.17,
+      "text": "the agent,",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "the",
+          "start": 34.19,
+          "end": 34.5
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "agent,",
+          "start": 34.5,
+          "end": 35.17
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 4,
+      "start": 35.17,
+      "end": 35.45,
+      "text": "and it",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "and",
+          "start": 35.17,
+          "end": 35.36
+        },
+        {
+          "id": "caption-word-32-1",
+          "text": "it",
+          "start": 35.36,
+          "end": 35.45
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 4,
+      "start": 35.45,
+      "end": 36.01,
+      "text": "pays from",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "pays",
+          "start": 35.45,
+          "end": 35.84
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "from",
+          "start": 35.84,
+          "end": 36.01
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 4,
+      "start": 36.01,
+      "end": 37.18,
+      "text": "an empty wallet.",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "an",
+          "start": 36.01,
+          "end": 36.09
+        },
+        {
+          "id": "caption-word-34-1",
+          "text": "empty",
+          "start": 36.24,
+          "end": 36.46
+        },
+        {
+          "id": "caption-word-34-2",
+          "text": "wallet.",
+          "start": 36.46,
+          "end": 37.06
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 5,
+      "start": 40.06,
+      "end": 41.18,
+      "text": "The agent calls,",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "The",
+          "start": 40.06,
+          "end": 40.22
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "agent",
+          "start": 40.22,
+          "end": 40.59
+        },
+        {
+          "id": "caption-word-35-2",
+          "text": "calls,",
+          "start": 40.6,
+          "end": 41.08
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 5,
+      "start": 41.18,
+      "end": 42.19,
+      "text": "the pool fronts",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "the",
+          "start": 41.18,
+          "end": 41.35
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "pool",
+          "start": 41.42,
+          "end": 41.67
+        },
+        {
+          "id": "caption-word-36-2",
+          "text": "fronts",
+          "start": 41.67,
+          "end": 42.12
+        }
+      ]
+    },
+    {
+      "id": "caption-group-37",
+      "frame": 5,
+      "start": 42.19,
+      "end": 42.98,
+      "text": "the payment,",
+      "words": [
+        {
+          "id": "caption-word-37-0",
+          "text": "the",
+          "start": 42.19,
+          "end": 42.36
+        },
+        {
+          "id": "caption-word-37-1",
+          "text": "payment,",
+          "start": 42.36,
+          "end": 42.92
+        }
+      ]
+    },
+    {
+      "id": "caption-group-38",
+      "frame": 5,
+      "start": 42.98,
+      "end": 44.11,
+      "text": "it settles on",
+      "words": [
+        {
+          "id": "caption-word-38-0",
+          "text": "it",
+          "start": 42.98,
+          "end": 43.12
+        },
+        {
+          "id": "caption-word-38-1",
+          "text": "settles",
+          "start": 43.12,
+          "end": 43.83
+        },
+        {
+          "id": "caption-word-38-2",
+          "text": "on",
+          "start": 43.83,
+          "end": 44
+        }
+      ]
+    },
+    {
+      "id": "caption-group-39",
+      "frame": 5,
+      "start": 44.11,
+      "end": 44.72,
+      "text": "Casper,",
+      "words": [
+        {
+          "id": "caption-word-39-0",
+          "text": "Casper,",
+          "start": 44.11,
+          "end": 44.72
+        }
+      ]
+    },
+    {
+      "id": "caption-group-40",
+      "frame": 5,
+      "start": 44.72,
+      "end": 45.11,
+      "text": "and the",
+      "words": [
+        {
+          "id": "caption-word-40-0",
+          "text": "and",
+          "start": 44.72,
+          "end": 44.9
+        },
+        {
+          "id": "caption-word-40-1",
+          "text": "the",
+          "start": 44.9,
+          "end": 45.04
+        }
+      ]
+    },
+    {
+      "id": "caption-group-41",
+      "frame": 5,
+      "start": 45.11,
+      "end": 47.15,
+      "text": "data returns 200",
+      "words": [
+        {
+          "id": "caption-word-41-0",
+          "text": "data",
+          "start": 45.11,
+          "end": 45.32
+        },
+        {
+          "id": "caption-word-41-1",
+          "text": "returns",
+          "start": 45.32,
+          "end": 45.96
+        },
+        {
+          "id": "caption-word-41-2",
+          "text": "200",
+          "start": 45.96,
+          "end": 47.15
+        }
+      ]
+    },
+    {
+      "id": "caption-group-42",
+      "frame": 5,
+      "start": 47.15,
+      "end": 47.5,
+      "text": "OK,",
+      "words": [
+        {
+          "id": "caption-word-42-0",
+          "text": "OK,",
+          "start": 47.15,
+          "end": 47.44
+        }
+      ]
+    },
+    {
+      "id": "caption-group-43",
+      "frame": 5,
+      "start": 47.5,
+      "end": 48.83,
+      "text": "every hash real.",
+      "words": [
+        {
+          "id": "caption-word-43-0",
+          "text": "every",
+          "start": 47.5,
+          "end": 47.84
+        },
+        {
+          "id": "caption-word-43-1",
+          "text": "hash",
+          "start": 47.84,
+          "end": 48.16
+        },
+        {
+          "id": "caption-word-43-2",
+          "text": "real.",
+          "start": 48.16,
+          "end": 48.71
+        }
+      ]
+    },
+    {
+      "id": "caption-group-44",
+      "frame": 6,
+      "start": 50.61,
+      "end": 51.73,
+      "text": "Every borrow pays",
+      "words": [
+        {
+          "id": "caption-word-44-0",
+          "text": "Every",
+          "start": 50.61,
+          "end": 50.91
+        },
+        {
+          "id": "caption-word-44-1",
+          "text": "borrow",
+          "start": 50.94,
+          "end": 51.34
+        },
+        {
+          "id": "caption-word-44-2",
+          "text": "pays",
+          "start": 51.42,
+          "end": 51.73
+        }
+      ]
+    },
+    {
+      "id": "caption-group-45",
+      "frame": 6,
+      "start": 51.73,
+      "end": 52.25,
+      "text": "a small",
+      "words": [
+        {
+          "id": "caption-word-45-0",
+          "text": "a",
+          "start": 51.73,
+          "end": 51.81
+        },
+        {
+          "id": "caption-word-45-1",
+          "text": "small",
+          "start": 51.81,
+          "end": 52.13
+        }
+      ]
+    },
+    {
+      "id": "caption-group-46",
+      "frame": 6,
+      "start": 52.33,
+      "end": 52.83,
+      "text": "fee that",
+      "words": [
+        {
+          "id": "caption-word-46-0",
+          "text": "fee",
+          "start": 52.33,
+          "end": 52.5
+        },
+        {
+          "id": "caption-word-46-1",
+          "text": "that",
+          "start": 52.5,
+          "end": 52.71
+        }
+      ]
+    },
+    {
+      "id": "caption-group-47",
+      "frame": 6,
+      "start": 52.88,
+      "end": 53.4,
+      "text": "flows back",
+      "words": [
+        {
+          "id": "caption-word-47-0",
+          "text": "flows",
+          "start": 52.88,
+          "end": 53.13
+        },
+        {
+          "id": "caption-word-47-1",
+          "text": "back",
+          "start": 53.13,
+          "end": 53.4
+        }
+      ]
+    },
+    {
+      "id": "caption-group-48",
+      "frame": 6,
+      "start": 53.4,
+      "end": 54.73,
+      "text": "to the providers,",
+      "words": [
+        {
+          "id": "caption-word-48-0",
+          "text": "to",
+          "start": 53.4,
+          "end": 53.5
+        },
+        {
+          "id": "caption-word-48-1",
+          "text": "the",
+          "start": 53.5,
+          "end": 53.62
+        },
+        {
+          "id": "caption-word-48-2",
+          "text": "providers,",
+          "start": 53.62,
+          "end": 54.67
+        }
+      ]
+    },
+    {
+      "id": "caption-group-49",
+      "frame": 6,
+      "start": 54.73,
+      "end": 55.11,
+      "text": "so the",
+      "words": [
+        {
+          "id": "caption-word-49-0",
+          "text": "so",
+          "start": 54.73,
+          "end": 54.84
+        },
+        {
+          "id": "caption-word-49-1",
+          "text": "the",
+          "start": 54.84,
+          "end": 55.03
+        }
+      ]
+    },
+    {
+      "id": "caption-group-50",
+      "frame": 6,
+      "start": 55.11,
+      "end": 57.06,
+      "text": "pool quietly compounds.",
+      "words": [
+        {
+          "id": "caption-word-50-0",
+          "text": "pool",
+          "start": 55.11,
+          "end": 55.37
+        },
+        {
+          "id": "caption-word-50-1",
+          "text": "quietly",
+          "start": 55.47,
+          "end": 56.07
+        },
+        {
+          "id": "caption-word-50-2",
+          "text": "compounds.",
+          "start": 56.07,
+          "end": 56.94
+        }
+      ]
+    },
+    {
+      "id": "caption-group-51",
+      "frame": 7,
+      "start": 60.07,
+      "end": 61.23,
+      "text": "credit gets an",
+      "words": [
+        {
+          "id": "caption-word-51-0",
+          "text": "credit",
+          "start": 60.07,
+          "end": 60.6
+        },
+        {
+          "id": "caption-word-51-1",
+          "text": "gets",
+          "start": 60.66,
+          "end": 61.03
+        },
+        {
+          "id": "caption-word-51-2",
+          "text": "an",
+          "start": 61.03,
+          "end": 61.23
+        }
+      ]
+    },
+    {
+      "id": "caption-group-52",
+      "frame": 7,
+      "start": 61.23,
+      "end": 62.51,
+      "text": "agent paid in.",
+      "words": [
+        {
+          "id": "caption-word-52-0",
+          "text": "agent",
+          "start": 61.23,
+          "end": 61.75
+        },
+        {
+          "id": "caption-word-52-1",
+          "text": "paid",
+          "start": 61.75,
+          "end": 61.89
+        },
+        {
+          "id": "caption-word-52-2",
+          "text": "in.",
+          "start": 61.89,
+          "end": 62.51
+        }
+      ]
+    },
+    {
+      "id": "caption-group-53",
+      "frame": 7,
+      "start": 62.51,
+      "end": 62.86,
+      "text": "But what",
+      "words": [
+        {
+          "id": "caption-word-53-0",
+          "text": "But",
+          "start": 62.51,
+          "end": 62.56
+        },
+        {
+          "id": "caption-word-53-1",
+          "text": "what",
+          "start": 62.56,
+          "end": 62.74
+        }
+      ]
+    },
+    {
+      "id": "caption-group-54",
+      "frame": 7,
+      "start": 62.86,
+      "end": 63.38,
+      "text": "protects the",
+      "words": [
+        {
+          "id": "caption-word-54-0",
+          "text": "protects",
+          "start": 62.86,
+          "end": 63.22
+        },
+        {
+          "id": "caption-word-54-1",
+          "text": "the",
+          "start": 63.22,
+          "end": 63.38
+        }
+      ]
+    },
+    {
+      "id": "caption-group-55",
+      "frame": 7,
+      "start": 63.38,
+      "end": 63.92,
+      "text": "payment when",
+      "words": [
+        {
+          "id": "caption-word-55-0",
+          "text": "payment",
+          "start": 63.38,
+          "end": 63.8
+        },
+        {
+          "id": "caption-word-55-1",
+          "text": "when",
+          "start": 63.8,
+          "end": 63.92
+        }
+      ]
+    },
+    {
+      "id": "caption-group-56",
+      "frame": 7,
+      "start": 63.92,
+      "end": 64.32,
+      "text": "the work",
+      "words": [
+        {
+          "id": "caption-word-56-0",
+          "text": "the",
+          "start": 63.92,
+          "end": 64.07
+        },
+        {
+          "id": "caption-word-56-1",
+          "text": "work",
+          "start": 64.07,
+          "end": 64.2
+        }
+      ]
+    },
+    {
+      "id": "caption-group-57",
+      "frame": 7,
+      "start": 64.84,
+      "end": 66.42,
+      "text": "comes back wrong?",
+      "words": [
+        {
+          "id": "caption-word-57-0",
+          "text": "comes",
+          "start": 64.84,
+          "end": 64.87
+        },
+        {
+          "id": "caption-word-57-1",
+          "text": "back",
+          "start": 64.87,
+          "end": 65.33
+        },
+        {
+          "id": "caption-word-57-2",
+          "text": "wrong?",
+          "start": 65.34,
+          "end": 66.3
+        }
+      ]
+    },
+    {
+      "id": "caption-group-58",
+      "frame": 8,
+      "start": 69.05,
+      "end": 70.9,
+      "text": "Clawback holds the payment",
+      "words": [
+        {
+          "id": "caption-word-58-0",
+          "text": "Clawback",
+          "start": 69.05,
+          "end": 69.66
+        },
+        {
+          "id": "caption-word-58-1",
+          "text": "holds",
+          "start": 69.66,
+          "end": 70.07
+        },
+        {
+          "id": "caption-word-58-2",
+          "text": "the",
+          "start": 70.07,
+          "end": 70.31
+        },
+        {
+          "id": "caption-word-58-3",
+          "text": "payment",
+          "start": 70.36,
+          "end": 70.9
+        }
+      ]
+    },
+    {
+      "id": "caption-group-59",
+      "frame": 8,
+      "start": 70.9,
+      "end": 71.7,
+      "text": "in escrow.",
+      "words": [
+        {
+          "id": "caption-word-59-0",
+          "text": "in",
+          "start": 70.9,
+          "end": 71.05
+        },
+        {
+          "id": "caption-word-59-1",
+          "text": "escrow.",
+          "start": 71.05,
+          "end": 71.6
+        }
+      ]
+    },
+    {
+      "id": "caption-group-60",
+      "frame": 8,
+      "start": 71.7,
+      "end": 71.94,
+      "text": "An AI",
+      "words": [
+        {
+          "id": "caption-word-60-0",
+          "text": "An",
+          "start": 71.7,
+          "end": 71.77
+        },
+        {
+          "id": "caption-word-60-1",
+          "text": "AI",
+          "start": 71.77,
+          "end": 71.94
+        }
+      ]
+    },
+    {
+      "id": "caption-group-61",
+      "frame": 8,
+      "start": 71.94,
+      "end": 73.77,
+      "text": "verifier checks the delivery",
+      "words": [
+        {
+          "id": "caption-word-61-0",
+          "text": "verifier",
+          "start": 71.94,
+          "end": 72.6
+        },
+        {
+          "id": "caption-word-61-1",
+          "text": "checks",
+          "start": 72.64,
+          "end": 73.08
+        },
+        {
+          "id": "caption-word-61-2",
+          "text": "the",
+          "start": 73.15,
+          "end": 73.34
+        },
+        {
+          "id": "caption-word-61-3",
+          "text": "delivery",
+          "start": 73.39,
+          "end": 73.65
+        }
+      ]
+    },
+    {
+      "id": "caption-group-62",
+      "frame": 8,
+      "start": 74.23,
+      "end": 75.52,
+      "text": "against the spec.",
+      "words": [
+        {
+          "id": "caption-word-62-0",
+          "text": "against",
+          "start": 74.23,
+          "end": 74.63
+        },
+        {
+          "id": "caption-word-62-1",
+          "text": "the",
+          "start": 74.63,
+          "end": 74.86
+        },
+        {
+          "id": "caption-word-62-2",
+          "text": "spec.",
+          "start": 74.86,
+          "end": 75.42
+        }
+      ]
+    },
+    {
+      "id": "caption-group-63",
+      "frame": 8,
+      "start": 75.52,
+      "end": 75.96,
+      "text": "Good work",
+      "words": [
+        {
+          "id": "caption-word-63-0",
+          "text": "Good",
+          "start": 75.52,
+          "end": 75.68
+        },
+        {
+          "id": "caption-word-63-1",
+          "text": "work",
+          "start": 75.69,
+          "end": 75.96
+        }
+      ]
+    },
+    {
+      "id": "caption-group-64",
+      "frame": 8,
+      "start": 75.96,
+      "end": 76.64,
+      "text": "is released",
+      "words": [
+        {
+          "id": "caption-word-64-0",
+          "text": "is",
+          "start": 75.96,
+          "end": 76.09
+        },
+        {
+          "id": "caption-word-64-1",
+          "text": "released",
+          "start": 76.09,
+          "end": 76.64
+        }
+      ]
+    },
+    {
+      "id": "caption-group-65",
+      "frame": 8,
+      "start": 76.64,
+      "end": 77.6,
+      "text": "to the seller.",
+      "words": [
+        {
+          "id": "caption-word-65-0",
+          "text": "to",
+          "start": 76.64,
+          "end": 76.73
+        },
+        {
+          "id": "caption-word-65-1",
+          "text": "the",
+          "start": 76.78,
+          "end": 76.9
+        },
+        {
+          "id": "caption-word-65-2",
+          "text": "seller.",
+          "start": 76.97,
+          "end": 77.48
+        }
+      ]
+    },
+    {
+      "id": "caption-group-66",
+      "frame": 8,
+      "start": 77.74,
+      "end": 78.33,
+      "text": "Bad work",
+      "words": [
+        {
+          "id": "caption-word-66-0",
+          "text": "Bad",
+          "start": 77.74,
+          "end": 77.94
+        },
+        {
+          "id": "caption-word-66-1",
+          "text": "work",
+          "start": 77.94,
+          "end": 78.33
+        }
+      ]
+    },
+    {
+      "id": "caption-group-67",
+      "frame": 8,
+      "start": 78.33,
+      "end": 79.84,
+      "text": "is disputed and clawed",
+      "words": [
+        {
+          "id": "caption-word-67-0",
+          "text": "is",
+          "start": 78.33,
+          "end": 78.54
+        },
+        {
+          "id": "caption-word-67-1",
+          "text": "disputed",
+          "start": 78.54,
+          "end": 79.36
+        },
+        {
+          "id": "caption-word-67-2",
+          "text": "and",
+          "start": 79.36,
+          "end": 79.56
+        },
+        {
+          "id": "caption-word-67-3",
+          "text": "clawed",
+          "start": 79.56,
+          "end": 79.84
+        }
+      ]
+    },
+    {
+      "id": "caption-group-68",
+      "frame": 8,
+      "start": 79.84,
+      "end": 80.36,
+      "text": "back to",
+      "words": [
+        {
+          "id": "caption-word-68-0",
+          "text": "back",
+          "start": 79.84,
+          "end": 80.26
+        },
+        {
+          "id": "caption-word-68-1",
+          "text": "to",
+          "start": 80.26,
+          "end": 80.36
+        }
+      ]
+    },
+    {
+      "id": "caption-group-69",
+      "frame": 8,
+      "start": 80.36,
+      "end": 81.23,
+      "text": "the buyer.",
+      "words": [
+        {
+          "id": "caption-word-69-0",
+          "text": "the",
+          "start": 80.36,
+          "end": 80.56
+        },
+        {
+          "id": "caption-word-69-1",
+          "text": "buyer.",
+          "start": 80.56,
+          "end": 81.11
+        }
+      ]
+    },
+    {
+      "id": "caption-group-70",
+      "frame": 9,
+      "start": 86.03,
+      "end": 87.41,
+      "text": "It's one install",
+      "words": [
+        {
+          "id": "caption-word-70-0",
+          "text": "It's",
+          "start": 86.03,
+          "end": 86.4
+        },
+        {
+          "id": "caption-word-70-1",
+          "text": "one",
+          "start": 86.4,
+          "end": 86.7
+        },
+        {
+          "id": "caption-word-70-2",
+          "text": "install",
+          "start": 86.7,
+          "end": 87.41
+        }
+      ]
+    },
+    {
+      "id": "caption-group-71",
+      "frame": 9,
+      "start": 87.41,
+      "end": 88.01,
+      "text": "the SDK",
+      "words": [
+        {
+          "id": "caption-word-71-0",
+          "text": "the",
+          "start": 87.41,
+          "end": 87.71
+        },
+        {
+          "id": "caption-word-71-1",
+          "text": "SDK",
+          "start": 87.71,
+          "end": 88.01
+        }
+      ]
+    },
+    {
+      "id": "caption-group-72",
+      "frame": 9,
+      "start": 88.01,
+      "end": 88.91,
+      "text": "and agent,",
+      "words": [
+        {
+          "id": "caption-word-72-0",
+          "text": "and",
+          "start": 88.01,
+          "end": 88.31
+        },
+        {
+          "id": "caption-word-72-1",
+          "text": "agent,",
+          "start": 88.31,
+          "end": 88.88
+        }
+      ]
+    },
+    {
+      "id": "caption-group-73",
+      "frame": 9,
+      "start": 88.91,
+      "end": 90.14,
+      "text": "and MCP server",
+      "words": [
+        {
+          "id": "caption-word-73-0",
+          "text": "and",
+          "start": 88.91,
+          "end": 89.2
+        },
+        {
+          "id": "caption-word-73-1",
+          "text": "MCP",
+          "start": 89.2,
+          "end": 89.46
+        },
+        {
+          "id": "caption-word-73-2",
+          "text": "server",
+          "start": 89.53,
+          "end": 90.14
+        }
+      ]
+    },
+    {
+      "id": "caption-group-74",
+      "frame": 9,
+      "start": 90.14,
+      "end": 92.02,
+      "text": "skills and clawback,",
+      "words": [
+        {
+          "id": "caption-word-74-0",
+          "text": "skills",
+          "start": 90.14,
+          "end": 90.76
+        },
+        {
+          "id": "caption-word-74-1",
+          "text": "and",
+          "start": 90.82,
+          "end": 91.08
+        },
+        {
+          "id": "caption-word-74-2",
+          "text": "clawback,",
+          "start": 91.08,
+          "end": 92.02
+        }
+      ]
+    },
+    {
+      "id": "caption-group-75",
+      "frame": 9,
+      "start": 92.02,
+      "end": 92.65,
+      "text": "all live",
+      "words": [
+        {
+          "id": "caption-word-75-0",
+          "text": "all",
+          "start": 92.02,
+          "end": 92.29
+        },
+        {
+          "id": "caption-word-75-1",
+          "text": "live",
+          "start": 92.29,
+          "end": 92.65
+        }
+      ]
+    },
+    {
+      "id": "caption-group-76",
+      "frame": 9,
+      "start": 92.65,
+      "end": 93.56,
+      "text": "on Casper.",
+      "words": [
+        {
+          "id": "caption-word-76-0",
+          "text": "on",
+          "start": 92.65,
+          "end": 92.83
+        },
+        {
+          "id": "caption-word-76-1",
+          "text": "Casper.",
+          "start": 92.83,
+          "end": 93.44
+        }
+      ]
+    },
+    {
+      "id": "caption-group-77",
+      "frame": 10,
+      "start": 96.03,
+      "end": 96.7,
+      "text": "Together,",
+      "words": [
+        {
+          "id": "caption-word-77-0",
+          "text": "Together,",
+          "start": 96.03,
+          "end": 96.7
+        }
+      ]
+    },
+    {
+      "id": "caption-group-78",
+      "frame": 10,
+      "start": 96.7,
+      "end": 97.8,
+      "text": "that's Payward,",
+      "words": [
+        {
+          "id": "caption-word-78-0",
+          "text": "that's",
+          "start": 96.7,
+          "end": 97.12
+        },
+        {
+          "id": "caption-word-78-1",
+          "text": "Payward,",
+          "start": 97.12,
+          "end": 97.76
+        }
+      ]
+    },
+    {
+      "id": "caption-group-79",
+      "frame": 10,
+      "start": 97.8,
+      "end": 98.34,
+      "text": "the credit",
+      "words": [
+        {
+          "id": "caption-word-79-0",
+          "text": "the",
+          "start": 97.8,
+          "end": 97.94
+        },
+        {
+          "id": "caption-word-79-1",
+          "text": "credit",
+          "start": 97.95,
+          "end": 98.34
+        }
+      ]
+    },
+    {
+      "id": "caption-group-80",
+      "frame": 10,
+      "start": 98.34,
+      "end": 98.92,
+      "text": "and settlement",
+      "words": [
+        {
+          "id": "caption-word-80-0",
+          "text": "and",
+          "start": 98.34,
+          "end": 98.47
+        },
+        {
+          "id": "caption-word-80-1",
+          "text": "settlement",
+          "start": 98.47,
+          "end": 98.85
+        }
+      ]
+    },
+    {
+      "id": "caption-group-81",
+      "frame": 10,
+      "start": 98.92,
+      "end": 99.36,
+      "text": "layer for",
+      "words": [
+        {
+          "id": "caption-word-81-0",
+          "text": "layer",
+          "start": 98.92,
+          "end": 99.19
+        },
+        {
+          "id": "caption-word-81-1",
+          "text": "for",
+          "start": 99.29,
+          "end": 99.35
+        }
+      ]
+    },
+    {
+      "id": "caption-group-82",
+      "frame": 10,
+      "start": 99.36,
+      "end": 100.64,
+      "text": "the machine economy.",
+      "words": [
+        {
+          "id": "caption-word-82-0",
+          "text": "the",
+          "start": 99.36,
+          "end": 99.42
+        },
+        {
+          "id": "caption-word-82-1",
+          "text": "machine",
+          "start": 99.42,
+          "end": 99.84
+        },
+        {
+          "id": "caption-word-82-2",
+          "text": "economy.",
+          "start": 99.84,
+          "end": 100.52
+        }
+      ]
+    }
+  ]
+}

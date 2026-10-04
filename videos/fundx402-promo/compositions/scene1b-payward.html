@@ -1,0 +1,174 @@
+<template id="scene1b-payward-template">
+  <div
+    data-composition-id="scene1b-payward"
+    data-width="1920"
+    data-height="1080"
+    data-duration="15"
+  >
+    <div class="p-canvas">
+      <div class="p-grid"></div>
+      <div class="p-glow"></div>
+
+      <div class="p-kick">INTRODUCING</div>
+      <div class="p-hero">Payward</div>
+      <div class="p-tag">The credit &amp; settlement layer for the machine economy.</div>
+
+      <div class="p-layers">
+        <div class="p-lyr l-fund">
+          <svg viewBox="0 0 100 100" width="46" height="46">
+            <defs>
+              <linearGradient id="pfg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff3b5c" /><stop offset="0.55" stop-color="#f5b301" /><stop offset="1" stop-color="#25d3a6" />
+              </linearGradient>
+            </defs>
+            <rect x="8" y="8" width="84" height="84" rx="22" fill="#0f0f18" stroke="url(#pfg)" stroke-width="4" />
+            <path d="M56 24 L34 54 L48 54 L44 76 L66 46 L52 46 Z" fill="url(#pfg)" />
+          </svg>
+          <span class="p-lname">Fund402</span><span class="p-lrole">· credit in</span>
+        </div>
+        <div class="p-plus">+</div>
+        <div class="p-lyr l-claw">
+          <svg viewBox="0 0 100 112" width="42" height="46">
+            <defs>
+              <linearGradient id="pcg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#c4b5ff" /><stop offset="1" stop-color="#7c6cff" />
+              </linearGradient>
+            </defs>
+            <path d="M50 6 L88 20 V54 C88 82 70 98 50 106 C30 98 12 82 12 54 V20 Z" fill="#0f0f18" stroke="url(#pcg)" stroke-width="4" />
+            <path d="M33 55 L45 68 L69 41" fill="none" stroke="url(#pcg)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="p-lname cb">Clawback</span><span class="p-lrole">· settlement out</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="scene1b-payward"] .p-canvas {
+        width: 1920px;
+        height: 1080px;
+        background: radial-gradient(120% 100% at 50% 44%, #0c0c16 0%, #07070b 60%);
+        position: relative;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+      [data-composition-id="scene1b-payward"] .p-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: radial-gradient(78% 76% at 50% 42%, #000 34%, transparent 82%);
+        opacity: 0;
+      }
+      [data-composition-id="scene1b-payward"] .p-glow {
+        position: absolute;
+        left: 50%;
+        top: 42%;
+        width: 1500px;
+        height: 820px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(120, 110, 200, 0.12), transparent 62%);
+        opacity: 0;
+        filter: blur(12px);
+      }
+      [data-composition-id="scene1b-payward"] .p-kick {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 236px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.42em;
+        color: #8b8b9e;
+        opacity: 0;
+      }
+      [data-composition-id="scene1b-payward"] .p-hero {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 306px;
+        text-align: center;
+        font-size: 152px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        background: linear-gradient(100deg, #ff3b5c, #f5b301 38%, #25d3a6 66%, #a18cff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        opacity: 0;
+      }
+      [data-composition-id="scene1b-payward"] .p-tag {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 508px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 500;
+        color: #c9c9da;
+        opacity: 0;
+      }
+      [data-composition-id="scene1b-payward"] .p-layers {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 636px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+      }
+      [data-composition-id="scene1b-payward"] .p-lyr {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        opacity: 0;
+      }
+      [data-composition-id="scene1b-payward"] .p-lname { color: #f3f3f8; }
+      [data-composition-id="scene1b-payward"] .p-lname.cb { color: #c4b5ff; }
+      [data-composition-id="scene1b-payward"] .p-lrole {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 500;
+        color: #8b8b9e;
+      }
+      [data-composition-id="scene1b-payward"] .p-plus {
+        font-size: 44px;
+        font-weight: 300;
+        color: #56566c;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const q = (s) => '[data-composition-id="scene1b-payward"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+
+        tl.to(q(".p-grid"), { opacity: 1, duration: 1.0, ease: "power2.out" }, 0.1);
+        tl.to(q(".p-glow"), { opacity: 1, duration: 1.2, ease: "power2.out" }, 0.1);
+        // "So we built Payward"
+        tl.fromTo(q(".p-kick"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.3);
+        tl.fromTo(q(".p-hero"), { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 0.6);
+        // "the credit and settlement layer..."
+        tl.fromTo(q(".p-tag"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 2.6);
+        // "Fund402 fronts payments as credit" (~7s)
+        tl.fromTo(q(".l-fund"), { opacity: 0, y: 16, x: -10 }, { opacity: 1, y: 0, x: 0, duration: 0.55, ease: "power3.out" }, 6.8);
+        tl.fromTo(q(".p-plus"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.4);
+        // "and Clawback settles them..." (~10.5s)
+        tl.fromTo(q(".l-claw"), { opacity: 0, y: 16, x: 10 }, { opacity: 1, y: 0, x: 0, duration: 0.55, ease: "power3.out" }, 10.4);
+        // gentle hold glow on the wordmark
+        tl.fromTo(q(".p-hero"), { filter: "brightness(1)" }, { filter: "brightness(1.2)", duration: 1.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, 12.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["scene1b-payward"] = tl;
+      })();
+    </script>
+  </div>
+</template>

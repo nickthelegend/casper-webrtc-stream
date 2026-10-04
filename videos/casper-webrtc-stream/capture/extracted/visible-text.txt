@@ -1,0 +1,39 @@
+casper-webrtc-stream — a battle-ready x402 micropayments SDK for Casper Network.
+
+THE PROBLEM
+Apps and AI agents need to pay for things per call — per API request, per second of a
+stream — but card rails don't do micropayments and crypto checkout is clunky. There's no
+clean "pay-per-use" money rail built into HTTP.
+
+THE PRODUCT
+x402 is HTTP-native money: a server replies 402 Payment Required, the client pays, the
+request retries and succeeds. This SDK makes that real on Casper. Two published npm packages:
+  - @nickthelegend69/webrtc-payment-sdk-core   (framework-agnostic HTTP layer + WebRTC)
+  - @nickthelegend69/webrtc-payment-rail-x402  (Casper x402 settlement rail)
+
+HOW IT'S USED
+Server — gate any route behind a payment in one line:
+  app.get("/premium", paymentMiddleware({ rail, amount, payTo }), handler)
+
+Client — pay automatically, the 402 is invisible:
+  const pay = wrapFetch(fetch, { rail, signFn })
+  const res = await pay("/premium")   // 200, content unlocked
+
+THE FLOW
+  GET /premium            ->  402 Payment Required + requirements
+  sign EIP-712 (wallet)   ->  X-PAYMENT header
+  GET /premium + payment  ->  verify -> settle on-chain -> 200
+
+REAL ON-CHAIN SETTLEMENT (Casper testnet)
+Every payment is a real CEP-18 transfer_with_authorization via the CSPR.cloud x402
+facilitator. Proven live:
+  tx 448eafae… — SUCCESS, block 8308737
+  tx 3e04ec4e… — SUCCESS, block 8309369
+
+ONE RAIL, MANY APPS
+The flagship app on top: pay-per-second WebRTC streaming — viewers pay the creator per
+segment, settled on-chain, no platform cut. But the rail is generic: paid APIs, agent
+commerce, metered data — anything that speaks HTTP.
+
+Built for the Casper Agentic Buildathon 2026.
+The payment rail for the agent economy on Casper.

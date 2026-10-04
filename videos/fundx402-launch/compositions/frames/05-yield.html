@@ -1,0 +1,174 @@
+<template id="05-yield-template">
+  <div id="root" data-composition-id="05-yield" data-width="1920" data-height="1080" data-duration="8.5">
+    <div class="f5-grid"></div>
+    <div class="f5-vig"></div>
+
+    <div class="f5-kick">THE POOL EARNS ITS KEEP</div>
+
+    <div class="f5-row">
+      <div class="f5-col">
+        <div class="f5-cl">LP DEPOSITS</div>
+        <div class="f5-num">2,000,000</div>
+      </div>
+      <div class="f5-arrow">→</div>
+      <div class="f5-col">
+        <div class="f5-cl">LP WITHDRAWS</div>
+        <div class="f5-num f5-wd">2,000,000</div>
+      </div>
+      <div class="f5-badge">+2.5%</div>
+    </div>
+
+    <div class="f5-bartrack"><span class="f5-base"></span><span class="f5-yield"></span></div>
+    <div class="f5-sub">5% borrow fee → LP yield&nbsp;&nbsp;·&nbsp;&nbsp;repaid via <b>repay_latest()</b></div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f5-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(82% 76% at 50% 44%, #000 34%, transparent 82%);
+        mask-image: radial-gradient(82% 76% at 50% 44%, #000 34%, transparent 82%);
+      }
+      .f5-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 42%, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      .f5-kick {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f5-row {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+      }
+      .f5-col {
+        text-align: center;
+      }
+      .f5-cl {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.18em;
+        color: #6a6f7e;
+      }
+      .f5-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 64px;
+        font-weight: 700;
+        color: #c9ccd6;
+        margin-top: 14px;
+        opacity: 0;
+      }
+      .f5-arrow {
+        font-size: 50px;
+        color: #4a4e5c;
+        opacity: 0;
+        margin-top: 22px;
+      }
+      .f5-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 34px;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 12px;
+        color: #06160f;
+        background: #22e0a6;
+        margin-top: 22px;
+        opacity: 0;
+      }
+      .f5-bartrack {
+        position: absolute;
+        left: 50%;
+        top: 560px;
+        transform: translateX(-50%);
+        width: 760px;
+        height: 12px;
+        border-radius: 7px;
+        background: #14161b;
+        border: 1px solid #1c1f26;
+        display: flex;
+        overflow: hidden;
+      }
+      .f5-base {
+        width: 0%;
+        background: #3a3f4c;
+      }
+      .f5-yield {
+        width: 0%;
+        background: #22e0a6;
+        box-shadow: 0 0 16px rgba(34, 224, 166, 0.5);
+      }
+      .f5-sub {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 626px;
+        text-align: center;
+        font-size: 27px;
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f5-sub b {
+        font-family: "JetBrains Mono", monospace;
+        color: #c9ccd6;
+        font-weight: 600;
+        font-size: 25px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="05-yield"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+        const wd = q(".f5-wd");
+        const v = { n: 2000000 };
+        const fmt = (n) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        tl.fromTo(q(".f5-kick"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.2);
+        tl.fromTo(q(".f5-num:not(.f5-wd)"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.7);
+        tl.fromTo(q(".f5-arrow"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2);
+        tl.fromTo(q(".f5-wd"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.4);
+        tl.to(q(".f5-base"), { width: "93%", duration: 0.8, ease: "power2.out" }, 1.6);
+
+        // compounds — number climbs + yield bar + 2.5% badge (~4.5s VO)
+        tl.to(v, { n: 2050000, duration: 1.1, ease: "power2.out", onUpdate() { if (wd) wd.textContent = fmt(v.n); } }, 4.2);
+        tl.to(q(".f5-yield"), { width: "7%", duration: 0.7, ease: "power2.out" }, 4.4);
+        tl.fromTo(q(".f5-badge"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 4.8);
+        tl.fromTo(q(".f5-sub"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 5.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["05-yield"] = tl;
+      })();
+    </script>
+  </div>
+</template>

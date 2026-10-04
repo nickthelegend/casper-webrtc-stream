@@ -1,0 +1,145 @@
+<template id="03-code-template">
+  <div id="root" data-composition-id="03-code" data-width="1920" data-height="1080" data-duration="8.5">
+    <div class="f3-grid"></div>
+    <div class="f3-vig"></div>
+
+    <div class="f3-head">Two functions.</div>
+
+    <div class="f3-card f3-left">
+      <div class="f3-tab">SERVER</div>
+      <div class="f3-code">
+        <div class="cl"><span class="com">// charge any route</span></div>
+        <div class="cl"><span class="kw">export const</span> GET =</div>
+        <div class="cl">&nbsp;&nbsp;<span class="fn">paywall</span>({</div>
+        <div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;price: <span class="str">"1.00"</span>,</div>
+        <div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;payTo: MERCHANT,</div>
+        <div class="cl">&nbsp;&nbsp;})(handler);</div>
+      </div>
+    </div>
+
+    <div class="f3-card f3-right">
+      <div class="f3-tab">CLIENT</div>
+      <div class="f3-code">
+        <div class="cl"><span class="com">// empty wallet pays</span></div>
+        <div class="cl"><span class="kw">const</span> res = <span class="kw">await</span></div>
+        <div class="cl">&nbsp;&nbsp;<span class="fn">fund402Fetch</span>(url, {</div>
+        <div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;wallet, <span class="com">// 0.00</span></div>
+        <div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;vault: VAULT,</div>
+        <div class="cl">&nbsp;&nbsp;});</div>
+      </div>
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f3-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(85% 80% at 50% 44%, #000 36%, transparent 84%);
+        mask-image: radial-gradient(85% 80% at 50% 44%, #000 36%, transparent 84%);
+      }
+      .f3-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 42%, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      .f3-head {
+        position: absolute;
+        left: 90px;
+        top: 150px;
+        font-size: 72px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #f4f5f7;
+        opacity: 0;
+      }
+      .f3-card {
+        position: absolute;
+        top: 300px;
+        width: 850px;
+        height: 470px;
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+        border-radius: 16px;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .f3-left {
+        left: 90px;
+      }
+      .f3-right {
+        left: 980px;
+      }
+      .f3-tab {
+        padding: 18px 30px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #8a8fa0;
+        border-bottom: 1px solid #16181d;
+      }
+      .f3-code {
+        padding: 26px 34px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 31px;
+        line-height: 1.62;
+      }
+      .cl {
+        opacity: 0;
+        white-space: nowrap;
+        color: #c9ccd6;
+      }
+      .com {
+        color: #4a4e5c;
+        font-style: italic;
+      }
+      .kw {
+        color: #9a9fb0;
+      }
+      .str {
+        color: #8a8fa0;
+      }
+      .fn {
+        color: #22e0a6;
+        font-weight: 700;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="03-code"]');
+        const q = (s) => root.querySelector(s);
+        const qa = (s) => root.querySelectorAll(s);
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(q(".f3-head"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.2);
+        tl.fromTo(q(".f3-left"), { opacity: 0, x: -24, y: 12 }, { opacity: 1, x: 0, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+        tl.fromTo(qa(".f3-left .cl"), { opacity: 0 }, { opacity: 1, duration: 0.14, stagger: 0.13 }, 1.0);
+        // server keyword lights on "a paywall on your server"
+        tl.fromTo(q(".f3-left .fn"), { textShadow: "0 0 0 rgba(34,224,166,0)" }, { textShadow: "0 0 18px rgba(34,224,166,0.6)", duration: 0.5, ease: "power2.out" }, 2.9);
+
+        tl.fromTo(q(".f3-right"), { opacity: 0, x: 24, y: 12 }, { opacity: 1, x: 0, y: 0, duration: 0.5, ease: "power3.out" }, 3.3);
+        tl.fromTo(qa(".f3-right .cl"), { opacity: 0 }, { opacity: 1, duration: 0.14, stagger: 0.13 }, 3.7);
+        // client keyword lights on "one fetch on the agent"
+        tl.fromTo(q(".f3-right .fn"), { textShadow: "0 0 0 rgba(34,224,166,0)" }, { textShadow: "0 0 18px rgba(34,224,166,0.6)", duration: 0.5, ease: "power2.out" }, 5.6);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["03-code"] = tl;
+      })();
+    </script>
+  </div>
+</template>

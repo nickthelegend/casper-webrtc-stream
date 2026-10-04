@@ -1,0 +1,44 @@
+{
+  "lines": [
+    {
+      "id": "02",
+      "sfx": [
+        "soft ui click as the 402 stamps in"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "soft whoosh on the wipe"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "soft click when 200 OK lands"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "soft whoosh as the shield/word \"Clawback\" resolves"
+      ]
+    },
+    {
+      "id": "07",
+      "sfx": [
+        "soft click on release",
+        "soft click on the clawback"
+      ]
+    },
+    {
+      "id": "08",
+      "sfx": [
+        "soft click as the five chips settle in"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

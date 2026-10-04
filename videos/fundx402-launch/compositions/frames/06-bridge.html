@@ -1,0 +1,138 @@
+<template id="06-bridge-template">
+  <div id="root" data-composition-id="06-bridge" data-width="1920" data-height="1080" data-duration="8.1">
+    <div class="f6-grid"></div>
+    <div class="f6-vig"></div>
+
+    <div class="f6-kick">
+      <span class="f6-in">credit · paid in ✓</span>
+      <span class="f6-sep">→</span>
+      <span class="f6-out">protection on the way out</span>
+    </div>
+
+    <div class="f6-lock">
+      <svg class="f6-mark" viewBox="0 0 100 112" width="118" height="132">
+        <path class="f6-shield" d="M50 6 L88 20 V54 C88 82 70 98 50 106 C30 98 12 82 12 54 V20 Z" fill="none" stroke="#22e0a6" stroke-width="3" />
+        <path class="f6-check" d="M33 55 L45 68 L69 41" fill="none" stroke="#22e0a6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <div class="f6-word">Clawback</div>
+    </div>
+
+    <div class="f6-sub">Agent payment escrow with AI-adjudicated disputes.</div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f6-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(70% 70% at 50% 44%, #000 30%, transparent 78%);
+        mask-image: radial-gradient(70% 70% at 50% 44%, #000 30%, transparent 78%);
+      }
+      .f6-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 42%, transparent 56%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      .f6-kick {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+      }
+      .f6-in {
+        color: #6a6f7e;
+        opacity: 0;
+      }
+      .f6-sep {
+        color: #3a3f4c;
+        margin: 0 22px;
+        opacity: 0;
+      }
+      .f6-out {
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f6-lock {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 460px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      .f6-mark {
+        opacity: 0;
+        filter: drop-shadow(0 12px 40px rgba(34, 224, 166, 0.22));
+      }
+      .f6-shield {
+        stroke-dasharray: 330;
+        stroke-dashoffset: 330;
+      }
+      .f6-check {
+        stroke-dasharray: 70;
+        stroke-dashoffset: 70;
+      }
+      .f6-word {
+        font-size: 124px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: #22e0a6;
+        opacity: 0;
+      }
+      .f6-sub {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 660px;
+        text-align: center;
+        font-size: 38px;
+        font-weight: 500;
+        color: #9a9fb0;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="06-bridge"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(q(".f6-in"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.3);
+        tl.fromTo(q(".f6-sep"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.1);
+        tl.fromTo(q(".f6-out"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.4);
+
+        // the shield draws, Clawback resolves in mint (~5.2s VO "what protects the money")
+        tl.to(q(".f6-mark"), { opacity: 1, duration: 0.3 }, 3.0);
+        tl.fromTo(q(".f6-mark"), { scale: 0.7, y: 10 }, { scale: 1, y: 0, duration: 0.8, ease: "power3.out" }, 3.0);
+        tl.to(q(".f6-shield"), { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 3.1);
+        tl.to(q(".f6-check"), { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 3.9);
+        tl.fromTo(q(".f6-word"), { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 3.8);
+        tl.fromTo(q(".f6-sub"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 5.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["06-bridge"] = tl;
+      })();
+    </script>
+  </div>
+</template>

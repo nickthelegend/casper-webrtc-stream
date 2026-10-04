@@ -1,0 +1,41 @@
+{
+  "provider": "kokoro",
+  "speed": 1,
+  "lines": [
+    {
+      "id": "01",
+      "text": "This is casper-webrtc-stream — HTTP-native money, settled on Casper."
+    },
+    {
+      "id": "02",
+      "text": "Apps and agents need to pay per call. Card rails can't. Crypto checkout is clunky."
+    },
+    {
+      "id": "03",
+      "text": "x402 fixes it. The server asks for payment, the client pays, the request retries."
+    },
+    {
+      "id": "04",
+      "text": "Gate any route in one line — paymentMiddleware."
+    },
+    {
+      "id": "05",
+      "text": "Pay automatically with one wrapped fetch. The 402 just disappears."
+    },
+    {
+      "id": "06",
+      "text": "Every payment is real — a CEP-18 transfer, settled on-chain, confirmed in seconds."
+    },
+    {
+      "id": "07",
+      "text": "casper-webrtc-stream. The payment rail for the agent economy. On Casper."
+    }
+  ],
+  "bgm": {
+    "mode": "retrieve",
+    "query": "calm, warm, minimal ambient tech — soft pulse, low synth pad, unhurried",
+    "blob": "HTTP-native money on Casper — charge per call, settle on-chain, in one line.",
+    "arc": "Hook → Problem → Solution → Server → Client → Proof → Close"
+  },
+  "voice": "bm_george"
+}

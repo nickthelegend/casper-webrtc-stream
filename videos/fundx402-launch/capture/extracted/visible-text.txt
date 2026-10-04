@@ -1,0 +1,44 @@
+FUND402 + CLAWBACK — 90s product launch (no-capture, dev SDK)
+
+PRODUCT
+Fund402 — just-in-time credit + x402 settlement for AI agents on Casper. When an
+autonomous agent hits an HTTP 402 paywall with an empty wallet, a liquidity pool fronts
+the CEP-18 micropayment and settles it on-chain; the agent repays later. Clawback — agent
+payment escrow with AI-adjudicated disputes ("chargebacks for the machine economy"): a
+buyer agent's payment is held in escrow against a spec; a good delivery is released, a bad
+one is disputed and an AI verifier refunds the buyer. Tagline: "The credit & settlement
+layer for the machine economy."
+
+NARRATIVE (two halves, transition naturally — no hard split)
+hook -> problem -> how it works (the SDK + the live on-chain flow) -> the pool earns ->
+(bridge) credit gets agents IN, but what protects the payment? -> Clawback: escrow + AI
+dispute -> the stack -> CTA. ~First half Fund402, then flow into Clawback.
+
+SHOW
+- The SDK: server paywall() + client fund402Fetch() (two functions, drop-in).
+- The live on-chain flow: agent (0 balance) -> 402 -> vault fronts payment -> settled on
+  Casper -> 200 + data. Real settlement deploy 96f30ddf..., status processed.
+- LP yield: deposit 2,000,000 -> withdraw 2,050,000 (+2.5%), 5% fee -> LP yield, repay_latest().
+- Clawback flow: buyer escrows (HELD 1,000,000 F402) -> seller delivers -> Groq AI verifier
+  adjudicates -> RELEASE (seller paid) OR DISPUTE -> REFUND (buyer clawed back). Real proofs:
+  honest open 02bfd9cf.../release 87a30923...; bad dispute 0106f5e0.../resolve f6f6c5db....
+- The ecosystem/stack: SDK, agent (12 tools), MCP (Groq TUI), skills (npx skills add),
+  Clawback — 8 open-source repos, live on casper-test.
+- CTA: npm i @nickthelegend69/fund402 · github.com/nickthelegend
+
+REAL FACTS (every number/hash on screen is real)
+- npm: @nickthelegend69/fund402
+- Vault v2 (yield-bearing) pkg ca4086d3...; CEP-18 "Fund402 USDC" (F402) 389cedc5...
+- ClawbackEscrow pkg 088655d1...; verifier = the AI attester (Groq llama-3.3-70b) signs resolve
+- Network: casper-test (Casper testnet)
+
+STYLE
+Premium, clean, kinetic — NOT AI slop. Dark near-black canvas, 1px hairline-grid look, ONE
+accent only (used solely for the active word / keyword / highlight / active state). Calm,
+assured, low-hype. Inter (display + body) + JetBrains Mono (code + data + chrome).
+
+AUDIO
+Calm assured low-hype narrator. BGM minimal electronic / premium fintech at ~5%. A few
+transition SFX only (soft clicks / whooshes on cuts) at ~20% under the voice — not on every
+element. Karaoke subtitles: active word = dark text on the accent block (readable), not
+white-on-accent.

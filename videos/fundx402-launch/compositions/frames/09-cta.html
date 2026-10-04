@@ -1,0 +1,162 @@
+<template id="09-cta-template">
+  <div id="root" data-composition-id="09-cta" data-width="1920" data-height="1080" data-duration="9.9">
+    <div class="f9-grid"></div>
+    <div class="f9-vig"></div>
+
+    <div class="f9-lock">
+      <div class="f9-unit">
+        <svg viewBox="0 0 100 100" width="68" height="68">
+          <rect x="8" y="8" width="84" height="84" rx="22" fill="none" stroke="#f4f5f7" stroke-width="3" />
+          <path d="M56 24 L34 54 L48 54 L44 76 L66 46 L52 46 Z" fill="#f4f5f7" />
+        </svg>
+        <div class="f9-word">Fund402</div>
+      </div>
+      <div class="f9-plus">+</div>
+      <div class="f9-unit">
+        <svg viewBox="0 0 100 112" width="62" height="70">
+          <path d="M50 6 L88 20 V54 C88 82 70 98 50 106 C30 98 12 82 12 54 V20 Z" fill="none" stroke="#f4f5f7" stroke-width="3" />
+          <path d="M33 55 L45 68 L69 41" fill="none" stroke="#f4f5f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="f9-word">Clawback</div>
+      </div>
+    </div>
+
+    <div class="f9-tag">The credit &amp; settlement layer for the machine economy.</div>
+
+    <div class="f9-pills">
+      <div class="f9-pill f9-prime"><span class="f9-d">$</span> npm i @nickthelegend69/fund402</div>
+      <div class="f9-pill f9-ghost">github.com/nickthelegend</div>
+    </div>
+
+    <div class="f9-foot">casper testnet · open source</div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f9-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(78% 74% at 50% 42%, #000 34%, transparent 82%);
+        mask-image: radial-gradient(78% 74% at 50% 42%, #000 34%, transparent 82%);
+      }
+      .f9-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 40%, transparent 56%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      .f9-lock {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+        opacity: 0;
+      }
+      .f9-unit {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .f9-word {
+        font-size: 78px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: #f4f5f7;
+      }
+      .f9-plus {
+        font-size: 52px;
+        font-weight: 300;
+        color: #4a4e5c;
+      }
+      .f9-tag {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 470px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 500;
+        color: #9a9fb0;
+        opacity: 0;
+      }
+      .f9-pills {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 588px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+      }
+      .f9-pill {
+        padding: 18px 30px;
+        border-radius: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 28px;
+        opacity: 0;
+      }
+      .f9-prime {
+        color: #06160f;
+        background: #22e0a6;
+        font-weight: 600;
+      }
+      .f9-prime .f9-d {
+        color: #06160f;
+        opacity: 0.6;
+      }
+      .f9-ghost {
+        color: #c9ccd6;
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+      }
+      .f9-foot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 706px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        color: #4a4e5c;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="09-cta"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(q(".f9-lock"), { opacity: 0, y: 24, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.3);
+        tl.fromTo(q(".f9-tag"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 1.4);
+        tl.fromTo(q(".f9-prime"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.4);
+        tl.fromTo(q(".f9-ghost"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.7);
+        tl.fromTo(q(".f9-foot"), { opacity: 0 }, { opacity: 1, duration: 0.5 }, 3.2);
+        // a single soft glow settle on the CTA (final frame; no repeat)
+        tl.fromTo(q(".f9-prime"), { boxShadow: "0 0 0 rgba(34,224,166,0)" }, { boxShadow: "0 0 40px rgba(34,224,166,0.4)", duration: 1.2, ease: "power2.out" }, 3.4);
+        tl.to(q(".f9-prime"), { boxShadow: "0 0 18px rgba(34,224,166,0.22)", duration: 1.6, ease: "sine.inOut" }, 4.8);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["09-cta"] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,0 +1,1092 @@
+{
+ "bgm": {
+  "path": "assets/bgm/track.mp3",
+  "volume": 0.05
+ },
+ "voices": [
+  {
+   "frame": 1,
+   "path": "assets/voice/01.wav",
+   "duration_s": 7.083,
+   "words": [
+    {
+     "text": "A",
+     "start": 0.09,
+     "end": 0.17
+    },
+    {
+     "text": "new",
+     "start": 0.17,
+     "end": 0.32
+    },
+    {
+     "text": "kind",
+     "start": 0.37,
+     "end": 0.74
+    },
+    {
+     "text": "of",
+     "start": 0.74,
+     "end": 0.9
+    },
+    {
+     "text": "software",
+     "start": 0.94,
+     "end": 1.66
+    },
+    {
+     "text": "is",
+     "start": 1.66,
+     "end": 1.84
+    },
+    {
+     "text": "online,",
+     "start": 1.84,
+     "end": 2.54
+    },
+    {
+     "text": "agents",
+     "start": 2.54,
+     "end": 2.87
+    },
+    {
+     "text": "that",
+     "start": 2.87,
+     "end": 3.05
+    },
+    {
+     "text": "act",
+     "start": 3.16,
+     "end": 3.42
+    },
+    {
+     "text": "on",
+     "start": 3.42,
+     "end": 3.63
+    },
+    {
+     "text": "their",
+     "start": 3.63,
+     "end": 3.97
+    },
+    {
+     "text": "own,",
+     "start": 4.4,
+     "end": 4.6
+    },
+    {
+     "text": "and",
+     "start": 4.61,
+     "end": 4.75
+    },
+    {
+     "text": "to",
+     "start": 4.75,
+     "end": 4.85
+    },
+    {
+     "text": "do",
+     "start": 4.85,
+     "end": 4.95
+    },
+    {
+     "text": "almost",
+     "start": 4.95,
+     "end": 5.28
+    },
+    {
+     "text": "anything",
+     "start": 5.28,
+     "end": 5.98
+    },
+    {
+     "text": "they",
+     "start": 6.15,
+     "end": 6.27
+    },
+    {
+     "text": "have",
+     "start": 6.27,
+     "end": 6.5
+    },
+    {
+     "text": "to",
+     "start": 6.5,
+     "end": 6.61
+    },
+    {
+     "text": "pay.",
+     "start": 6.61,
+     "end": 6.94
+    }
+   ]
+  },
+  {
+   "frame": 2,
+   "path": "assets/voice/02.wav",
+   "duration_s": 10.027,
+   "words": [
+    {
+     "text": "But",
+     "start": 0.05,
+     "end": 0.25
+    },
+    {
+     "text": "the",
+     "start": 0.25,
+     "end": 0.5
+    },
+    {
+     "text": "moment",
+     "start": 0.5,
+     "end": 1
+    },
+    {
+     "text": "an",
+     "start": 1,
+     "end": 1.16
+    },
+    {
+     "text": "agent's",
+     "start": 1.16,
+     "end": 1.74
+    },
+    {
+     "text": "wallet",
+     "start": 1.74,
+     "end": 2.24
+    },
+    {
+     "text": "is",
+     "start": 2.24,
+     "end": 2.39
+    },
+    {
+     "text": "empty,",
+     "start": 2.39,
+     "end": 3.09
+    },
+    {
+     "text": "it",
+     "start": 3.09,
+     "end": 3.31
+    },
+    {
+     "text": "stops.",
+     "start": 3.31,
+     "end": 4.2
+    },
+    {
+     "text": "The",
+     "start": 4.25,
+     "end": 4.45
+    },
+    {
+     "text": "server",
+     "start": 4.45,
+     "end": 4.88
+    },
+    {
+     "text": "returns",
+     "start": 4.97,
+     "end": 5.54
+    },
+    {
+     "text": "a",
+     "start": 5.54,
+     "end": 5.62
+    },
+    {
+     "text": "402",
+     "start": 5.62,
+     "end": 6.38
+    },
+    {
+     "text": "payment",
+     "start": 6.38,
+     "end": 6.74
+    },
+    {
+     "text": "required,",
+     "start": 7.12,
+     "end": 7.68
+    },
+    {
+     "text": "and",
+     "start": 7.73,
+     "end": 7.88
+    },
+    {
+     "text": "there's",
+     "start": 7.88,
+     "end": 8.34
+    },
+    {
+     "text": "no",
+     "start": 8.34,
+     "end": 8.48
+    },
+    {
+     "text": "credit",
+     "start": 8.48,
+     "end": 8.88
+    },
+    {
+     "text": "card",
+     "start": 8.88,
+     "end": 9.15
+    },
+    {
+     "text": "for",
+     "start": 9.15,
+     "end": 9.35
+    },
+    {
+     "text": "a",
+     "start": 9.35,
+     "end": 9.41
+    },
+    {
+     "text": "machine.",
+     "start": 9.41,
+     "end": 10.14
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "path": "assets/voice/03.wav",
+   "duration_s": 6.997,
+   "words": [
+    {
+     "text": "Fund402",
+     "start": 0.13,
+     "end": 1.31
+    },
+    {
+     "text": "fixes",
+     "start": 1.31,
+     "end": 1.75
+    },
+    {
+     "text": "that",
+     "start": 1.75,
+     "end": 2.1
+    },
+    {
+     "text": "with",
+     "start": 2.1,
+     "end": 2.45
+    },
+    {
+     "text": "two",
+     "start": 2.56,
+     "end": 2.71
+    },
+    {
+     "text": "functions,",
+     "start": 2.71,
+     "end": 3.56
+    },
+    {
+     "text": "a",
+     "start": 3.6,
+     "end": 3.67
+    },
+    {
+     "text": "paywall",
+     "start": 3.73,
+     "end": 4.2
+    },
+    {
+     "text": "on",
+     "start": 4.2,
+     "end": 4.32
+    },
+    {
+     "text": "your",
+     "start": 4.32,
+     "end": 4.44
+    },
+    {
+     "text": "server",
+     "start": 4.44,
+     "end": 4.97
+    },
+    {
+     "text": "and",
+     "start": 5.34,
+     "end": 5.46
+    },
+    {
+     "text": "one",
+     "start": 5.46,
+     "end": 5.7
+    },
+    {
+     "text": "fetch",
+     "start": 5.7,
+     "end": 6.02
+    },
+    {
+     "text": "on",
+     "start": 6.09,
+     "end": 6.24
+    },
+    {
+     "text": "the",
+     "start": 6.24,
+     "end": 6.48
+    },
+    {
+     "text": "agent.",
+     "start": 6.48,
+     "end": 6.88
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "path": "assets/voice/04.wav",
+   "duration_s": 11.349,
+   "words": [
+    {
+     "text": "The",
+     "start": 0.06,
+     "end": 0.26
+    },
+    {
+     "text": "agent",
+     "start": 0.26,
+     "end": 0.7
+    },
+    {
+     "text": "calls",
+     "start": 0.7,
+     "end": 1.13
+    },
+    {
+     "text": "with",
+     "start": 1.13,
+     "end": 1.48
+    },
+    {
+     "text": "an",
+     "start": 1.58,
+     "end": 1.66
+    },
+    {
+     "text": "empty",
+     "start": 1.66,
+     "end": 2.07
+    },
+    {
+     "text": "wallet.",
+     "start": 2.09,
+     "end": 2.68
+    },
+    {
+     "text": "A",
+     "start": 2.74,
+     "end": 2.75
+    },
+    {
+     "text": "liquidity",
+     "start": 2.75,
+     "end": 3.39
+    },
+    {
+     "text": "pool",
+     "start": 3.39,
+     "end": 3.67
+    },
+    {
+     "text": "fronts",
+     "start": 3.67,
+     "end": 4.1
+    },
+    {
+     "text": "the",
+     "start": 4.1,
+     "end": 4.31
+    },
+    {
+     "text": "payment,",
+     "start": 4.31,
+     "end": 4.84
+    },
+    {
+     "text": "settles",
+     "start": 4.9,
+     "end": 5.46
+    },
+    {
+     "text": "it",
+     "start": 5.52,
+     "end": 5.66
+    },
+    {
+     "text": "on",
+     "start": 5.66,
+     "end": 5.84
+    },
+    {
+     "text": "Casper,",
+     "start": 5.84,
+     "end": 6.57
+    },
+    {
+     "text": "and",
+     "start": 6.57,
+     "end": 6.83
+    },
+    {
+     "text": "the",
+     "start": 6.83,
+     "end": 6.91
+    },
+    {
+     "text": "data",
+     "start": 7.11,
+     "end": 7.43
+    },
+    {
+     "text": "comes",
+     "start": 7.55,
+     "end": 7.81
+    },
+    {
+     "text": "back",
+     "start": 7.88,
+     "end": 8.15
+    },
+    {
+     "text": "200",
+     "start": 8.23,
+     "end": 8.98
+    },
+    {
+     "text": "OK.",
+     "start": 8.98,
+     "end": 9.39
+    },
+    {
+     "text": "Every",
+     "start": 9.5,
+     "end": 9.94
+    },
+    {
+     "text": "hash",
+     "start": 10.03,
+     "end": 10.44
+    },
+    {
+     "text": "you",
+     "start": 10.49,
+     "end": 10.85
+    },
+    {
+     "text": "see",
+     "start": 10.85,
+     "end": 11.2
+    },
+    {
+     "text": "is",
+     "start": 11.2,
+     "end": 11.43
+    },
+    {
+     "text": "real.",
+     "start": 11.43,
+     "end": 12.28
+    }
+   ]
+  },
+  {
+   "frame": 5,
+   "path": "assets/voice/05.wav",
+   "duration_s": 7.083,
+   "words": [
+    {
+     "text": "Each",
+     "start": 0.09,
+     "end": 0.39
+    },
+    {
+     "text": "borrow",
+     "start": 0.39,
+     "end": 0.98
+    },
+    {
+     "text": "pays",
+     "start": 0.98,
+     "end": 1.37
+    },
+    {
+     "text": "a",
+     "start": 1.37,
+     "end": 1.46
+    },
+    {
+     "text": "small",
+     "start": 1.46,
+     "end": 1.94
+    },
+    {
+     "text": "fee,",
+     "start": 1.94,
+     "end": 2.3
+    },
+    {
+     "text": "and",
+     "start": 2.39,
+     "end": 2.49
+    },
+    {
+     "text": "that",
+     "start": 2.49,
+     "end": 2.64
+    },
+    {
+     "text": "fee",
+     "start": 2.8,
+     "end": 2.96
+    },
+    {
+     "text": "flows",
+     "start": 2.96,
+     "end": 3.35
+    },
+    {
+     "text": "back",
+     "start": 3.35,
+     "end": 3.63
+    },
+    {
+     "text": "to",
+     "start": 3.72,
+     "end": 3.74
+    },
+    {
+     "text": "the",
+     "start": 3.76,
+     "end": 3.87
+    },
+    {
+     "text": "providers.",
+     "start": 3.88,
+     "end": 5.12
+    },
+    {
+     "text": "The",
+     "start": 5.21,
+     "end": 5.32
+    },
+    {
+     "text": "pool",
+     "start": 5.36,
+     "end": 5.63
+    },
+    {
+     "text": "quietly",
+     "start": 5.63,
+     "end": 6.14
+    },
+    {
+     "text": "compounds.",
+     "start": 6.14,
+     "end": 7.04
+    }
+   ]
+  },
+  {
+   "frame": 6,
+   "path": "assets/voice/06.wav",
+   "duration_s": 6.827,
+   "words": [
+    {
+     "text": "credit",
+     "start": 0.07,
+     "end": 0.55
+    },
+    {
+     "text": "gets",
+     "start": 0.61,
+     "end": 0.95
+    },
+    {
+     "text": "an",
+     "start": 0.95,
+     "end": 1.15
+    },
+    {
+     "text": "agent",
+     "start": 1.15,
+     "end": 1.62
+    },
+    {
+     "text": "paid",
+     "start": 1.62,
+     "end": 1.74
+    },
+    {
+     "text": "in.",
+     "start": 2.24,
+     "end": 2.32
+    },
+    {
+     "text": "But",
+     "start": 2.32,
+     "end": 2.48
+    },
+    {
+     "text": "when",
+     "start": 2.48,
+     "end": 2.79
+    },
+    {
+     "text": "one",
+     "start": 2.85,
+     "end": 3
+    },
+    {
+     "text": "agent",
+     "start": 3.08,
+     "end": 3.42
+    },
+    {
+     "text": "pays",
+     "start": 3.48,
+     "end": 3.79
+    },
+    {
+     "text": "another,",
+     "start": 3.79,
+     "end": 4.44
+    },
+    {
+     "text": "what",
+     "start": 4.52,
+     "end": 4.68
+    },
+    {
+     "text": "protects",
+     "start": 4.68,
+     "end": 5.15
+    },
+    {
+     "text": "the",
+     "start": 5.15,
+     "end": 5.33
+    },
+    {
+     "text": "money",
+     "start": 5.33,
+     "end": 5.62
+    },
+    {
+     "text": "if",
+     "start": 5.68,
+     "end": 5.77
+    },
+    {
+     "text": "the",
+     "start": 5.77,
+     "end": 5.97
+    },
+    {
+     "text": "work",
+     "start": 5.97,
+     "end": 6.09
+    },
+    {
+     "text": "is",
+     "start": 6.37,
+     "end": 6.45
+    },
+    {
+     "text": "wrong?",
+     "start": 6.71,
+     "end": 6.96
+    }
+   ]
+  },
+  {
+   "frame": 7,
+   "path": "assets/voice/07.wav",
+   "duration_s": 11.968,
+   "words": [
+    {
+     "text": "Clawback",
+     "start": 0.05,
+     "end": 0.66
+    },
+    {
+     "text": "holds",
+     "start": 0.66,
+     "end": 1.07
+    },
+    {
+     "text": "the",
+     "start": 1.07,
+     "end": 1.31
+    },
+    {
+     "text": "payment",
+     "start": 1.36,
+     "end": 1.9
+    },
+    {
+     "text": "in",
+     "start": 1.9,
+     "end": 2.05
+    },
+    {
+     "text": "escrow.",
+     "start": 2.05,
+     "end": 2.6
+    },
+    {
+     "text": "An",
+     "start": 2.7,
+     "end": 2.77
+    },
+    {
+     "text": "AI",
+     "start": 2.77,
+     "end": 2.94
+    },
+    {
+     "text": "verifier",
+     "start": 2.94,
+     "end": 3.6
+    },
+    {
+     "text": "checks",
+     "start": 3.64,
+     "end": 4.08
+    },
+    {
+     "text": "the",
+     "start": 4.15,
+     "end": 4.34
+    },
+    {
+     "text": "delivery",
+     "start": 4.39,
+     "end": 4.65
+    },
+    {
+     "text": "against",
+     "start": 5.24,
+     "end": 5.63
+    },
+    {
+     "text": "the",
+     "start": 5.63,
+     "end": 5.86
+    },
+    {
+     "text": "spec.",
+     "start": 5.86,
+     "end": 6.42
+    },
+    {
+     "text": "Good",
+     "start": 6.52,
+     "end": 6.68
+    },
+    {
+     "text": "work",
+     "start": 6.69,
+     "end": 6.96
+    },
+    {
+     "text": "is",
+     "start": 6.96,
+     "end": 7.09
+    },
+    {
+     "text": "released",
+     "start": 7.09,
+     "end": 7.64
+    },
+    {
+     "text": "to",
+     "start": 7.64,
+     "end": 7.73
+    },
+    {
+     "text": "the",
+     "start": 7.78,
+     "end": 7.9
+    },
+    {
+     "text": "seller.",
+     "start": 7.97,
+     "end": 8.48
+    },
+    {
+     "text": "Bad",
+     "start": 8.74,
+     "end": 8.94
+    },
+    {
+     "text": "work",
+     "start": 8.94,
+     "end": 9.33
+    },
+    {
+     "text": "is",
+     "start": 9.33,
+     "end": 9.54
+    },
+    {
+     "text": "disputed",
+     "start": 9.54,
+     "end": 10.36
+    },
+    {
+     "text": "and",
+     "start": 10.36,
+     "end": 10.56
+    },
+    {
+     "text": "clawed",
+     "start": 10.56,
+     "end": 10.85
+    },
+    {
+     "text": "back",
+     "start": 11.23,
+     "end": 11.31
+    },
+    {
+     "text": "to",
+     "start": 11.31,
+     "end": 11.36
+    },
+    {
+     "text": "the",
+     "start": 11.36,
+     "end": 11.56
+    },
+    {
+     "text": "buyer.",
+     "start": 11.56,
+     "end": 12.11
+    }
+   ]
+  },
+  {
+   "frame": 8,
+   "path": "assets/voice/08.wav",
+   "duration_s": 7.467,
+   "words": [
+    {
+     "text": "It's",
+     "start": 0.02,
+     "end": 0.34
+    },
+    {
+     "text": "one",
+     "start": 0.34,
+     "end": 0.59
+    },
+    {
+     "text": "install.",
+     "start": 0.59,
+     "end": 1.46
+    },
+    {
+     "text": "The",
+     "start": 1.48,
+     "end": 1.81
+    },
+    {
+     "text": "SDK",
+     "start": 1.81,
+     "end": 2.11
+    },
+    {
+     "text": "and",
+     "start": 2.18,
+     "end": 2.38
+    },
+    {
+     "text": "agent",
+     "start": 2.95,
+     "end": 3.1
+    },
+    {
+     "text": "and",
+     "start": 3.1,
+     "end": 3.42
+    },
+    {
+     "text": "MCP",
+     "start": 3.42,
+     "end": 3.76
+    },
+    {
+     "text": "server,",
+     "start": 3.76,
+     "end": 4.58
+    },
+    {
+     "text": "skills",
+     "start": 4.58,
+     "end": 5.04
+    },
+    {
+     "text": "and",
+     "start": 5.04,
+     "end": 5.3
+    },
+    {
+     "text": "clawback,",
+     "start": 5.3,
+     "end": 6
+    },
+    {
+     "text": "all",
+     "start": 6.02,
+     "end": 6.26
+    },
+    {
+     "text": "live",
+     "start": 6.26,
+     "end": 6.61
+    },
+    {
+     "text": "on",
+     "start": 6.61,
+     "end": 6.78
+    },
+    {
+     "text": "Casper.",
+     "start": 6.78,
+     "end": 7.59
+    }
+   ]
+  },
+  {
+   "frame": 9,
+   "path": "assets/voice/09.wav",
+   "duration_s": 5.867,
+   "words": [
+    {
+     "text": "Fund402",
+     "start": 0.13,
+     "end": 1.49
+    },
+    {
+     "text": "and",
+     "start": 1.77,
+     "end": 1.96
+    },
+    {
+     "text": "Clawback,",
+     "start": 2.02,
+     "end": 2.92
+    },
+    {
+     "text": "the",
+     "start": 3,
+     "end": 3.06
+    },
+    {
+     "text": "credit",
+     "start": 3.15,
+     "end": 3.44
+    },
+    {
+     "text": "and",
+     "start": 3.51,
+     "end": 3.6
+    },
+    {
+     "text": "settlement",
+     "start": 3.6,
+     "end": 4.15
+    },
+    {
+     "text": "layer",
+     "start": 4.16,
+     "end": 4.44
+    },
+    {
+     "text": "for",
+     "start": 4.44,
+     "end": 4.58
+    },
+    {
+     "text": "the",
+     "start": 4.58,
+     "end": 4.72
+    },
+    {
+     "text": "machine",
+     "start": 4.72,
+     "end": 5.21
+    },
+    {
+     "text": "economy.",
+     "start": 5.27,
+     "end": 5.76
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "frame": 2,
+   "file": "assets/sfx/soft-ui-click-as-the-402-stamps-in.mp3",
+   "offset_s": 0,
+   "duration_s": 0.24,
+   "volume": 0.2
+  },
+  {
+   "frame": 3,
+   "file": "assets/sfx/soft-whoosh-on-the-wipe.mp3",
+   "offset_s": 0,
+   "duration_s": 1.834,
+   "volume": 0.2
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/soft-click-when-200-ok-lands.mp3",
+   "offset_s": 0,
+   "duration_s": 0.24,
+   "volume": 0.2
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/soft-whoosh-as-the-shield-word-clawback-.mp3",
+   "offset_s": 0,
+   "duration_s": 1.472,
+   "volume": 0.2
+  },
+  {
+   "frame": 7,
+   "file": "assets/sfx/soft-click-on-release.mp3",
+   "offset_s": 0,
+   "duration_s": 0.264,
+   "volume": 0.2
+  },
+  {
+   "frame": 7,
+   "file": "assets/sfx/soft-click-on-the-clawback.mp3",
+   "offset_s": 0,
+   "duration_s": 0.264,
+   "volume": 0.2
+  },
+  {
+   "frame": 8,
+   "file": "assets/sfx/soft-click-as-the-five-chips-settle-in.mp3",
+   "offset_s": 0,
+   "duration_s": 0.264,
+   "volume": 0.2
+  }
+ ]
+}

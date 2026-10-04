@@ -1,0 +1,227 @@
+<template id="07-clawback-template">
+  <div id="root" data-composition-id="07-clawback" data-width="1920" data-height="1080" data-duration="13.3">
+    <div class="f7-grid"></div>
+    <div class="f7-vig"></div>
+
+    <div class="f7-head">Released — or clawed back.</div>
+
+    <svg class="f7-wires" viewBox="0 0 1920 1080" width="1920" height="1080">
+      <path class="w7 w-be" d="M372 495 L430 495" />
+      <path class="w7 w-ea" d="M732 495 L800 495" />
+      <path class="w7 w-rel" d="M1142 458 L1238 362" />
+      <path class="w7 w-ref" d="M1142 534 L1238 600" />
+    </svg>
+
+    <div class="f7-node n-buy">
+      <div class="f7-k">◇ buyer</div>
+      <div class="f7-t">Buyer</div>
+    </div>
+    <div class="f7-node n-esc">
+      <div class="f7-k">⚖ escrow</div>
+      <div class="f7-state">HELD</div>
+      <div class="f7-held">1,000,000 F402</div>
+    </div>
+    <div class="f7-node n-ai">
+      <div class="f7-k f7-mintk">✦ Groq attester</div>
+      <div class="f7-t">AI Verifier</div>
+      <div class="f7-mono">adjudicate(spec, response)</div>
+    </div>
+
+    <div class="f7-node n-rel">
+      <div class="f7-outk">RELEASE</div>
+      <div class="f7-outv">seller paid <b>+1,000,000</b></div>
+      <div class="f7-tick t-rel">✓</div>
+    </div>
+    <div class="f7-node n-ref">
+      <div class="f7-outk">REFUND</div>
+      <div class="f7-outv">buyer clawed back ↩</div>
+      <div class="f7-tick t-ref">✓</div>
+    </div>
+
+    <div class="f7-proof">
+      <span class="f7-pm">✓</span> honest — open 02bfd9cf… release 87a30923…&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;<span class="f7-pm">↩</span> clawback — dispute 0106f5e0… resolve f6f6c5db…
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f7-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(95% 80% at 50% 48%, #000 42%, transparent 88%);
+        mask-image: radial-gradient(95% 80% at 50% 48%, #000 42%, transparent 88%);
+      }
+      .f7-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 46%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      .f7-head {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 150px;
+        text-align: center;
+        font-size: 64px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #f4f5f7;
+        opacity: 0;
+      }
+      .f7-wires {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .w7 {
+        fill: none;
+        stroke: #262a33;
+        stroke-width: 2.5;
+        stroke-dasharray: 230;
+        stroke-dashoffset: 230;
+      }
+      .w-rel.lit { stroke: #22e0a6; }
+      .w-ref.lit { stroke: #22e0a6; }
+      .f7-node {
+        position: absolute;
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+        border-radius: 14px;
+        padding: 18px 24px;
+        opacity: 0;
+      }
+      .n-buy { left: 90px; top: 420px; width: 280px; height: 150px; }
+      .n-esc { left: 430px; top: 405px; width: 300px; height: 180px; }
+      .n-ai {
+        left: 800px;
+        top: 405px;
+        width: 340px;
+        height: 180px;
+        border-color: rgba(34, 224, 166, 0.5);
+        background: #0c1411;
+      }
+      .n-rel { left: 1240px; top: 300px; width: 560px; height: 120px; }
+      .n-ref { left: 1240px; top: 540px; width: 560px; height: 120px; }
+      .f7-k {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 19px;
+        color: #6a6f7e;
+      }
+      .f7-mintk { color: #22e0a6; }
+      .f7-t {
+        font-size: 31px;
+        font-weight: 800;
+        color: #f4f5f7;
+        margin-top: 12px;
+        letter-spacing: -0.02em;
+      }
+      .f7-state {
+        font-size: 38px;
+        font-weight: 900;
+        color: #c9ccd6;
+        margin-top: 10px;
+        letter-spacing: 0.03em;
+      }
+      .f7-held {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        color: #8a8fa0;
+        margin-top: 12px;
+      }
+      .f7-mono {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: #9a9fb0;
+        margin-top: 14px;
+      }
+      .f7-outk {
+        font-size: 30px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        color: #c9ccd6;
+        display: inline-block;
+      }
+      .f7-outv {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #8a8fa0;
+        margin-top: 10px;
+      }
+      .f7-outv b {
+        color: #c9ccd6;
+        font-weight: 600;
+      }
+      .f7-tick {
+        position: absolute;
+        right: 26px;
+        top: 38px;
+        font-size: 40px;
+        font-weight: 800;
+        color: #22e0a6;
+        opacity: 0;
+      }
+      .t-ref { content: "↩"; }
+      .f7-proof {
+        position: absolute;
+        left: 50%;
+        top: 792px;
+        transform: translateX(-50%);
+        padding: 16px 30px;
+        background: #0c0d11;
+        border: 1px solid #1c1f26;
+        border-radius: 11px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        color: #8a8fa0;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      .f7-pm { color: #22e0a6; font-weight: 700; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="07-clawback"]');
+        const q = (s) => root.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+        q(".t-ref").textContent = "↩";
+
+        tl.fromTo(q(".f7-head"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.15);
+        // escrow holds (~1.3s VO)
+        tl.fromTo(q(".n-buy"), { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.8);
+        tl.fromTo(q(".n-esc"), { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 1.1);
+        tl.to(q(".w-be"), { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, 1.4);
+        // AI verifier (~4s VO)
+        tl.fromTo(q(".n-ai"), { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 3.4);
+        tl.to(q(".w-ea"), { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, 3.8);
+        // released to seller (~6.5s VO)
+        tl.fromTo(q(".n-rel"), { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 6.0);
+        tl.to(q(".w-rel"), { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut", onStart() { q(".w-rel").classList.add("lit"); } }, 6.3);
+        tl.fromTo(q(".t-rel"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 6.9);
+        tl.fromTo(q(".n-rel .f7-outk"), { color: "#c9ccd6" }, { color: "#f4f5f7", duration: 0.3 }, 6.9);
+        // clawed back to buyer (~9.5s VO)
+        tl.fromTo(q(".n-ref"), { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 9.0);
+        tl.to(q(".w-ref"), { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut", onStart() { q(".w-ref").classList.add("lit"); } }, 9.3);
+        tl.fromTo(q(".t-ref"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 9.9);
+        // proofs
+        tl.fromTo(q(".f7-proof"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 11.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["07-clawback"] = tl;
+      })();
+    </script>
+  </div>
+</template>

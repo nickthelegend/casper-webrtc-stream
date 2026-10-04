@@ -1,0 +1,116 @@
+<template id="01-hook-template">
+  <div id="root" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="9">
+    <div class="f1-grid"></div>
+    <div class="f1-vig"></div>
+
+    <div class="f1-wrap">
+      <div class="f1-kick">THE MACHINE ECONOMY</div>
+      <div class="f1-head">
+        <div class="f1-l1">Software that<br />acts on its own.</div>
+        <div class="f1-l2">And&nbsp;<span class="f1-pay">pays.</span></div>
+      </div>
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f1-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(72% 70% at 50% 42%, #000 30%, transparent 78%);
+        mask-image: radial-gradient(72% 70% at 50% 42%, #000 30%, transparent 78%);
+        opacity: 0;
+      }
+      .f1-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 40%, transparent 56%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      .f1-wrap {
+        position: absolute;
+        left: 160px;
+        top: 250px;
+        width: 1600px;
+      }
+      .f1-kick {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+        color: #8a8fa0;
+        opacity: 0;
+      }
+      .f1-head {
+        margin-top: 36px;
+      }
+      .f1-l1 {
+        font-size: 132px;
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        color: #f4f5f7;
+      }
+      .f1-l1 .w {
+        display: inline-block;
+        opacity: 0;
+      }
+      .f1-l2 {
+        font-size: 132px;
+        font-weight: 800;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        margin-top: 8px;
+        opacity: 0;
+      }
+      .f1-pay {
+        color: #22e0a6;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="01-hook"]');
+        const q = (s) => root.querySelector(s);
+        const qa = (s) => root.querySelectorAll(s);
+
+        // split line 1 into word spans for a paced reveal
+        const l1 = q(".f1-l1");
+        l1.innerHTML = l1.innerHTML
+          .split("<br>")
+          .map((seg) =>
+            seg
+              .split(" ")
+              .map((w) => '<span class="w">' + w + "</span>")
+              .join(" ")
+          )
+          .join("<br>");
+
+        const tl = gsap.timeline({ paused: true });
+        tl.to(q(".f1-grid"), { opacity: 1, duration: 1.1, ease: "power2.out" }, 0.1);
+        tl.fromTo(q(".f1-kick"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.35);
+        tl.fromTo(qa(".f1-l1 .w"), { opacity: 0, yPercent: 60 }, { opacity: 1, yPercent: 0, duration: 0.55, stagger: 0.085, ease: "power3.out" }, 0.7);
+        tl.fromTo(q(".f1-l2"), { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 2.0);
+        // "pays" arrives on the accent at the VO cue (~6.2s)
+        tl.fromTo(q(".f1-pay"), { color: "#f4f5f7" }, { color: "#22e0a6", duration: 0.01 }, 0.7); // base set
+        tl.fromTo(q(".f1-pay"), { textShadow: "0 0 0 rgba(34,224,166,0)" }, { textShadow: "0 0 34px rgba(34,224,166,0.45)", duration: 0.6, ease: "power2.out" }, 6.2);
+        tl.fromTo(q(".f1-pay"), { scale: 1 }, { scale: 1.04, duration: 0.5, ease: "power2.out", transformOrigin: "left center" }, 6.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["01-hook"] = tl;
+      })();
+    </script>
+  </div>
+</template>

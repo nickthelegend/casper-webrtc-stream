@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #07070A;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="90"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="el-01-hook"
+        class="scene"
+        data-composition-id="01-hook"
+        data-composition-src="compositions/frames/01-hook.html"
+        data-start="0"
+        data-duration="9"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-01-hook-voice"
+        src="assets/voice/01.wav"
+        data-start="0"
+        data-duration="9"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-02-problem"
+        class="scene"
+        data-composition-id="02-problem"
+        data-composition-src="compositions/frames/02-problem.html"
+        data-start="9"
+        data-duration="13.2"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-02-problem-voice"
+        src="assets/voice/02.wav"
+        data-start="9"
+        data-duration="11.2"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-03-code"
+        class="scene"
+        data-composition-id="03-code"
+        data-composition-src="compositions/frames/03-code.html"
+        data-start="20.2"
+        data-duration="8.5"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-03-code-voice"
+        src="assets/voice/03.wav"
+        data-start="20.2"
+        data-duration="8.5"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-04-flow"
+        class="scene"
+        data-composition-id="04-flow"
+        data-composition-src="compositions/frames/04-flow.html"
+        data-start="28.7"
+        data-duration="12.5"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-04-flow-voice"
+        src="assets/voice/04.wav"
+        data-start="28.7"
+        data-duration="12.5"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-05-yield"
+        class="scene"
+        data-composition-id="05-yield"
+        data-composition-src="compositions/frames/05-yield.html"
+        data-start="41.2"
+        data-duration="9"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-05-yield-voice"
+        src="assets/voice/05.wav"
+        data-start="41.2"
+        data-duration="8.5"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-06-bridge"
+        class="scene"
+        data-composition-id="06-bridge"
+        data-composition-src="compositions/frames/06-bridge.html"
+        data-start="49.7"
+        data-duration="8.1"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-06-bridge-voice"
+        src="assets/voice/06.wav"
+        data-start="49.7"
+        data-duration="8.1"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-07-clawback"
+        class="scene"
+        data-composition-id="07-clawback"
+        data-composition-src="compositions/frames/07-clawback.html"
+        data-start="57.800000000000004"
+        data-duration="13.3"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-07-clawback-voice"
+        src="assets/voice/07.wav"
+        data-start="57.800000000000004"
+        data-duration="13.3"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-08-stack"
+        class="scene"
+        data-composition-id="08-stack"
+        data-composition-src="compositions/frames/08-stack.html"
+        data-start="71.10000000000001"
+        data-duration="9.5"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-08-stack-voice"
+        src="assets/voice/08.wav"
+        data-start="71.10000000000001"
+        data-duration="9"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-09-cta"
+        class="scene"
+        data-composition-id="09-cta"
+        data-composition-src="compositions/frames/09-cta.html"
+        data-start="80.10000000000001"
+        data-duration="9.9"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-09-cta-voice"
+        src="assets/voice/09.wav"
+        data-start="80.10000000000001"
+        data-duration="9.9"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <!-- BGM -->
+      <audio
+        id="el-bgm"
+        src="assets/bgm/track.loop.mp3"
+        data-start="0"
+        data-duration="90"
+        data-track-index="11"
+        data-volume="0.05"
+      ></audio>
+
+      <!-- captions -->
+      <div
+        id="el-captions"
+        class="scene"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="90"
+        data-track-index="2"
+      ></div>
+
+      <!-- SFX -->
+      <audio
+        id="el-sfx-0"
+        src="assets/sfx/soft-ui-click-as-the-402-stamps-in.mp3"
+        data-start="9"
+        data-duration="0.24"
+        data-track-index="20"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-1"
+        src="assets/sfx/soft-whoosh-on-the-wipe.mp3"
+        data-start="20.2"
+        data-duration="1.834"
+        data-track-index="21"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-2"
+        src="assets/sfx/soft-click-when-200-ok-lands.mp3"
+        data-start="28.7"
+        data-duration="0.24"
+        data-track-index="22"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-3"
+        src="assets/sfx/soft-whoosh-as-the-shield-word-clawback-.mp3"
+        data-start="49.7"
+        data-duration="1.472"
+        data-track-index="23"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-4"
+        src="assets/sfx/soft-click-on-release.mp3"
+        data-start="57.8"
+        data-duration="0.264"
+        data-track-index="24"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-5"
+        src="assets/sfx/soft-click-on-the-clawback.mp3"
+        data-start="57.8"
+        data-duration="0.264"
+        data-track-index="25"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="el-sfx-6"
+        src="assets/sfx/soft-click-as-the-five-chips-settle-in.mp3"
+        data-start="71.1"
+        data-duration="0.264"
+        data-track-index="26"
+        data-volume="0.2"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-02-problem", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 2, ease: "power2.inOut" }, 20.2);
+        tl.fromTo("#el-03-code", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 2, ease: "power2.inOut" }, 20.2);
+        tl.to("#el-05-yield", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 49.7);
+        tl.fromTo("#el-06-bridge", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 49.7);
+        tl.to("#el-08-stack", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 80.1);
+        tl.fromTo("#el-09-cta", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 80.1);
+        tl.to({}, { duration: 90 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
+    </script>
+  </body>
+</html>

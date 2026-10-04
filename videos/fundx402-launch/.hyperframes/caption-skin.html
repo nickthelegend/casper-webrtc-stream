@@ -1,0 +1,173 @@
+<!--
+  Fund402 + Clawback — caption skin (dark fintech karaoke).
+  captions.mjs fills the three reserved holes: the empty GROUPS array, the 0 duration +
+  0 width/height, and the empty <style data-brand-tokens> block. Hooks (do not rename):
+  .caption-group / .caption-word + states .is-active / .is-spoken; root
+  data-composition-id="captions"; timeline at window.__timelines["captions"]. State changes
+  use gsap.set({className}) (seek-safe). Colors are LITERAL (this brand) so the karaoke is
+  deterministic: the active word is near-black text on a mint block — never white-on-accent.
+-->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+<!-- captions.mjs injects the project's :root tokens + @font-face here (kept for fonts) -->
+<style data-brand-tokens></style>
+
+<style>
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cap-band-top, 904px);
+    height: var(--cap-band-height, 176px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+  /* a quiet near-black pill so words read on any frame — 1px hairline, soft lift, no tilt */
+  .caption-pill {
+    max-width: 80%;
+    padding: 18px 30px 20px;
+    background: rgba(10, 11, 14, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.16em 0.26em;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 4.4vw, 54px);
+    line-height: 1.26;
+    letter-spacing: -0.01em;
+  }
+  /* upcoming — muted ink, no block */
+  .caption-word {
+    display: inline-block;
+    padding: 0.02em 0.26em 0.08em;
+    border-radius: 8px;
+    color: #8a8fa0;
+    background: transparent;
+  }
+  /* current — near-black text on the mint block (dark-on-accent, readable).
+     !important beats captions.mjs's appended default (.is-active{color:var(--cap-ink)} = white). */
+  .caption-word.is-active {
+    color: #06160f !important;
+    background: #22e0a6 !important;
+    box-shadow: 0 0 0 0.05em #22e0a6 !important;
+  }
+  /* already spoken — full off-white ink, block cleared */
+  .caption-word.is-spoken {
+    color: #f4f5f7;
+    background: transparent;
+    box-shadow: none;
+  }
+  /* optional per-word tags (dormant until a word-classer tags them) */
+  .caption-word.cap-num,
+  .caption-word.cap-brand {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 700;
+  }
+</style>
+
+<div
+  id="captions-root"
+  data-composition-id="captions"
+  data-timeline-locked
+  data-start="0"
+  data-duration="0"
+  data-fps="30"
+  data-width="0"
+  data-height="0"
+>
+  <div class="caption-layer" aria-hidden="true">
+    <div id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [];
+  var DURATION = 0;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start);
+        tl.set(el, { className: "caption-word is-active" }, at);
+        tl.fromTo(el, { scale: 0.985 }, { scale: 1, duration: 0.16, ease: "power1.out" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt);
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>

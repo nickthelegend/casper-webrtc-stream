@@ -1,0 +1,44 @@
+{
+  "lines": [
+    {
+      "id": "02",
+      "sfx": [
+        "soft whoosh as the wordmark resolves"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "soft click as the code reveals"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "soft click when 200 OK lands"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "soft whoosh as the Clawback shield resolves"
+      ]
+    },
+    {
+      "id": "07",
+      "sfx": [
+        "soft click on release",
+        "soft click on the clawback"
+      ]
+    },
+    {
+      "id": "08",
+      "sfx": [
+        "soft click as the chips settle in"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

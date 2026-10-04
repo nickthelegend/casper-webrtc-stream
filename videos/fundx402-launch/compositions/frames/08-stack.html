@@ -1,0 +1,158 @@
+<template id="08-stack-template">
+  <div id="root" data-composition-id="08-stack" data-width="1920" data-height="1080" data-duration="9">
+    <div class="f8-grid"></div>
+    <div class="f8-vig"></div>
+
+    <div class="f8-head">One install. The whole stack.</div>
+
+    <div class="f8-spine"></div>
+    <div class="f8-chips">
+      <div class="f8-chip c1"><div class="f8-ic">⬢</div><div class="f8-nm">SDK</div><div class="f8-ro">paywall + fetch</div></div>
+      <div class="f8-chip c2"><div class="f8-ic">◇</div><div class="f8-nm">Agent</div><div class="f8-ro">12 on-chain tools</div></div>
+      <div class="f8-chip c3"><div class="f8-ic">⌘</div><div class="f8-nm">MCP</div><div class="f8-ro">Groq TUI server</div></div>
+      <div class="f8-chip c4"><div class="f8-ic">✦</div><div class="f8-nm">Skills</div><div class="f8-ro">npx skills add</div></div>
+      <div class="f8-chip c5"><div class="f8-ic">⚖</div><div class="f8-nm">Clawback</div><div class="f8-ro">escrow + AI</div></div>
+    </div>
+
+    <div class="f8-npm"><span class="f8-dollar">$</span> npm i @nickthelegend69/fund402</div>
+    <div class="f8-foot">8 open-source repos · live on casper testnet</div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=block");
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #07070a;
+        font-family: "Inter", sans-serif;
+        color: #f4f5f7;
+        overflow: hidden;
+      }
+      .f8-grid {
+        position: absolute;
+        inset: -2px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(90% 78% at 50% 46%, #000 38%, transparent 86%);
+        mask-image: radial-gradient(90% 78% at 50% 46%, #000 38%, transparent 86%);
+      }
+      .f8-vig {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 80% at 50% 44%, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      .f8-head {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 210px;
+        text-align: center;
+        font-size: 66px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #f4f5f7;
+        opacity: 0;
+      }
+      .f8-spine {
+        position: absolute;
+        left: 224px;
+        right: 224px;
+        top: 461px;
+        height: 1px;
+        background: #2a2e38;
+        transform: scaleX(0);
+        transform-origin: center;
+      }
+      .f8-chips {
+        position: absolute;
+        left: 154px;
+        top: 386px;
+        display: flex;
+        gap: 28px;
+      }
+      .f8-chip {
+        width: 300px;
+        height: 150px;
+        background: #0e0f13;
+        border: 1px solid #1c1f26;
+        border-radius: 14px;
+        padding: 20px 24px;
+        opacity: 0;
+      }
+      .f8-ic {
+        font-size: 30px;
+        color: #8a8fa0;
+      }
+      .f8-nm {
+        font-size: 32px;
+        font-weight: 800;
+        color: #f4f5f7;
+        margin-top: 12px;
+        letter-spacing: -0.01em;
+      }
+      .f8-ro {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 19px;
+        color: #6a6f7e;
+        margin-top: 8px;
+      }
+      .f8-npm {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 636px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 30px;
+        color: #c9ccd6;
+        opacity: 0;
+      }
+      .f8-dollar {
+        color: #6a6f7e;
+      }
+      .f8-foot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 716px;
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: #6a6f7e;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector('[data-composition-id="08-stack"]');
+        const q = (s) => root.querySelector(s);
+        const qa = (s) => root.querySelectorAll(s);
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(q(".f8-head"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.2);
+        tl.fromTo(q(".f8-spine"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.inOut" }, 0.7);
+
+        // chips reveal + light mint one at a time as the VO names them (~1.4s..5.5s)
+        const chips = qa(".f8-chip");
+        const cues = [1.4, 2.3, 3.2, 4.1, 5.0];
+        chips.forEach((c, i) => {
+          tl.fromTo(c, { opacity: 0, y: 22, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, cues[i]);
+          const ic = c.querySelector(".f8-ic");
+          // transient mint as it's named, then settle back to ink (one accent at a time)
+          tl.to(ic, { color: "#22e0a6", duration: 0.2 }, cues[i] + 0.1);
+          tl.to(ic, { color: "#8a8fa0", duration: 0.5 }, cues[i] + 0.7);
+        });
+
+        tl.fromTo(q(".f8-npm"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 5.7);
+        tl.fromTo(q(".f8-foot"), { opacity: 0 }, { opacity: 1, duration: 0.45 }, 6.2);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["08-stack"] = tl;
+      })();
+    </script>
+  </div>
+</template>
